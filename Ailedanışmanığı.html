@@ -18,50 +18,41 @@
             font-size: x-large;
             margin-bottom: 20px;
         }
+        
         .content {
-            display: flex;
-            flex-wrap: nowrap; /* Yan yana hizalama */
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Yan yana iki sütun */
             gap: 20px;
-            justify-content: center;
+            align-items: start;
         }
+        
+        /* Metin ve Görsel alanı */
         p {
             font-size: large;
             line-height: 1.5;
-            flex: 1 1 60%;
-            min-width: 200px;
-            max-width: 600px;
             margin: 0;
         }
+        
         .image-container {
-            flex: 1 1 35%;
-            min-width: 200px;
-            max-width: 400px;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
+        
         img {
             width: 100%;
             height: auto;
             object-fit: cover;
             border-radius: 5px;
         }
+
         /* Mobil uyumluluk */
         @media (max-width: 768px) {
             .content {
-                flex-wrap: nowrap;
-                gap: 10px;
+                grid-template-columns: 1fr; /* Tek sütun düzen */
             }
             p {
                 font-size: medium;
-                flex: 1 1 50%;
-            }
-            .image-container {
-                flex: 1 1 50%;
-            }
-            img {
-                width: 100%;
-                max-width: 200px; /* Küçük ekranlarda görselleri daha küçük göster */
             }
         }
     </style>
