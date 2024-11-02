@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aile Danışmanlığı hakkında detaylı bilgiler.</title>
+    <title>Aile Danışmanlığı hakkında detaylı bilgiler</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         body {
@@ -20,18 +20,17 @@
         .content {
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-between;
             align-items: flex-start;
             gap: 20px;
         }
         .text {
-            flex: 1;
-            min-width: 300px; /* Minimum genişlik belirledik */
-            max-width: 60%; /* Maksimum genişlik belirledik */
+            flex: 1 1 45%; /* Metin kısmı için esnek genişlik */
+            min-width: 300px; /* Minimum genişlik */
         }
         .image-container {
-            flex: 1;
-            min-width: 300px; /* Minimum genişlik belirledik */
-            max-width: 35%; /* Maksimum genişlik belirledik */
+            flex: 1 1 45%; /* Görseller için esnek genişlik */
+            min-width: 300px; /* Minimum genişlik */
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -39,15 +38,17 @@
         img {
             width: 100%;
             height: auto;
+            object-fit: cover; /* Görsellerin taşma yapmaması için */
         }
-        /* Mobil uyumluluk için */
+        /* Mobil uyumluluk */
         @media (max-width: 768px) {
             .content {
                 flex-direction: column;
                 align-items: center;
             }
             .text, .image-container {
-                max-width: 100%; /* Tam genişlikte olmasını sağla */
+                flex: 1 1 100%; /* Tam genişlik */
+                max-width: 100%; /* Tam genişlik */
             }
         }
     </style>
@@ -60,8 +61,6 @@
                 Aile danışmanlığı, ailelerin daha mutlu, sağlıklı ve uyumlu bir yaşam sürmelerine yardımcı olan önemli bir destek sistemidir.
                 <br><br>
                 Müdahale: Belirlenen hedeflere ulaşmak için uygun terapi teknikleri kullanılır. Değerlendirme ve takip: Süreç boyunca düzenli olarak değerlendirmeler yapılarak ilerleme takip edilir ve gerekli durumlarda plan yeniden gözden geçirilir.
-                <br><br>
-                Aile danışmanlığı, ailelerin daha mutlu, sağlıklı ve uyumlu bir yaşam sürmelerine yardımcı olan önemli bir destek sistemidir.
                 <br><br>
                 Unutmayın, bir aile danışmanına başvurmak, bir zayıflık değil, aksine güçlü bir adım olabilir.
                 <br><br>
