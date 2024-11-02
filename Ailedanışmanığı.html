@@ -18,6 +18,12 @@
             margin-bottom: 20px; /* Başlık ile metin arasında boşluk */
             width: 100%; /* Başlığın tam genişlikte olmasını sağla */
         }
+        @media (max-width: 768px) { /* Tablet ve daha küçük ekranlar */
+    .image {
+        float: none; /* Yüzen stili kaldır */
+        display: block;
+        margin: 0 auto; /* Ortaya hizala */
+        
         .content {
             display: flex; /* İçeriği yan yana yerleştirmek için flex kullan */
             flex-wrap: nowrap; /* Sarmalayıcı yok */
