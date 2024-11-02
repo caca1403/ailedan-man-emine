@@ -12,63 +12,54 @@
             color: antiquewhite;
             margin: 20px;
         }
+
         h1 {
             text-align: center;
             font-size: x-large;
-            margin-bottom: 20px; /* Başlık ile metin arasında boşluk */
-            width: 100%; /* Başlığın tam genişlikte olmasını sağla */
+            margin-bottom: 20px;
+            width: 100%;
         }
-        @media (max-width: 768px) { /* Tablet ve daha küçük ekranlar */
-    .image {
-        float: none; /* Yüzen stili kaldır */
-        display: block;
-        margin: 0 auto; /* Ortaya hizala */
-        
+
         .content {
-            display: flex; /* İçeriği yan yana yerleştirmek için flex kullan */
-            flex-wrap: nowrap; /* Sarmalayıcı yok */
-        }
-        p {
-            font-size: x-large;
-            line-height: 1.5; /* Metin satır yüksekliği */
-            width: 60%; /* Metin için genişlik ayarı */
-            margin-right: 20px; /* Resimler ile metin arasında boşluk */
-        }
-        .image-container {
-            width: 35%; /* Resimlerin toplam genişliği */
             display: flex;
-            flex-direction: column; /* Resimleri dikey hizalar */
+            flex-wrap: wrap;
+            align-items: stretch; /* İçeriği aynı yükseklikte tutmak için */
         }
+
+        p {
+            font-size: large;
+            line-height: 1.5;
+            flex: 1; /* Metni genişlet ve esnek hale getir */
+            margin: 0;
+            padding-right: 20px; /* Resimlerle metin arasında boşluk */
+        }
+
+        .image-container {
+            flex: 1; /* Resim alanını genişlet ve esnek hale getir */
+            display: flex;
+            flex-direction: column; /* Resimleri dikey hizala */
+            justify-content: space-between; /* Resimleri eşit aralıklı yerleştir */
+        }
+
         img {
             width: 100%; /* Resim genişliğini kapsayacak şekilde ayarlandı */
             height: auto; /* Yüksekliği orantılı olarak ayarla */
             margin-bottom: 10px; /* Resimler arasında boşluk */
         }
 
-        /* Mobil cihazlar için ayarlamalar */
+        /* Tablet ve mobil cihazlar için */
         @media (max-width: 768px) {
             .content {
                 flex-direction: column; /* Mobilde dikey hizala */
-                align-items: center; /* Ortalar */
             }
-             .flex-container {
-            display: flex;
-            flex-wrap: wrap; /* Elemanların taşmasını önlemek için */
-            align-items: center;
-        }
-        .image {
-            max-width: 100%; /* Resmin taşmasını önlemek için */
-            height: auto;
-        }
-        .text {
-            flex: 1; /* Metni genişlet */
-            padding: 10px;
+
             p {
-                width: 100%; /* Metin tam genişlikte olacak şekilde ayarlandı */
-                margin-right: 0; /* Sağdaki boşluğu kaldır */
+                padding-right: 0; /* Sağdaki boşluğu kaldır */
+                margin-bottom: 20px; /* Metin ve resimler arasında boşluk ekle */
             }
+
             .image-container {
-                width: 100%; /* Resim alanı da tam genişlikte olacak şekilde ayarlandı */
+                width: 100%; /* Resim alanı tam genişlikte */
             }
         }
     </style>
@@ -76,7 +67,7 @@
 <body>
     <h1>AİLE DANIŞMANLIĞI</h1>
     <div class="content">
-        <p> 
+        <p>
             Aile danışmanlığı, sadece bir sorun olduğunda başvurulan bir hizmet değil, aynı zamanda ailelerin potansiyellerini en üst düzeye çıkarmalarına ve daha sağlıklı ilişkiler kurmalarına yardımcı olan bir destek sistemidir.
             <br><br>
             Aile Danışmanının Rolü Nedir?
