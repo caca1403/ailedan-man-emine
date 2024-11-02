@@ -22,8 +22,8 @@
 
         .content {
             display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start; /* İçeriği üstten hizala */
+            flex-wrap: nowrap; /* Yan yana yerleşimi zorunlu kıl */
+            align-items: stretch; /* Elemanları aynı yükseklikte hizala */
         }
 
         p {
@@ -32,15 +32,15 @@
             flex: 1;
             margin: 0;
             padding-right: 20px;
-            box-sizing: border-box; /* Kutu modelini kullanarak boşlukları hesaba kat */
+            box-sizing: border-box;
         }
 
         .image-container {
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            box-sizing: border-box; /* Kutu modelini kullanarak boşlukları hesaba kat */
+            justify-content: space-between; /* Resimler arasında boşluk */
+            box-sizing: border-box;
         }
 
         img {
@@ -49,10 +49,10 @@
             margin-bottom: 10px;
         }
 
-        /* Tablet ve mobil cihazlar için */
+        /* Mobil cihazlar için */
         @media (max-width: 768px) {
             .content {
-                flex-direction: column; /* Mobilde dikey hizala */
+                flex-direction: column; /* Mobilde elemanları dikey hizala */
             }
 
             p {
