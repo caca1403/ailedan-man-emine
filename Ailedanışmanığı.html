@@ -16,24 +16,40 @@
             text-align: center;
             margin-left: auto;
             font-size: x-large;
-            margin-bottom: 20px; /* Başlık ile metin arasında boşluk */
+            margin-bottom: 20px;
         }
         p {
             font-size: x-large;
-            line-height: 1.5; /* Metin satır yüksekliği */
-            float: left; /* Metni sola hizalar */
-            width: 60%; /* Metin için genişlik ayarı */
+            line-height: 1.5;
+            float: left;
+            width: 60%;
         }
         img {
-            display: block; /* Resimleri alt alta göstermek için */
-            margin: 20px auto; /* Resimleri ortalamak için */
-            width: 488px; /* Resim genişliği */
-            height: 355px; /* Resim yüksekliği */
-            clear: both; /* Resimlerin altında boşluk bırakır */
+            display: block;
+            margin: 20px auto;
+            width: 488px;
+            height: 355px;
+            clear: both;
         }
         .image-container {
-            float: right; /* Resimlerin sağda görünmesini sağlar */
-            width: 35%; /* Resimlerin genişliği */
+            float: right;
+            width: 35%;
+        }
+
+        /* Mobil düzen için */
+        @media (max-width: 768px) {
+            p {
+                width: 100%;
+                float: none;
+            }
+            .image-container {
+                float: none;
+                width: 100%;
+            }
+            img {
+                width: 100%;
+                height: auto;
+            }
         }
     </style>
 </head>
