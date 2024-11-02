@@ -19,9 +19,7 @@
         }
         .container {
             display: flex; /* Flex düzeni ile yan yana dizilmesini sağlar */
-            justify-content: space-between;
-            align-items: flex-start; /* Üst hizalamayı sağla */
-            flex-wrap: wrap; /* Taşma durumunda alt satıra geçsin */
+            flex-wrap: wrap; /* Taşma durumunda alt satıra geçmesini sağlar */
         }
         p {
             font-size: x-large;
@@ -44,10 +42,11 @@
         /* Mobil düzen için */
         @media (max-width: 768px) {
             .container {
-                flex-direction: column; /* Dikey olarak düzenle */
+                flex-direction: row; /* Yine yan yana dizilsin */
+                justify-content: space-between; /* Alanı eşit dağıt */
             }
             p, .image-container {
-                width: 100%; /* Her iki alanı tam genişlik yap */
+                width: 48%; /* Her iki alanı daha dar yap */
                 margin-right: 0; /* Sağdaki boşluğu kaldır */
             }
         }
