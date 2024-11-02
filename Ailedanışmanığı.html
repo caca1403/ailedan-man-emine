@@ -17,29 +17,27 @@
             text-align: center;
             font-size: x-large;
             margin-bottom: 20px;
-            width: 100%;
         }
 
         .content {
             display: flex;
-            flex-wrap: nowrap; /* Yan yana yerleşimi zorunlu kıl */
-            align-items: stretch; /* Elemanları aynı yükseklikte hizala */
+            flex-wrap: wrap; /* Taşmayı önlemek için sarmala */
         }
 
         p {
             font-size: large;
             line-height: 1.5;
-            flex: 1;
+            flex: 1 1 50%; /* Hem genişlik hem de esneklik ayarlandı */
             margin: 0;
             padding-right: 20px;
             box-sizing: border-box;
         }
 
         .image-container {
-            flex: 1;
+            flex: 1 1 50%; /* Resim konteyneri de aynı genişlikte */
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Resimler arasında boşluk */
+            justify-content: space-between;
             box-sizing: border-box;
         }
 
@@ -52,7 +50,7 @@
         /* Mobil cihazlar için */
         @media (max-width: 768px) {
             .content {
-                flex-direction: column; /* Mobilde elemanları dikey hizala */
+                flex-direction: column; /* Mobilde dikey hizala */
             }
 
             p {
