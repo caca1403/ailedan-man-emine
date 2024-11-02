@@ -22,29 +22,31 @@
         .container {
             display: flex;
             flex-direction: column;
-            gap: 20px; /* İçerik blokları arasında boşluk */
+            gap: 20px;
         }
 
         .content {
             display: flex;
-            flex-direction: row;
+            flex-wrap: wrap;
             align-items: flex-start;
-            gap: 20px; /* Metin ve resimler arasında boşluk */
+            gap: 20px;
         }
 
-        /* Metin alanı */
+        /* Metin bölümü */
         .text {
             flex: 1;
+            min-width: 300px;
             font-size: large;
             line-height: 1.5;
         }
 
-        /* Resim alanı */
+        /* Resim bölümü */
         .image-container {
             flex: 1;
+            min-width: 300px;
             display: flex;
             flex-direction: column;
-            gap: 10px; /* Resimler arasında boşluk */
+            gap: 10px;
         }
 
         img {
@@ -55,7 +57,7 @@
         /* Mobil cihazlar için düzen */
         @media (max-width: 768px) {
             .content {
-                flex-direction: column; /* Mobilde içerikleri dikey hizala */
+                flex-direction: column; /* Mobilde dikey hizala */
             }
         }
     </style>
