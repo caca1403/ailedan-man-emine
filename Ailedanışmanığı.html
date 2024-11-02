@@ -11,22 +11,25 @@
             font-family: 'Times New Roman', Times, serif;
             color: antiquewhite;
             margin: 20px;
+            display: flex;
+            flex-wrap: wrap; /* İçerik alanını sarmalamak için */
         }
         h1 {
             text-align: center;
             font-size: x-large;
             margin-bottom: 20px; /* Başlık ile metin arasında boşluk */
+            width: 100%; /* Başlığın tam genişlikte olmasını sağla */
         }
         p {
             font-size: x-large;
             line-height: 1.5; /* Metin satır yüksekliği */
             width: 60%; /* Metin için genişlik ayarı */
-            float: left; /* Metni sola hizalar */
             margin-right: 20px; /* Resimler ile metin arasında boşluk */
         }
         .image-container {
             width: 35%; /* Resimlerin toplam genişliği */
-            float: right; /* Resimlerin sağda görünmesini sağlar */
+            display: flex;
+            flex-direction: column; /* Resimleri dikey hizalar */
         }
         img {
             width: 100%; /* Resim genişliğini kapsayacak şekilde ayarlandı */
