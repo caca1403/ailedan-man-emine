@@ -20,8 +20,8 @@
         }
         .images {
             display: flex;
-            justify-content: space-between; /* Resimler arası boşluk */
-            width: 100%; /* Resimlerin tam genişlik kaplaması için */
+            flex-direction: row; /* Resimleri yatay dizme */
+            justify-content: space-around; /* Resimler arası boşluk */
         }
         strong {
             font-size: xx-large;
@@ -31,20 +31,17 @@
             line-height: 1.5; /* Satır yüksekliği */
         }
         a {
-            margin: 0; /* Resimler arası boşluk sıfırlandı */
+            margin: 0 10px; /* Resimler arası boşluk */
         }
-        img {
+        img{
             border-radius: inherit;
-            width: calc(33.33% - 10px); /* Üç resmin yan yana tam genişlik kaplaması için */
-            height: auto; /* Yüksekliği orantılı olarak ayarla */
-            margin-bottom: 10px; /* Resimler arasında boşluk */
         }
     </style>
 </head>
 <body>
     <div class="content">
         <header>
-            <strong>İş yerinin adresi: Mustafa Kemal Paşa Mahallesi, Pazar Sokak, Sadeler Pasajı No:15, Kat:1</strong>
+            <strong>İş yerinin adresi:Mustafa Kemal Paşa Mahallesi, Pazar Sokak, Sadeler Pasajı No:15, Kat:1</strong>
         </header>
         
         <section>
@@ -56,20 +53,20 @@
                 <strong>Telefon numarası:</strong> 0545-552-1485
             </p>
             <p>
-                Telefon numarasından kendisine ulaşamayanlar aşağıda verilen linkleri kullanarak sosyal medya hesapları aracılığıyla kendisine ulaşabilirsiniz. Eğer Aile danışmanımızı adresinde ziyaret etmek isterseniz konumda aşağıya bırakılmıştır.
+             Telefon numarasından kendisine ulaşamayanlar aşağıda ve yanda verilen linkleri kullanarak sosyal medya hesapları aracılığıyla kendisine ulaşabilirsiniz eğer Aile danışmanımızı adresinde ziyaret etmek isterseniz konumuda aşağıya bırakılmıştır.
             </p>
         </section>
     </div>
 
     <div class="images">
         <a href="https://www.instagram.com/empazaile52/">
-            <img src="Instagram-Logo.wine.svg" alt="Instagram sayfasına git">
+            <img src="Instagram-Logo.wine.svg" alt="Instagram sayfasına git" width="250" height="250">
         </a>
         <a href="https://www.facebook.com/empazaile52">
-            <img src="facebook.png" alt="Facebook sayfasına git">
+            <img src="facebook.png" alt="Facebook sayfasına git" width="250" height="250">
         </a>
         <a href="https://www.google.com.tr/maps/place/Empaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1/@41.0295695,37.4972486,17z/data=!4m6!3m5!1s0x4062c505e846e999:0x75b4c973311c42ef!8m2!3d41.0295695!4d37.4998235!16s%2Fg%2F11wq6pmk01?hl=tr&entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D">
-            <img src="RESİM 6.png" alt="KONUM İÇİN RESME TIKLAYIN">
+            <img src="RESİM 6.png" alt="KONUM İÇİN RESME TIKLAYIN" width="250" height="250">
         </a>
     </div>
 </body>
