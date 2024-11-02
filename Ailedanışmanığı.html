@@ -19,7 +19,6 @@
         }
         .container {
             display: flex; /* Flex düzeni ile yan yana dizilmesini sağlar */
-            flex-wrap: wrap; /* Taşma durumunda alt satıra geçmesini sağlar */
         }
         p {
             font-size: x-large;
@@ -37,18 +36,15 @@
             margin: 10px 0; /* Resimlerin arasında boşluk */
             width: 100%; /* Resimlerin genişliği */
             height: auto; /* Yükseklik otomatik ayar */
-            max-height: 400px; /* Resimlerin maksimum yüksekliği */
-            object-fit: cover; /* Resmin içeriğini korurken ölçekleme */
         }
 
         /* Mobil düzen için */
         @media (max-width: 768px) {
             .container {
-                flex-direction: row; /* Yine yan yana dizilsin */
-                justify-content: space-between; /* Alanı eşit dağıt */
+                flex-direction: column; /* Dikey olarak düzenle */
             }
             p, .image-container {
-                width: 48%; /* Her iki alanı daha dar yap */
+                width: 100%; /* Her iki alanı tam genişlik yap */
                 margin-right: 0; /* Sağdaki boşluğu kaldır */
             }
         }
