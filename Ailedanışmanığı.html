@@ -19,99 +19,99 @@
             margin-bottom: 20px;
         }
 
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
         .content {
             display: flex;
-            flex-wrap: wrap; /* Taşmayı önlemek için sarmala */
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 20px; /* Metin ve resimler arasında boşluk */
         }
 
         p {
             font-size: large;
             line-height: 1.5;
-            flex: 1 1 50%; /* Hem genişlik hem de esneklik ayarlandı */
+            flex: 1;
             margin: 0;
-            padding-right: 20px;
-            box-sizing: border-box;
         }
 
         .image-container {
-            flex: 1 1 50%; /* Resim konteyneri de aynı genişlikte */
+            flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            box-sizing: border-box;
+            gap: 10px; /* Resimler arasında boşluk */
         }
 
         img {
             width: 100%;
             height: auto;
-            margin-bottom: 10px;
         }
 
-        /* Mobil cihazlar için */
+        /* Mobil cihazlar için ayarlamalar */
         @media (max-width: 768px) {
             .content {
                 flex-direction: column; /* Mobilde dikey hizala */
             }
 
-            p {
-                padding-right: 0;
-                margin-bottom: 20px;
-            }
-
             .image-container {
-                width: 100%;
+                width: 100%; /* Resim alanı tam genişlikte */
             }
         }
     </style>
 </head>
 <body>
     <h1>AİLE DANIŞMANLIĞI</h1>
-    <div class="content">
-        <p>
-            Aile danışmanlığı, sadece bir sorun olduğunda başvurulan bir hizmet değil, aynı zamanda ailelerin potansiyellerini en üst düzeye çıkarmalarına ve daha sağlıklı ilişkiler kurmalarına yardımcı olan bir destek sistemidir.
-            <br><br>
-            Aile Danışmanının Rolü Nedir?
-            Değerlendirme: Ailenin dinamiklerini, iletişim kalıplarını, güçlü ve zayıf yönlerini değerlendirir. Bu değerlendirme, aile üyelerinin bireysel olarak ve bir bütün olarak ihtiyaçlarını belirlemek için önemlidir.
-            Hedef Belirleme: Aile ile birlikte, danışmanlık sürecinin sonunda ulaşılmak istenen hedefleri belirler. Bu hedefler, daha iyi iletişim kurmak, çatışmaları çözmek, güven ilişkilerini güçlendirmek veya bireysel büyümeyi desteklemek gibi çeşitli konuları içerebilir.
-            Müdahale: Ailenin ihtiyaçlarına göre farklı terapi teknikleri kullanır. Bu teknikler arasında sistemik aile terapisi, duygusal odaklı terapi, bilişsel davranışçı terapi gibi yöntemler yer alabilir.
-            Eğitim: Aile üyelerine, sağlıklı iletişim becerileri, problem çözme yöntemleri, duygusal düzenleme gibi konularda eğitim verir.
-            Destek: Aile üyelerine duygusal destek sağlar, onları güçlendirir ve değişim sürecinde motive eder.
-            <br><br>
-            Aile Danışmanlığı Neden Önemlidir?
-            Erken müdahale: Küçük sorunlar büyüyerek aile içinde ciddi sorunlara yol açabilir. Aile danışmanlığı, sorunlar büyüdükçe çözülmesi zorlaşmadan müdahale edilmesini sağlar.
-            Nesilden nesile aktarılan kalıpların kırılması: Aile içindeki olumsuz iletişim kalıpları ve davranış biçimleri, nesilden nesile aktarılabilir. Aile danışmanlığı, bu kalıpların farkına varılmasını ve yeni, daha sağlıklı kalıpların oluşturulmasını sağlar.
-            Bireysel ve ailesel büyüme: Aile danışmanlığı, aile üyelerinin kişisel olarak büyümelerine ve gelişmelerine yardımcı olurken, aynı zamanda ailenin bir bütün olarak güçlenmesini sağlar.
-            Çocukların sağlıklı gelişimi: Çocukların sağlıklı bir şekilde gelişmeleri, büyük ölçüde aile ortamından etkilenir. Aile danışmanlığı, çocukların duygusal, sosyal ve bilişsel gelişimlerini destekler.
-            <br><br>
-            Aile Danışmanlığı Hangi Sorunlarda Yardımcı Olabilir?
-            İletişim sorunları: Dinleme becerilerinin geliştirilmesi, empati kurma, duyguları ifade etme gibi konularda destek sağlar.
-            Çatışma yönetimi: Çatışmaların sağlıklı bir şekilde çözülmesi için gerekli becerilerin kazandırılması.
-            Ebeveynlik zorlukları: Çocuk yetiştirme konusunda yaşanan zorlukların üstesinden gelinmesi.
-            Evlilik sorunları: Evlilik içindeki güvensizlik, iletişimsizlik, sadakatsizlik gibi sorunların çözülmesi.
-            Aile içi şiddet: Şiddetin önlenmesi ve mağdurların iyileşmesi.
-            Ayrılık ve boşanma süreçleri: Bu süreçlerin daha sağlıklı bir şekilde yönetilmesi.
-            Kayıp ve yas: Yakın birini kaybetmenin yarattığı üzüntünün üstesinden gelinmesi.
-            Bağımlılık sorunları: Aile içindeki bağımlılık sorunlarının etkilerinin azaltılması.
-            <br><br>
-            Aile Danışmanlığı Nasıl Bir Süreçtir?
-            Aile danışmanlığı süreci, her ailenin ihtiyaçlarına göre şekillenir. Genellikle şu adımları içerir:
-            Değerlendirme: Ailenin durumu hakkında detaylı bilgi toplanır.
-            Hedef belirleme: Aile ile birlikte, danışmanlık sürecinin sonunda ulaşılmak istenen hedefler belirlenir.
-            Müdahale: Belirlenen hedeflere ulaşmak için uygun terapi teknikleri kullanılır.
-            Değerlendirme ve takip: Süreç boyunca düzenli olarak değerlendirmeler yapılarak ilerleme takip edilir ve gerekli durumlarda plan yeniden gözden geçirilir.
-            <br><br>
-            Aile danışmanlığı, ailelerin daha mutlu, sağlıklı ve uyumlu bir yaşam sürmelerine yardımcı olan önemli bir destek sistemidir.
-            <br><br>
-            Unutmayın, bir aile danışmanına başvurmak, bir zayıflık değil, aksine güçlü bir adım olabilir.
-            <br><br>
-            Eğer ailenizde herhangi bir sorun yaşıyorsanız, bir aile danışmanından destek almak için çekinmeyin.
-        </p>
-        <div class="image-container">
-            <img src="resim2.png" alt="Resim 2">
-            <img src="resim3.jpg" alt="Resim 3">
-            <img src="resim4.jpg" alt="Resim 4">
-            <img src="resim7.jpeg" alt="Resim 7">
-            <img src="resim8.jpeg" alt="Resim 8">
+    <div class="content-wrapper">
+        <div class="content">
+            <p>
+                Aile danışmanlığı, sadece bir sorun olduğunda başvurulan bir hizmet değil, aynı zamanda ailelerin potansiyellerini en üst düzeye çıkarmalarına ve daha sağlıklı ilişkiler kurmalarına yardımcı olan bir destek sistemidir.
+                <br><br>
+                Aile Danışmanının Rolü Nedir?
+                Değerlendirme: Ailenin dinamiklerini, iletişim kalıplarını, güçlü ve zayıf yönlerini değerlendirir. Bu değerlendirme, aile üyelerinin bireysel olarak ve bir bütün olarak ihtiyaçlarını belirlemek için önemlidir.
+                Hedef Belirleme: Aile ile birlikte, danışmanlık sürecinin sonunda ulaşılmak istenen hedefleri belirler. Bu hedefler, daha iyi iletişim kurmak, çatışmaları çözmek, güven ilişkilerini güçlendirmek veya bireysel büyümeyi desteklemek gibi çeşitli konuları içerebilir.
+                Müdahale: Ailenin ihtiyaçlarına göre farklı terapi teknikleri kullanır. Bu teknikler arasında sistemik aile terapisi, duygusal odaklı terapi, bilişsel davranışçı terapi gibi yöntemler yer alabilir.
+                Eğitim: Aile üyelerine, sağlıklı iletişim becerileri, problem çözme yöntemleri, duygusal düzenleme gibi konularda eğitim verir.
+                Destek: Aile üyelerine duygusal destek sağlar, onları güçlendirir ve değişim sürecinde motive eder.
+                <br><br>
+                Aile Danışmanlığı Neden Önemlidir?
+                Erken müdahale: Küçük sorunlar büyüyerek aile içinde ciddi sorunlara yol açabilir. Aile danışmanlığı, sorunlar büyüdükçe çözülmesi zorlaşmadan müdahale edilmesini sağlar.
+                Nesilden nesile aktarılan kalıpların kırılması: Aile içindeki olumsuz iletişim kalıpları ve davranış biçimleri, nesilden nesile aktarılabilir. Aile danışmanlığı, bu kalıpların farkına varılmasını ve yeni, daha sağlıklı kalıpların oluşturulmasını sağlar.
+                Bireysel ve ailesel büyüme: Aile danışmanlığı, aile üyelerinin kişisel olarak büyümelerine ve gelişmelerine yardımcı olurken, aynı zamanda ailenin bir bütün olarak güçlenmesini sağlar.
+                Çocukların sağlıklı gelişimi: Çocukların sağlıklı bir şekilde gelişmeleri, büyük ölçüde aile ortamından etkilenir. Aile danışmanlığı, çocukların duygusal, sosyal ve bilişsel gelişimlerini destekler.
+                <br><br>
+                Aile Danışmanlığı Hangi Sorunlarda Yardımcı Olabilir?
+                İletişim sorunları: Dinleme becerilerinin geliştirilmesi, empati kurma, duyguları ifade etme gibi konularda destek sağlar.
+                Çatışma yönetimi: Çatışmaların sağlıklı bir şekilde çözülmesi için gerekli becerilerin kazandırılması.
+                Ebeveynlik zorlukları: Çocuk yetiştirme konusunda yaşanan zorlukların üstesinden gelinmesi.
+                Evlilik sorunları: Evlilik içindeki güvensizlik, iletişimsizlik, sadakatsizlik gibi sorunların çözülmesi.
+                Aile içi şiddet: Şiddetin önlenmesi ve mağdurların iyileşmesi.
+                Ayrılık ve boşanma süreçleri: Bu süreçlerin daha sağlıklı bir şekilde yönetilmesi.
+                Kayıp ve yas: Yakın birini kaybetmenin yarattığı üzüntünün üstesinden gelinmesi.
+                Bağımlılık sorunları: Aile içindeki bağımlılık sorunlarının etkilerinin azaltılması.
+                <br><br>
+                Aile Danışmanlığı Nasıl Bir Süreçtir?
+                Aile danışmanlığı süreci, her ailenin ihtiyaçlarına göre şekillenir. Genellikle şu adımları içerir:
+                Değerlendirme: Ailenin durumu hakkında detaylı bilgi toplanır.
+                Hedef belirleme: Aile ile birlikte, danışmanlık sürecinin sonunda ulaşılmak istenen hedefler belirlenir.
+                Müdahale: Belirlenen hedeflere ulaşmak için uygun terapi teknikleri kullanılır.
+                Değerlendirme ve takip: Süreç boyunca düzenli olarak değerlendirmeler yapılarak ilerleme takip edilir ve gerekli durumlarda plan yeniden gözden geçirilir.
+                <br><br>
+                Aile danışmanlığı, ailelerin daha mutlu, sağlıklı ve uyumlu bir yaşam sürmelerine yardımcı olan önemli bir destek sistemidir.
+                <br><br>
+                Unutmayın, bir aile danışmanına başvurmak, bir zayıflık değil, aksine güçlü bir adım olabilir.
+                <br><br>
+                Eğer ailenizde herhangi bir sorun yaşıyorsanız, bir aile danışmanından destek almak için çekinmeyin.
+            </p>
+            <div class="image-container">
+                <img src="resim2.png" alt="Resim 2">
+                <img src="resim3.jpg" alt="Resim 3">
+                <img src="resim4.jpg" alt="Resim 4">
+                <img src="resim7.jpeg" alt="Resim 7">
+                <img src="resim8.jpeg" alt="Resim 8">
+            </div>
         </div>
     </div>
 </body>
