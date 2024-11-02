@@ -14,31 +14,39 @@
         }
         h1 {
             text-align: center;
-            margin-left: auto;
             font-size: x-large;
             margin-bottom: 20px; /* Başlık ile metin arasında boşluk */
         }
         p {
             font-size: x-large;
             line-height: 1.5; /* Metin satır yüksekliği */
-            float: left; /* Metni sola hizalar */
-            width: 60%; /* Metin için genişlik ayarı */
+            margin-bottom: 20px; /* Paragraf sonu boşluk */
         }
         img {
             display: block; /* Resimleri alt alta göstermek için */
             margin: 20px auto; /* Resimleri ortalamak için */
-            width: 488px; /* Resim genişliği */
-            height: 355px; /* Resim yüksekliği */
-            clear: both; /* Resimlerin altında boşluk bırakır */
-            margin-bottom: 10px;
+            width: 100%; /* Resim genişliğini %100 yap */
+            max-width: 488px; /* Maksimum genişlik ayarı */
+            height: auto; /* Yükseklik otomatik ayar */
         }
         .image-container {
-            float: right; /* Resimlerin sağda görünmesini sağlar */
-            width: 35%; /* Resimlerin genişliği */
+            text-align: center; /* Resimlerin ortalanması için */
         }
-        .images {
-            clear: both; /* İlk resmin float özelliğini temizler */
-            margin-top: 20px;
+        @media (min-width: 768px) {
+            p {
+                width: 60%; /* Masaüstü için metin genişliği */
+                float: left; /* Metni sola hizalar */
+            }
+            .image-container {
+                float: right; /* Resimlerin sağda görünmesini sağlar */
+                width: 35%; /* Resimlerin genişliği */
+            }
+        }
+        @media (max-width: 767px) {
+            p {
+                float: none; /* Mobilde metni tamamen sola hizala */
+                width: 100%; /* Mobilde metin genişliğini %100 yap */
+            }
         }
     </style>
 </head>
@@ -88,8 +96,8 @@
         <img src="resim2.png" alt="Resim 2">
         <img src="resim3.jpg" alt="Resim 3">
         <img src="resim4.jpg" alt="Resim 4">
-        <img src="resim7.jpeg" alt="Resim 4">
-        <img src="resim8.jpeg" alt="Resim 4">
+        <img src="resim7.jpeg" alt="Resim 5">
+        <img src="resim8.jpeg" alt="Resim 6">
     </div>
 </body>
 </html>
