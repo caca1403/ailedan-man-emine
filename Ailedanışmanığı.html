@@ -51,6 +51,18 @@
                 flex-direction: column; /* Mobilde dikey hizala */
                 align-items: center; /* Ortalar */
             }
+             .flex-container {
+            display: flex;
+            flex-wrap: wrap; /* Elemanların taşmasını önlemek için */
+            align-items: center;
+        }
+        .image {
+            max-width: 100%; /* Resmin taşmasını önlemek için */
+            height: auto;
+        }
+        .text {
+            flex: 1; /* Metni genişlet */
+            padding: 10px;
             p {
                 width: 100%; /* Metin tam genişlikte olacak şekilde ayarlandı */
                 margin-right: 0; /* Sağdaki boşluğu kaldır */
