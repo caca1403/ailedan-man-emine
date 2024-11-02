@@ -23,28 +23,30 @@
         .content {
             display: flex;
             flex-wrap: wrap;
-            align-items: stretch; /* İçeriği aynı yükseklikte tutmak için */
+            align-items: flex-start; /* İçeriği üstten hizala */
         }
 
         p {
             font-size: large;
             line-height: 1.5;
-            flex: 1; /* Metni genişlet ve esnek hale getir */
+            flex: 1;
             margin: 0;
-            padding-right: 20px; /* Resimlerle metin arasında boşluk */
+            padding-right: 20px;
+            box-sizing: border-box; /* Kutu modelini kullanarak boşlukları hesaba kat */
         }
 
         .image-container {
-            flex: 1; /* Resim alanını genişlet ve esnek hale getir */
+            flex: 1;
             display: flex;
-            flex-direction: column; /* Resimleri dikey hizala */
-            justify-content: space-between; /* Resimleri eşit aralıklı yerleştir */
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box; /* Kutu modelini kullanarak boşlukları hesaba kat */
         }
 
         img {
-            width: 100%; /* Resim genişliğini kapsayacak şekilde ayarlandı */
-            height: auto; /* Yüksekliği orantılı olarak ayarla */
-            margin-bottom: 10px; /* Resimler arasında boşluk */
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
         }
 
         /* Tablet ve mobil cihazlar için */
@@ -54,12 +56,12 @@
             }
 
             p {
-                padding-right: 0; /* Sağdaki boşluğu kaldır */
-                margin-bottom: 20px; /* Metin ve resimler arasında boşluk ekle */
+                padding-right: 0;
+                margin-bottom: 20px;
             }
 
             .image-container {
-                width: 100%; /* Resim alanı tam genişlikte */
+                width: 100%;
             }
         }
     </style>
