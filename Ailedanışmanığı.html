@@ -42,14 +42,24 @@
                 width: 100%;
                 float: none;
             }
-            .image-container {
-                float: none;
-                width: 100%;
-            }
+             .image-container {
+            float: right; /* Resimlerin sağda görünmesini sağlar */
+            width: 35%; /* Resimlerin genişliği */
+        }
             img {
                 width: 100%;
                 height: auto;
+                 display: block; /* Resimleri alt alta göstermek için */
+            margin: 20px auto; /* Resimleri ortalamak için */
+            width: 488px; /* Resim genişliği */
+            height: 355px; /* Resim yüksekliği */
+            clear: both; /* Resimlerin altında boşluk bırakır */
+            margin-bottom: 10px;
             }
+        }
+        .images {
+            clear: both; /* İlk resmin float özelliğini temizler */
+            margin-top: 20px;
         }
     </style>
 </head>
