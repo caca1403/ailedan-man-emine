@@ -11,9 +11,6 @@
             font-family: 'Times New Roman', Times, serif;
             color: antiquewhite;
             margin: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
         h1 {
             text-align: center;
@@ -24,23 +21,24 @@
         .container {
             display: flex;
             justify-content: space-between;
-            width: 100%;
-            max-width: 1200px; /* Genişliği sınırlamak için */
+            align-items: flex-start; /* Üst hizalamayı sağla */
+            flex-wrap: wrap; /* Taşma durumunda alt satıra geçsin */
         }
         p {
             font-size: x-large;
             line-height: 1.5;
             width: 50%; /* Metin alanının genişliği */
+            margin-right: 20px; /* Sağdaki boşluk */
         }
         .image-container {
-            width: 50%; /* Resim alanının genişliği */
+            width: 40%; /* Resim alanının genişliği */
             display: flex;
             flex-direction: column; /* Resimleri dikey dizmek için */
-            align-items: center;
+            align-items: center; /* Resimleri ortala */
         }
         img {
             margin: 10px 0; /* Resimlerin arasında boşluk */
-            width: 80%; /* Resimlerin genişliği */
+            width: 100%; /* Resimlerin genişliği */
             height: auto; /* Yükseklik otomatik ayar */
         }
 
@@ -51,6 +49,7 @@
             }
             p, .image-container {
                 width: 100%; /* Her iki alanı tam genişlik yap */
+                margin-right: 0; /* Sağdaki boşluğu kaldır */
             }
         }
     </style>
