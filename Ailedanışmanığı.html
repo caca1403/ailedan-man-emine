@@ -20,24 +20,24 @@
         p {
             font-size: x-large;
             line-height: 1.5; /* Metin satır yüksekliği */
-            width: 100%; /* Metin için genişlik ayarı */
-            margin-bottom: 20px; /* Resimlerin üstünde boşluk bırakır */
-        }
-        img {
-            width: 33.33%; /* Üç resim için toplam genişlik %100 olacak şekilde ayarlandı */
-            height: auto; /* Yüksekliği orantılı olarak ayarla */
-            display: inline-block; /* Resimleri yan yana dizmek için */
-            vertical-align: top; /* Resimlerin hizalanmasını sağlar */
+            width: 60%; /* Metin için genişlik ayarı */
+            float: left; /* Metni sola hizalar */
+            margin-right: 20px; /* Resimler ile metin arasında boşluk */
         }
         .image-container {
-            text-align: center; /* Resimleri ortalamak için */
-            overflow: hidden; /* Taşmayı önler */
+            width: 35%; /* Resimlerin toplam genişliği */
+            float: right; /* Resimlerin sağda görünmesini sağlar */
+        }
+        img {
+            width: 100%; /* Resim genişliğini kapsayacak şekilde ayarlandı */
+            height: auto; /* Yüksekliği orantılı olarak ayarla */
+            margin-bottom: 10px; /* Resimler arasında boşluk */
         }
     </style>
 </head>
 <body>
     <h1>AİLE DANIŞMANLIĞI</h1>
-   <p> 
+    <p> 
         Aile danışmanlığı, sadece bir sorun olduğunda başvurulan bir hizmet değil, aynı zamanda ailelerin potansiyellerini en üst düzeye çıkarmalarına ve daha sağlıklı ilişkiler kurmalarına yardımcı olan bir destek sistemidir.
         <br><br>
         Aile Danışmanının Rolü Nedir?
@@ -76,11 +76,12 @@
         <br><br>
         Eğer ailenizde herhangi bir sorun yaşıyorsanız, bir aile danışmanından destek almak için çekinmeyin.
     </p>
-
     <div class="image-container">
         <img src="resim2.png" alt="Resim 2">
         <img src="resim3.jpg" alt="Resim 3">
         <img src="resim4.jpg" alt="Resim 4">
+        <img src="resim7.jpeg" alt="Resim 7">
+        <img src="resim8.jpeg" alt="Resim 8">
     </div>
 </body>
 </html>
