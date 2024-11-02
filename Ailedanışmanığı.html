@@ -20,22 +20,22 @@
         }
         .content {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap; /* Yan yana hizalama */
             gap: 20px;
             justify-content: center;
         }
         p {
             font-size: large;
             line-height: 1.5;
-            flex: 1 1 60%; /* Metin genişliği */
-            min-width: 280px;
+            flex: 1 1 60%;
+            min-width: 200px;
             max-width: 600px;
             margin: 0;
         }
         .image-container {
-            flex: 1 1 35%; /* Görsel genişliği */
-            min-width: 280px;
-            max-width: 500px;
+            flex: 1 1 35%;
+            min-width: 200px;
+            max-width: 400px;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -44,16 +44,24 @@
             width: 100%;
             height: auto;
             object-fit: cover;
-            border-radius: 5px; /* Görsellerin köşelerini yuvarlama */
+            border-radius: 5px;
         }
         /* Mobil uyumluluk */
         @media (max-width: 768px) {
-            h1 {
-                font-size: large;
+            .content {
+                flex-wrap: nowrap;
+                gap: 10px;
             }
-            p, .image-container {
-                flex: 1 1 100%;
-                max-width: 100%;
+            p {
+                font-size: medium;
+                flex: 1 1 50%;
+            }
+            .image-container {
+                flex: 1 1 50%;
+            }
+            img {
+                width: 100%;
+                max-width: 200px; /* Küçük ekranlarda görselleri daha küçük göster */
             }
         }
     </style>
@@ -105,8 +113,8 @@
             <img src="resim2.png" alt="Resim 2">
             <img src="resim3.jpg" alt="Resim 3">
             <img src="resim4.jpg" alt="Resim 4">
-            <img src="resim7.jpeg" alt="Resim 4">
-            <img src="resim8.jpeg" alt="Resim 4">
+            <img src="resim7.jpeg" alt="Resim 7">
+            <img src="resim8.jpeg" alt="Resim 8">
         </div>
     </div>
 </body>
