@@ -17,86 +17,89 @@
         h1 {
             text-align: center;
             font-size: x-large;
-            margin-bottom: 20px; /* Başlık ile metin arasında boşluk */
+            margin-bottom: 20px;
         }
         p {
             font-size: x-large;
-            line-height: 1.5; /* Metin satır yüksekliği */
-            margin-bottom: 20px; /* Paragraf sonu boşluk */
+            line-height: 1.5;
+            margin-bottom: 20px;
         }
         img {
-            display: block; /* Resimleri alt alta göstermek için */
-            margin: 20px auto; /* Resimleri ortalamak için */
-            width: 100%; /* Resim genişliğini %100 yap */
-            max-width: 488px; /* Maksimum genişlik ayarı */
-            height: auto; /* Yükseklik otomatik ayar */
+            display: block;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 488px;
+            height: auto;
         }
         .image-container {
-            text-align: center; /* Resimlerin ortalanması için */
+            text-align: center;
         }
         @media (min-width: 768px) {
             p {
-                width: 60%; /* Masaüstü için metin genişliği */
-                float: left; /* Metni sola hizalar */
+                width: 60%;
+                float: left;
             }
             .image-container {
-                float: right; /* Resimlerin sağda görünmesini sağlar */
-                width: 35%; /* Resimlerin genişliği */
+                float: right;
+                width: 35%;
             }
         }
         @media (max-width: 767px) {
             p {
-                float: none; /* Mobilde metni tamamen sola hizala */
-                width: 100%; /* Mobilde metin genişliğini %100 yap */
+                float: none;
+                width: 100%;
             }
-            
-    @keyframes fadeInBounce {
-      0% {
-        opacity: 0;
-        transform: translateY(30px); /* Sayfa açılırken öğe aşağıda başlar */
-      }
-      50% {
-        opacity: 1;
-        transform: translateY(-15px); /* Zıplama hareketi */
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0); /* Son durumda öğe normalde */
-      }
+        }
+
+        @keyframes fadeInBounce {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-15px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .sticky-menu {
-  position: -webkit-sticky; /* Safari için */
-  position: sticky;
-  top: 0;
-  background-color: #333;
-  padding: 10px;
-  z-index: 1000;
-}
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            background-color: #333;
+            padding: 10px;
+            z-index: 1000;
+        }
 
-.sticky-menu ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
+        .sticky-menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
 
-.sticky-menu ul li {
-  display: inline;
-  margin-right: 20px;
-}
+        .sticky-menu ul li {
+            display: inline;
+            margin-right: 20px;
+        }
 
-.sticky-menu ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-}
-            .sticky-menu ul li a:hover {
-  color: blue; /* Hover (fareyle üzerine gelindiğinde) rengi mavi yapar */
-}
+        .sticky-menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sticky-menu ul li a:hover {
+            color: blue;
         }
     </style>
 </head>
 <body>
     <h1>AİLE DANIŞMANLIĞI</h1>
-    <p> 
+    <p>
         Aile danışmanlığı, sadece bir sorun olduğunda başvurulan bir hizmet değil, aynı zamanda ailelerin potansiyellerini en üst düzeye çıkarmalarına ve daha sağlıklı ilişkiler kurmalarına yardımcı olan bir destek sistemidir.
         <br><br>
         Aile Danışmanının Rolü Nedir?
@@ -143,15 +146,16 @@
         <img src="resim7.jpeg" alt="Resim 5">
         <img src="resim8.jpeg" alt="Resim 6">
     </div>
+
     <nav class="sticky-menu">
-            <ul>
-                <li>
-                    <h2>İÇERİK</h2>
-                    <a href="index.html">*ANA SAYFA</a>
-                    <br>
-                    <a href="İLETİŞİM.html">*İletişim bilgileri</a>
-                </li>
-            </ul>
-        </nav>
+        <ul>
+            <li>
+                <h2>İÇERİK</h2>
+                <a href="index.html">*ANA SAYFA</a>
+                <br>
+                <a href="İLETİŞİM.html">*İletişim bilgileri</a>
+            </li>
+        </ul>
+    </nav>
 </body>
 </html>
