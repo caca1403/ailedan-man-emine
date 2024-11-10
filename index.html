@@ -65,6 +65,31 @@
         opacity: 1;
         transform: translateY(0); /* Son durumda öğe normalde */
       }
+             .sticky-menu {
+  position: -webkit-sticky; /* Safari için */
+  position: sticky;
+  top: 0;
+  background-color: #333;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.sticky-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sticky-menu ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.sticky-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
     }
     </style>
 </head>
@@ -77,7 +102,7 @@
         <p>
             Emine Çayır 09.01.1988 tarihinde doğmuştur. Ordu Fatsalıdır. Yaklaşık 18 yaşına kadar Ordu'da yaşamış, ardından evlilik sebebiyle taşınmıştır. Taşındığı İstanbul'da Aile danışmanlığı, çocuk ergen psikolojisi, rüya tabirliği, diksiyon eğitimi gibi birçok konuda eğitim almış ve yaklaşık 10 seneden beri aktif olarak Aile Danışmanı olarak çalışmaktadır. İstanbul’dan bir takım sebepler nedeniyle Ordu’ya dönmüş ve burada Aile danışmanlığı yapmaya başlamıştır.
         </p>
-        <nav>
+        <nav class="sticky-menu">
             <ul>
                 <li>
                     <h2>İÇERİK</h2>
