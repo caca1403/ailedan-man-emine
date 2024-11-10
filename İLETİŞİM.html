@@ -11,10 +11,10 @@
             font-family: 'Times New Roman', Times, serif;
             color: antiquewhite;
             margin: 0;
+            padding-top: 60px; /* Menüyü kapsayacak şekilde içeriğin kaymaması için padding ekledik */
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 60px; /* Menüyü kapsayacak şekilde içeriğin kaymaması için padding ekledik */
         }
 
         /* Sticky Menü */
@@ -23,7 +23,7 @@
             position: sticky;
             top: 0; /* Menü sayfa üstünde sabit olacak */
             background-color: #333;
-            padding: 10px;
+            padding: 15px;
             z-index: 1000;
             width: 100%;
             text-align: center;
@@ -36,7 +36,7 @@
         }
 
         .sticky-menu ul li {
-            display: inline;
+            display: inline-block;
             margin-right: 20px;
         }
 
@@ -48,6 +48,33 @@
 
         .sticky-menu ul li a:hover {
             color: #3498db;
+        }
+
+        /* Menünün başlık kısmı */
+        .sticky-menu h2 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .sticky-menu .social-links {
+            margin-top: 10px;
+        }
+
+        .sticky-menu .social-links a {
+            margin-right: 20px;
+            display: inline-block;
+        }
+
+        .sticky-menu .social-links img {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .sticky-menu .social-links img:hover {
+            transform: scale(1.1);
         }
 
         /* Content Styling */
@@ -110,10 +137,26 @@
 <body>
     <!-- Sticky Menü -->
     <nav class="sticky-menu">
+        <!-- Menü Başlığı -->
+        <h2>İÇERİK</h2>
+
         <ul>
             <li><a href="Ailedanışmanığı.html">*Aile Danışmanlığı Nedir?</a></li>
             <li><a href="İLETİŞİM.html">*İletişim bilgileri</a></li>
         </ul>
+
+        <!-- Sosyal Medya Linkleri -->
+        <div class="social-links">
+            <a href="https://www.instagram.com/empazaile52/">
+                <img src="Instagram-Logo.wine.svg" alt="Instagram sayfasına git">
+            </a>
+            <a href="https://www.facebook.com/empazaile52">
+                <img src="facebook.png" alt="Facebook sayfasına git">
+            </a>
+            <a href="https://www.google.com.tr/maps/place/Empaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1/@41.0295695,37.4972486,17z/data=!4m6!3m5!1s0x4062c505e846e999:0x75b4c973311c42ef!8m2!3d41.0295695!4d37.4998235!16s%2Fg%2F11wq6pmk01?hl=tr&entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D">
+                <img src="RESİM 6.png" alt="KONUM İÇİN RESME TIKLAYIN">
+            </a>
+        </div>
     </nav>
 
     <!-- İçerik -->
@@ -136,7 +179,7 @@
         </section>
     </div>
 
-    <!-- Sosyal Medya ve Konum Linkleri -->
+    <!-- Sosyal Medya ve Konum Linkleri (Alt kısımda kalacak) -->
     <div class="images">
         <a href="https://www.instagram.com/empazaile52/">
             <img src="Instagram-Logo.wine.svg" alt="Instagram sayfasına git">
