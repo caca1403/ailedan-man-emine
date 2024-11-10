@@ -11,6 +11,8 @@
             font-family: 'Times New Roman', Times, serif;
             color: antiquewhite;
             margin: 20px;
+            opacity: 0;
+            animation: fadeInBounce 5s forwards;
         }
         h1 {
             text-align: center;
@@ -47,6 +49,45 @@
                 float: none; /* Mobilde metni tamamen sola hizala */
                 width: 100%; /* Mobilde metin genişliğini %100 yap */
             }
+            
+    @keyframes fadeInBounce {
+      0% {
+        opacity: 0;
+        transform: translateY(30px); /* Sayfa açılırken öğe aşağıda başlar */
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(-15px); /* Zıplama hareketi */
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0); /* Son durumda öğe normalde */
+      }
+        .sticky-menu {
+  position: -webkit-sticky; /* Safari için */
+  position: sticky;
+  top: 0;
+  background-color: #333;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.sticky-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sticky-menu ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.sticky-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
         }
     </style>
 </head>
@@ -99,5 +140,15 @@
         <img src="resim7.jpeg" alt="Resim 5">
         <img src="resim8.jpeg" alt="Resim 6">
     </div>
+    <nav class="sticky-menu">
+            <ul>
+                <li>
+                    <h2>İÇERİK</h2>
+                    <a href="index.html">*ANA SAYFA</a>
+                    <br>
+                    <a href="İLETİŞİM.html">*İletişim bilgileri</a>
+                </li>
+            </ul>
+        </nav>
 </body>
 </html>
