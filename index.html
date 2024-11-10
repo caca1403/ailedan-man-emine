@@ -14,7 +14,7 @@
             color: antiquewhite;
             margin: 20px;
             opacity: 0;
-            animation: fadeIn 6s forwards; /* 1 saniyede açılma efekti */
+            animation: fadeInBounce 4s forwards;
         }
         .profile-image {
             float: left;
@@ -52,12 +52,18 @@
       background-color: #3498db;
       transform: scale(1.1);
       }
-         @keyframes fadeIn {
-      from {
+         @keyframes fadeInBounce {
+      0% {
         opacity: 0;
+        transform: translateY(30px); /* Sayfa açılırken öğe aşağıda başlar */
       }
-      to {
+      50% {
         opacity: 1;
+        transform: translateY(-15px); /* Zıplama hareketi */
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0); /* Son durumda öğe normalde */
       }
     }
     </style>
