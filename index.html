@@ -13,10 +13,66 @@
             font-family: 'Times New Roman', Times, serif;
             color: antiquewhite;
             margin: 0;
-            padding-top: 50px; /* Menüden önceki içerik için üst boşluğu bırakıyoruz */
+            padding: 0;
             opacity: 0;
             animation: fadeInBounce 4s forwards;
         }
+
+        /* Menü Sabitleme */
+        .sticky-menu {
+            position: -webkit-sticky; /* Safari için */
+            position: sticky;
+            top: 0; /* Menü sayfa üstünde sabit olacak */
+            background-color: #333;
+            padding: 10px;
+            z-index: 1000;
+            margin: 0;
+        }
+
+        .sticky-menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .sticky-menu ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .sticky-menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sticky-menu ul li a:hover {
+            color: #3498db;
+        }
+
+        .sticky-menu h2 {
+            color: white;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeInBounce {
+            0% {
+                opacity: 0;
+                transform: translateY(30px); /* Sayfa açılırken öğe aşağıda başlar */
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-15px); /* Zıplama hareketi */
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0); /* Son durumda öğe normalde */
+            }
+        }
+
+        /* Profil resminin ve biyografi metninin stili */
         .profile-image {
             float: left;
             margin-right: 20px;
@@ -46,6 +102,7 @@
         p {
             font-size: x-large;
         }
+
         .element {
             transition: all 0.3s ease;
         }
@@ -53,67 +110,15 @@
             background-color: #3498db;
             transform: scale(1.1);
         }
-        @keyframes fadeInBounce {
-            0% {
-                opacity: 0;
-                transform: translateY(30px); /* Sayfa açılırken öğe aşağıda başlar */
-            }
-            50% {
-                opacity: 1;
-                transform: translateY(-15px); /* Zıplama hareketi */
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0); /* Son durumda öğe normalde */
-            }
-        }
 
-        /* Sabit menü */
-        .sticky-menu {
-            position: -webkit-sticky; /* Safari için */
-            position: sticky;
-            top: 0; /* Menü sayfa üstünde sabit olacak */
-            background-color: #333;
-            padding: 10px;
-            z-index: 1000;
-            margin: 0;
-        }
-
-        .sticky-menu ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .sticky-menu ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        .sticky-menu ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        .sticky-menu ul li a:hover {
-            color: #3498db;
-        }
-
-        /* H2 başlığının stili */
-        .sticky-menu h2 {
-            color: white;
-            font-size: 22px;
-            margin-bottom: 10px;
-            text-align: center;
+        /* Alt boşluk */
+        .content {
+            padding-top: 20px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>BİYOGRAFİ:</h1>
-    </header>
-    
+
     <!-- Sabit Menü -->
     <nav class="sticky-menu">
         <ul>
@@ -124,13 +129,17 @@
         </ul>
     </nav>
 
-    <div>
+    <header>
+        <h1>BİYOGRAFİ:</h1>
+    </header>
+    
+    <div class="content">
         <img class="profile-image" src="resim.jpeg" width="370" height="400" alt="Emine Çayır at an event">
         <p>
             Emine Çayır 09.01.1988 tarihinde doğmuştur. Ordu Fatsalıdır. Yaklaşık 18 yaşına kadar Ordu'da yaşamış, ardından evlilik sebebiyle taşınmıştır. Taşındığı İstanbul'da Aile danışmanlığı, çocuk ergen psikolojisi, rüya tabirliği, diksiyon eğitimi gibi birçok konuda eğitim almış ve yaklaşık 10 seneden beri aktif olarak Aile Danışmanı olarak çalışmaktadır. İstanbul’dan bir takım sebepler nedeniyle Ordu’ya dönmüş ve burada Aile danışmanlığı yapmaya başlamıştır.
         </p>
     </div>
-    
+
     <footer>
         <p>&copy; 2024 Emine Çayır. Tüm hakları saklıdır.</p>
     </footer>
