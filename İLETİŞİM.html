@@ -10,16 +10,53 @@
             background-color: rgb(197, 142, 142);
             font-family: 'Times New Roman', Times, serif;
             color: antiquewhite;
-            margin: 20px;
+            margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding-top: 60px; /* Menüyü kapsayacak şekilde içeriğin kaymaması için padding ekledik */
         }
+
+        /* Sticky Menü */
+        .sticky-menu {
+            position: -webkit-sticky; /* Safari için */
+            position: sticky;
+            top: 0; /* Menü sayfa üstünde sabit olacak */
+            background-color: #333;
+            padding: 10px;
+            z-index: 1000;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sticky-menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sticky-menu ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .sticky-menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sticky-menu ul li a:hover {
+            color: #3498db;
+        }
+
+        /* Content Styling */
         .content {
             max-width: 800px;
             text-align: center;
             margin-bottom: 20px;
         }
+
         .images {
             display: flex;
             flex-direction: row;
@@ -27,35 +64,43 @@
             flex-wrap: wrap;
             gap: 20px;
         }
+
         .images a {
             flex: 1;
             min-width: 120px;
             max-width: 250px;
         }
+
         .images img {
             width: 100%;
             height: auto;
             border-radius: 10px;
         }
+
         strong {
             font-size: xx-large;
         }
+
         section {
             font-size: x-large;
             line-height: 1.5;
         }
+
         @media (max-width: 768px) {
             .images {
                 flex-direction: column;
                 align-items: center;
             }
+
             .content {
                 font-size: large;
                 text-align: left;
             }
+
             strong {
                 font-size: large;
             }
+
             section {
                 font-size: medium;
             }
@@ -63,6 +108,15 @@
     </style>
 </head>
 <body>
+    <!-- Sticky Menü -->
+    <nav class="sticky-menu">
+        <ul>
+            <li><a href="Ailedanışmanığı.html">*Aile Danışmanlığı Nedir?</a></li>
+            <li><a href="İLETİŞİM.html">*İletişim bilgileri</a></li>
+        </ul>
+    </nav>
+
+    <!-- İçerik -->
     <div class="content">
         <header>
             <strong>İş yerinin adresi: Mustafa Kemal Paşa Mahallesi, Pazar Sokak, Sadeler Pasajı No:15, Kat:1</strong>
@@ -81,7 +135,8 @@
             </p>
         </section>
     </div>
-    
+
+    <!-- Sosyal Medya ve Konum Linkleri -->
     <div class="images">
         <a href="https://www.instagram.com/empazaile52/">
             <img src="Instagram-Logo.wine.svg" alt="Instagram sayfasına git">
