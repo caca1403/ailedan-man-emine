@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Emine Çayır kısa bir biyografi/tanıtım ve aile danışmanlığı hakkında kapsamlı bilgiler.">
+    <meta name="keywords" content="danışmanlık, eğitim, rehberlik, Emine Çayır, aile danışmanlığı, aile danışmanı emine, emine çayır aile danışmanlığı , empaz aile danışmanlığı">
+    <title>Emine Çayır İş Tanıtımı ve Bir Biyografi</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: rgb(197, 142, 142);
+            color: antiquewhite;
+            font-size: 1rem; /* Varsayılan yazı boyutu */
+
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            color: black;
+        }
+
+        .image-container img {
+            flex: 1;
+            max-width: calc(33.33% - 10px);
+            height: auto;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Navbar Düzenlemeleri */
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+
+        .nav-item {
+            background-color: grey;
+            border-radius: 10px;
+            
+            min-width: 100%;
+            font-size: 15px;
+            margin: 10px;
+            text-align: center;
+            transition: font-size 0.3s ease, padding 0.3s ease;
+        }
+
+        /* Linklerin varsayılan alt çizgisini ve mavi çizgiyi kaldır */
+        .nav-link {
+            text-decoration: none !important;
+            color: rgb(255, 255, 255) !important;
+        }
+
+        /* Sosyal Medya İkonları */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            
+        }
+
+        .social-links img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Responsive Ayarlar */
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.3rem;
+            }
+
+            .nav-item {
+                font-size: 14px;
+                padding: 5px;
+            }
+
+            .social-links img {
+                width: 35px;
+                height: 35px;
+            }
+            .font-fix {
+        font-size: clamp(14px, 2.5vw, 22px);
+    }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1rem;
+            }
+
+            .nav-item {
+                font-size: 12px;
+                padding: 3px;
+            }
+
+            .social-links img {
+                width: 30px;
+                height: 30px;
+            }
+            .font-fix {
+        font-size: clamp(12px, 3vw, 20px);
+    }
+        }
+        .font-fix {
+    font-size: clamp(16px, 2vw, 25px); /* Minimum 16px, ekran genişliğinin %2'si ve maksimum 25px */
+    } 
+/* Linklerin varsayılan görünümünü düzenle */
+.custom-link {
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    color: rgb(0, 0, 0); /* Yazı rengi beyaz */
+    transition: color 0.3s ease, transform 0.3s ease; /* Hover efektleri için geçiş */
+    font-weight: bold; /* Daha vurgulu bir görünüm */
+}
+
+/* Hover durumunda görünüm */
+.custom-link:hover {
+    color: #ffcc00; /* Sarımsı bir renk */
+    transform: scale(1.1); /* Hafif büyütme efekti */
+    text-shadow: 0px 0px 5px rgba(255, 204, 0, 0.7); /* Parlak bir efekt */
+}
+
+/* Linklerin özel bir kutu görünümü alması (isteğe bağlı) */
+.custom-link {
+    padding: 5px 10px;
+    border: 2px solid transparent; /* Varsayılan şeffaf kenar */
+    border-radius: 5px; /* Yuvarlak köşeler */
+}
+
+.custom-link:hover {
+    border-color: #ffcc00; /* Hover sırasında kenar rengi */
+    background-color: rgba(255, 204, 0, 0.1); /* Hafif bir arka plan efekti */
+}
+.offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+/* Slogan Bölümü Stili */
+.slogan-section {
+    background-color: rgb(197, 142, 142);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Başlık Stili */
+.slogan-title {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Slogan Listesi Stili */
+.slogan-list {
+    list-style-type: none; /* Noktalı listeyi kaldır */
+    padding: 0;
+    margin: 0;
+}
+
+.slogan-list li {
+    font-size: 1.2rem;
+    color: #ffffff;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Hover Durumu */
+.slogan-list li:hover {
+    color: #ff9e8f;
+    transform: scale(1.05);
+    text-shadow: 0px 2px 5px rgba(255, 102, 0, 0.5);
+}
+.content-btn {
+    display: flex;
+    justify-content: center; /* Yatay ortalama */
+    align-items: center; /* Dikey ortalama */
+    flex-direction: column; /* Dikeyde sıralama */
+    
+    gap: 20px; /* Butonlar arasına boşluk */
+    background-color: rgb(197, 142, 142); /* İçerik arka planı */
+}
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Offcanvas Navbar -->
+        <nav class="navbar navbar-dark bg-dark sticky-top">
+            <div class="container-fluid">
+                <!-- Navbar Brand -->
+                <a class="navbar-brand" href="#">Emine Çayır</a>
+
+                <!-- Sosyal Medya İkonları -->
+                <div class="social-links">
+                    <a href="https://www.instagram.com/empazaile52/">
+                        <img src="Instagram-Logo.wine.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/empazaile52">
+                        <img src="facebook.png" alt="Facebook">
+                    </a>
+                    <a href="https://www.google.com.tr/maps/place/Empaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1/@41.0295695,37.4972486,17z/data=!4m6!3m5!1s0x4062c505e846e999:0x75b4c973311c42ef!8m2!3d41.0295695!4d37.4998235!16s%2Fg%2F11wq6pmk01?hl=tr&entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D">
+                        <img src="RESİM 6.png" alt="Konum">
+                    </a>
+                </div>
+
+                <!-- Hamburger Menü -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Offcanvas Menü -->
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menü</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link" href="Ailedanışmanığı.html">Aile Danışmanlığı Nedir</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="İLETİŞİM.html">İletişim Bilgileri</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Ana Sayfa</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+<div class="content-btn">
+    <!-- Haber Linkleri Butonu -->
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#haberModal">
+        Haber Linklerini Görüntüle
+    </button>
+
+    <!-- YouTube Linkleri Butonu -->
+    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#youtubeModal">
+        YouTube Linklerini Görüntüle
+    </button>
+</div>
+
+<!-- Haber Linkleri Modal -->
+<div class="modal fade" id="haberModal" tabindex="-1" aria-labelledby="haberModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="haberModalLabel">Haber Linkleri</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <a href="https://www.facebook.com/fatsasosyaltv/videos/kurtulu%C5%9F-mahalle-muhtarl%C4%B1%C4%9F%C4%B1nda-aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1-hizmeti-veriliyorvatanda%C5%9Flara-m/321448590992192/" class="custom-link">Haber 1</a><br>
+                <a href="https://www.bing.com/ck/a?!&&p=d31373c003480a93802c8bd75eac8ec0a88f7343dab5e3c6abcfdc1f469c4a08JmltdHM9MTczNTk0ODgwMA&ptn=3&ver=2&hsh=4&fclid=2035c13f-a729-69f2-20e3-d47ca6b068bb&psq=aile+dan%c4%b1%c5%9fman%c4%b1+emine+%c3%a7ay%c4%b1r&u=a1aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL2ZhdHNhc29zeWFsdHYvcG9zdHMvODg5MDM2NDM2NzYyOTM4Lw&ntb=1" class="custom-link" class="custom-link">Haber 2</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- YouTube Linkleri Modal -->
+<div class="modal fade" id="youtubeModal" tabindex="-1" aria-labelledby="youtubeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="youtubeModalLabel">YouTube Linkleri</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <a href="https://www.youtube.com/watch?v=SKKy9eEpZKw" class="custom-link">Engelsiz Programı TV52 - 1</a><br>
+                <a href="https://www.youtube.com/watch?v=KOZ3lGIwCKw" class="custom-link">Engelsiz Programı TV52 - 2</a><br>
+                <a href="https://www.youtube.com/watch?v=9KQRbPGLiYI" class="custom-link">Engelsiz Programı TV52 - 3</a><br>
+                <a href="https://www.youtube.com/watch?v=ePWBzWDvtio" class="custom-link">Engelsiz Programı TV52 - 4</a><br>
+                <a href="https://www.youtube.com/watch?v=OXgDFGcqigg" class="custom-link">Engelsiz Programı TV52 - 5</a><br>
+                <a href="https://www.youtube.com/watch?v=BgxTY85Z1nU" class="custom-link">Engelsiz Programı TV52 - 6</a><br>
+                <a href="https://www.youtube.com/watch?v=pomqPs4gLR4" class="custom-link">Engelsiz Programı TV52 - 7</a><br>
+                <a href="https://www.youtube.com/watch?v=Zkx-5Z7bUms" class="custom-link">Engelsiz Programı TV52 - 8</a><br>
+                <a href="https://www.youtube.com/watch?v=97UeiYFMeXw" class="custom-link">Engelsiz Programı TV52 - 9</a><br>
+                <a href="https://www.youtube.com/watch?v=Z7XVjnkoabs" class="custom-link">Engelsiz Programı TV52 - 10</a><br>
+                <a href="https://www.youtube.com/watch?v=Cd_Yz2bUPDQ" class="custom-link">Engelsiz Programı TV52 - 11</a><br>
+                <a href="https://www.youtube.com/watch?v=Gzo6jV1s3dA" class="custom-link">Engelsiz Programı TV52 - 12</a>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="slogan-section">
+    <h3 class="text-center slogan-title">"TÜM BUNLAR İÇİN EMPAZ AİLE DANIŞMANLIĞI"</h3>
+    <ul class="slogan-list">
+        <li>Güçlü bağlar, mutlu yuvalar.</li>
+        <li>Sevgi dolu bir aile için birlikte çalışalım.</li>
+        <li>Aile bağlarını güçlendirmek, geleceği sağlamlaştırmaktır.</li>
+        <li>Aileniz için en iyi rehberlik burada.</li>
+        <li>Kırık bağları sevgiyle onarıyoruz.</li>
+        <li>Sorunlarınızı çözmek için buradayız.</li>
+        <li>Birlikte daha güçlü bir aile olabilirsiniz.</li>
+        <li>Her adımda size rehberlik eden bir dost.</li>
+        <li>Zorlukları sevgiyle aşalım.</li>
+        <li>Her sorun bir çözümle başlar.</li>
+        <li>İletişiminizi yeniden keşfedin.</li>
+        <li>Sevgi dolu bir iletişim, mutlu bir aile demektir.</li>
+        <li>Sessizlik yerine anlamlı sohbetler başlasın.</li>
+        <li>Aile içi huzur, mutlu bir geleceğin anahtarıdır.</li>
+        <li>Dinlemek ve anlaşılmak, mutlu bir aileyi yaratır.</li>
+        <li>Güven, her ilişkinin temelidir.</li>
+        <li>Birlikte her şeyi başarabiliriz.</li>
+        <li>Aile bir ekip işidir; güçlü bir ekip için buradayız.</li>
+        <li>Sevgi ve güvenle yeniden inşa edelim.</li>
+        <li>Aile, hayatın en büyük desteğidir.</li>
+        <li>Ailelerin mutluluğu, toplumun mutluluğudur.</li>
+        <li>Her aile, kendi hikayesini yazabilir.</li>
+        <li>Geçmişi sevgiyle, geleceği umutla kucaklayın.</li>
+        <li>Ailede huzur, hayatta başarı getirir.</li>
+        <li>Birlikte daha iyi bir aile olmak mümkün.</li>
+        <li>Daha mutlu aileler için rehberiniz.</li>
+        <li>Birlikte çözüm bulalım, sevgi dolu yarınlar kuralım.</li>
+        <li>Huzurlu bir aile için ilk adımı atın.</li>
+        <li>Değişim sevgiyle başlar.</li>
+        <li>Her aile, ikinci bir şansı hak eder.</li>
+    </ul>
+</section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Emine Çayır. Tüm hakları saklıdır.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
