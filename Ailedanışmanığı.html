@@ -5,180 +5,281 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aile Danışmanlığı hakkında detaylı bilgiler.</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
+        body, html {
             background-color: rgb(197, 142, 142);
             font-family: 'Times New Roman', Times, serif;
             color: antiquewhite;
             margin: 0;
             padding: 0;
-            opacity: 0;
-            animation: fadeInBounce 5s forwards;
-            padding-top: 60px; /* Menü ve içerik arasındaki boşluk */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Fade-in animasyonu */
-        @keyframes fadeInBounce {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            50% {
-                opacity: 1;
-                transform: translateY(-15px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Menü Tasarımı */
-        .menu {
-            background-color: rgb(0, 0, 0);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 15px 0;
-            text-align: center;
+        .content {
+            flex: 1;
+            padding: 20px;
+            padding-top: 120px; /* Navbar yüksekliği kadar boşluk bırak */
         }
+
+        /* Sosyal Medya İkonları */
+        .social-links {
+            display: flex;
+            justify-content: center;
         
-        .menu ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
 
-        .menu ul li {
-            display: inline;
-            margin-right: 20px;
+        .social-links img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
         }
 
-        .menu ul li a {
+        .social-links img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Navbar Responsive Ayarları */
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+
+        .nav-item {
+            background-color: grey;
+            border-radius: 10px;
+            min-width: 100%;
+            font-size: 15px;
+            margin: 10px;
+            text-align: center;
+            transition: font-size 0.3s ease, padding 0.3s ease;
+        }
+
+        .navbar-toggler {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
-            text-decoration: none;
-            font-size: 18px;
+            text-align: center;
+            padding: 10px;
         }
 
-        .menu ul li a:hover {
-            color: blue;
-        }
-
-        .menu h2 {
-            color: white;
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        /* Sayfa içeriği */
         h1 {
             text-align: center;
-            font-size: x-large;
+            font-size: 1.8rem;
             margin-bottom: 20px;
         }
 
         p {
-            font-size: x-large;
-            line-height: 1.5;
+            font-size: 1.2rem;
+            line-height: 1.6;
             margin-bottom: 20px;
         }
 
-        img {
-            display: block;
-            margin: 20px auto;
-            width: 100%;
-            max-width: 488px;
-            height: auto;
-        }
-
         .image-container {
-            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
         }
 
-        @media (min-width: 768px) {
+        .image-container img {
+            flex: 1 1 calc(33.33% - 10px);
+            max-width: calc(33.33% - 10px);
+            height: auto;
+            border-radius: 8px;
+        }
+        .nav-link {
+            text-decoration: none !important;
+            color: rgb(255, 255, 255) !important;
+        }
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.3rem;
+            }
+
+            .nav-item {
+                font-size: 14px;
+                padding: 5px;
+            }
+
+            .social-links img {
+                width: 35px;
+                height: 35px;
+            }
+
             p {
-                width: 60%;
-                float: left;
+                font-size: 1rem;
             }
 
-            .image-container {
-                float: right;
-                width: 35%;
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .image-container img {
+                flex: 1 1 calc(50% - 10px);
+                max-width: calc(50% - 10px);
             }
         }
 
-        @media (max-width: 767px) {
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1rem;
+            }
+
+            .nav-item {
+                font-size: 12px;
+                padding: 3px;
+            }
+
+            .social-links img {
+                width: 30px;
+                height: 30px;
+            }
+
             p {
-                float: none;
-                width: 100%;
+                font-size: 0.9rem;
             }
 
-            .image-container {
-                float: none;
-                width: 100%;
+            h1 {
+                font-size: 1.2rem;
+                margin-top: 5px;
+            }
+
+            .image-container img {
+                flex: 1 1 100%;
+                max-width: 100%;
             }
         }
+        .offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+     }
     </style>
 </head>
 <body>
-    <!-- Sticky Menü -->
-    <nav class="menu">
-        <h2>İÇERİK</h2>
-        <ul>
-            <li><a href="index.html">*ANA SAYFA</a></li>
-            <li><a href="İLETİŞİM.html">*İletişim bilgileri</a></li>
-        </ul>
-    </nav>
+    <div class="wrapper">
+        <!-- Offcanvas Navbar -->
+        <nav class="navbar navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <!-- Navbar Brand -->
+                <a class="navbar-brand" href="#">Emine Çayır</a>
 
-    <!-- İçerik -->
-    <h1>AİLE DANIŞMANLIĞI</h1>
-    <p>
-        Aile danışmanlığı, sadece bir sorun olduğunda başvurulan bir hizmet değil, aynı zamanda ailelerin potansiyellerini en üst düzeye çıkarmalarına ve daha sağlıklı ilişkiler kurmalarına yardımcı olan bir destek sistemidir.
-        <br><br>
-        Aile Danışmanının Rolü Nedir?
-        Değerlendirme: Ailenin dinamiklerini, iletişim kalıplarını, güçlü ve zayıf yönlerini değerlendirir. Bu değerlendirme, aile üyelerinin bireysel olarak ve bir bütün olarak ihtiyaçlarını belirlemek için önemlidir.
-        Hedef Belirleme: Aile ile birlikte, danışmanlık sürecinin sonunda ulaşılmak istenen hedefleri belirler. Bu hedefler, daha iyi iletişim kurmak, çatışmaları çözmek, güven ilişkilerini güçlendirmek veya bireysel büyümeyi desteklemek gibi çeşitli konuları içerebilir.
-        Müdahale: Ailenin ihtiyaçlarına göre farklı terapi teknikleri kullanır. Bu teknikler arasında sistemik aile terapisi, duygusal odaklı terapi, bilişsel davranışçı terapi gibi yöntemler yer alabilir.
-        Eğitim: Aile üyelerine, sağlıklı iletişim becerileri, problem çözme yöntemleri, duygusal düzenleme gibi konularda eğitim verir.
-        Destek: Aile üyelerine duygusal destek sağlar, onları güçlendirir ve değişim sürecinde motive eder.
-        <br><br>
-        Aile Danışmanlığı Neden Önemlidir?
-        Erken müdahale: Küçük sorunlar büyüyerek aile içinde ciddi sorunlara yol açabilir. Aile danışmanlığı, sorunlar büyüdükçe çözülmesi zorlaşmadan müdahale edilmesini sağlar.
-        Nesilden nesile aktarılan kalıpların kırılması: Aile içindeki olumsuz iletişim kalıpları ve davranış biçimleri, nesilden nesile aktarılabilir. Aile danışmanlığı, bu kalıpların farkına varılmasını ve yeni, daha sağlıklı kalıpların oluşturulmasını sağlar.
-        Bireysel ve ailesel büyüme: Aile danışmanlığı, aile üyelerinin kişisel olarak büyümelerine ve gelişmelerine yardımcı olurken, aynı zamanda ailenin bir bütün olarak güçlenmesini sağlar.
-        Çocukların sağlıklı gelişimi: Çocukların sağlıklı bir şekilde gelişmeleri, büyük ölçüde aile ortamından etkilenir. Aile danışmanlığı, çocukların duygusal, sosyal ve bilişsel gelişimlerini destekler.
-        <br><br>
-        Aile Danışmanlığı Hangi Sorunlarda Yardımcı Olabilir?
-        İletişim sorunları: Dinleme becerilerinin geliştirilmesi, empati kurma, duyguları ifade etme gibi konularda destek sağlar.
-        Çatışma yönetimi: Çatışmaların sağlıklı bir şekilde çözülmesi için gerekli becerilerin kazandırılması.
-        Ebeveynlik zorlukları: Çocuk yetiştirme konusunda yaşanan zorlukların üstesinden gelinmesi.
-        Evlilik sorunları: Evlilik içindeki güvensizlik, iletişimsizlik, sadakatsizlik gibi sorunların çözülmesi.
-        Aile içi şiddet: Şiddetin önlenmesi ve mağdurların iyileşmesi.
-        Ayrılık ve boşanma süreçleri: Bu süreçlerin daha sağlıklı bir şekilde yönetilmesi.
-        Kayıp ve yas: Yakın birini kaybetmenin yarattığı üzüntünün üstesinden gelinmesi.
-        Bağımlılık sorunları: Aile içindeki bağımlılık sorunlarının etkilerinin azaltılması.
-        <br><br>
-        Aile Danışmanlığı Nasıl Bir Süreçtir?
-        Aile danışmanlığı süreci, her ailenin ihtiyaçlarına göre şekillenir. Genellikle şu adımları içerir:
-        Değerlendirme: Ailenin durumu hakkında detaylı bilgi toplanır.
-        Hedef belirleme: Aile ile birlikte, danışmanlık sürecinin sonunda ulaşılmak istenen hedefler belirlenir.
-        Müdahale: Belirlenen hedeflere ulaşmak için uygun terapi teknikleri kullanılır.
-        Değerlendirme ve takip: Süreç boyunca düzenli olarak değerlendirmeler yapılarak ilerleme takip edilir ve gerekli durumlarda plan yeniden gözden geçirilir.
-        <br><br>
-        Aile danışmanlığı, ailelerin daha mutlu, sağlıklı ve uyumlu bir yaşam sürmelerine yardımcı olan önemli bir destek sistemidir.
-        <br><br>
-        Unutmayın, bir aile danışmanına başvurmak, bir zayıflık değil, aksine güçlü bir adım olabilir.
-        <br><br>
-        Eğer ailenizde herhangi bir sorun yaşıyorsanız, bir aile danışmanından destek almak için çekinmeyin.
-    </p>
+                <!-- Sosyal Medya İkonları -->
+                <div class="social-links">
+                    <a href="https://www.instagram.com/empazaile52/">
+                        <img src="Instagram-Logo.wine.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/empazaile52">
+                        <img src="facebook.png" alt="Facebook">
+                    </a>
+                    <a href="https://www.google.com.tr/maps/place/Empaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1/@41.0295695,37.4972486,17z/data=!4m6!3m5!1s0x4062c505e846e999:0x75b4c973311c42ef!8m2!3d41.0295695!4d37.4998235!16s%2Fg%2F11wq6pmk01?hl=tr&entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D">
+                        <img src="RESİM 6.png" alt="Konum">
+                    </a>
+                </div>
 
-    <div class="image-container">
-        <img src="resim2.png" alt="Resim 2">
-        <img src="resim3.jpg" alt="Resim 3">
-        <img src="resim4.jpg" alt="Resim 4">
-        <img src="resim7.jpeg" alt="Resim 5">
-        <img src="resim8.jpeg" alt="Resim 6">
+                <!-- Hamburger Menü -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Offcanvas Menü -->
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menü</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Ana Sayfa</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="İLETİŞİM.html">İletişim</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="medya.html">Medya</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+       <!-- İçerik --> 
+        <div class="content">
+            <h1>AİLE DANIŞMANLIĞI</h1>
+            <p>
+                Aile danışmanlığı, sadece bir sorun olduğunda başvurulan bir hizmet değil, aynı zamanda ailelerin potansiyellerini en üst düzeye çıkarmalarına ve daha sağlıklı ilişkiler kurmalarına yardımcı olan bir destek sistemidir.
+                <br><br>
+                Aile Danışmanının Rolü Nedir?
+                Değerlendirme: Ailenin dinamiklerini, iletişim kalıplarını, güçlü ve zayıf yönlerini değerlendirir. Bu değerlendirme, aile üyelerinin bireysel olarak ve bir bütün olarak ihtiyaçlarını belirlemek için önemlidir.
+                Hedef Belirleme: Aile ile birlikte, danışmanlık sürecinin sonunda ulaşılmak istenen hedefleri belirler. Bu hedefler, daha iyi iletişim kurmak, çatışmaları çözmek, güven ilişkilerini güçlendirmek veya bireysel büyümeyi desteklemek gibi çeşitli konuları içerebilir.
+                Müdahale: Ailenin ihtiyaçlarına göre farklı terapi teknikleri kullanır. Bu teknikler arasında sistemik aile terapisi, duygusal odaklı terapi, bilişsel davranışçı terapi gibi yöntemler yer alabilir.
+                Eğitim: Aile üyelerine, sağlıklı iletişim becerileri, problem çözme yöntemleri, duygusal düzenleme gibi konularda eğitim verir.
+                Destek: Aile üyelerine duygusal destek sağlar, onları güçlendirir ve değişim sürecinde motive eder.
+                <br><br>
+                Aile Danışmanlığı Neden Önemlidir?
+                Erken müdahale: Küçük sorunlar büyüyerek aile içinde ciddi sorunlara yol açabilir. Aile danışmanlığı, sorunlar büyüdükçe çözülmesi zorlaşmadan müdahale edilmesini sağlar.
+                Nesilden nesile aktarılan kalıpların kırılması: Aile içindeki olumsuz iletişim kalıpları ve davranış biçimleri, nesilden nesile aktarılabilir. Aile danışmanlığı, bu kalıpların farkına varılmasını ve yeni, daha sağlıklı kalıpların oluşturulmasını sağlar.
+                Bireysel ve ailesel büyüme: Aile danışmanlığı, aile üyelerinin kişisel olarak büyümelerine ve gelişmelerine yardımcı olurken, aynı zamanda ailenin bir bütün olarak güçlenmesini sağlar.
+                Çocukların sağlıklı gelişimi: Çocukların sağlıklı bir şekilde gelişmeleri, büyük ölçüde aile ortamından etkilenir. Aile danışmanlığı, çocukların duygusal, sosyal ve bilişsel gelişimlerini destekler.
+                <br><br>
+                Aile Danışmanlığı Hangi Sorunlarda Yardımcı Olabilir?
+                İletişim sorunları: Dinleme becerilerinin geliştirilmesi, empati kurma, duyguları ifade etme gibi konularda destek sağlar.
+                Çatışma yönetimi: Çatışmaların sağlıklı bir şekilde çözülmesi için gerekli becerilerin kazandırılması.
+                Ebeveynlik zorlukları: Çocuk yetiştirme konusunda yaşanan zorlukların üstesinden gelinmesi.
+                Evlilik sorunları: Evlilik içindeki güvensizlik, iletişimsizlik, sadakatsizlik gibi sorunların çözülmesi.
+                Aile içi şiddet: Şiddetin önlenmesi ve mağdurların iyileşmesi.
+                Ayrılık ve boşanma süreçleri: Bu süreçlerin daha sağlıklı bir şekilde yönetilmesi.
+                Kayıp ve yas: Yakın birini kaybetmenin yarattığı üzüntünün üstesinden gelinmesi.
+                Bağımlılık sorunları: Aile içindeki bağımlılık sorunlarının etkilerinin azaltılması.
+                <br><br>
+                Aile Danışmanlığı Nasıl Bir Süreçtir?
+                Aile danışmanlığı süreci, her ailenin ihtiyaçlarına göre şekillenir. Genellikle şu adımları içerir:
+                Değerlendirme: Ailenin durumu hakkında detaylı bilgi toplanır.
+                Hedef belirleme: Aile ile birlikte, danışmanlık sürecinin sonunda ulaşılmak istenen hedefler belirlenir.
+                Müdahale: Belirlenen hedeflere ulaşmak için uygun terapi teknikleri kullanılır.
+                Değerlendirme ve takip: Süreç boyunca düzenli olarak değerlendirmeler yapılarak ilerleme takip edilir ve gerekli durumlarda plan yeniden gözden geçirilir.
+                <br><br>
+                Aile danışmanlığı, ailelerin daha mutlu, sağlıklı ve uyumlu bir yaşam sürmelerine yardımcı olan önemli bir destek sistemidir.
+                <br><br>
+                Unutmayın, bir aile danışmanına başvurmak, bir zayıflık değil, aksine güçlü bir adım olabilir.
+                <br><br>
+                Eğer ailenizde herhangi bir sorun yaşıyorsanız, bir aile danışmanından destek almak için çekinmeyin.
+            </p>
+        
+        
+            <div class="image-container">
+                <img src="resim2.png" alt="Resim 2">
+                <img src="resim3.jpg" alt="Resim 3">
+                <img src="resim4.jpg" alt="Resim 4">
+                <img src="resim7.jpeg" alt="Resim 5">
+                <img src="resim8.jpeg" alt="Resim 6">
+                <img src="OIP.jpg" alt="Resim 7">
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Aile Danışmanlığı. Tüm hakları saklıdır.</p>
+        </footer>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
