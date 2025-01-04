@@ -7,141 +7,204 @@
     <meta name="keywords" content="danışmanlık, eğitim, rehberlik, Emine Çayır, aile danışmanlığı, aile danışmanı emine, emine çayır aile danışmanlığı , empaz aile danışmanlığı">
     <title>Emine Çayır İş Tanıtımı ve Bir Biyografi</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            background-color: rgb(197, 142, 142);
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
             font-family: 'Times New Roman', Times, serif;
-            color: antiquewhite;
-            margin: 0;
-            padding: 0;
-            opacity: 0;
-            animation: fadeInBounce 4s forwards;
         }
 
-        /* Menü Sabitleme */
-        .sticky-menu {
-            position: -webkit-sticky; /* Safari için */
-            position: sticky;
-            top: 0; /* Menü sayfa üstünde sabit olacak */
-            background-color: #333;
-            padding: 10px;
-            z-index: 1000;
-            margin: 0;
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        .sticky-menu ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        .sticky-menu ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        .sticky-menu ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        .sticky-menu ul li a:hover {
-            color: #3498db;
-        }
-
-        .sticky-menu h2 {
-            color: white;
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        @keyframes fadeInBounce {
-            0% {
-                opacity: 0;
-                transform: translateY(30px); /* Sayfa açılırken öğe aşağıda başlar */
-            }
-            50% {
-                opacity: 1;
-                transform: translateY(-15px); /* Zıplama hareketi */
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0); /* Son durumda öğe normalde */
-            }
-        }
-
-        /* Profil resminin ve biyografi metninin stili */
-        .profile-image {
-            float: left;
-            margin-right: 20px;
-            margin-bottom: 10px;
-            border-style: double;
-        }
-        .images {
-            clear: both; /* İlk resmin float özelliğini temizler */
-            margin-top: 20px;
-        }
-        img {
-            margin-bottom: 10px;
-            border-style: double;
-        }
-        h1 {
-            margin-top: 0;
-            text-align: center;
-        }
-        a {
-            font-size: x-large;
-            color: antiquewhite;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        p {
-            font-size: x-large;
-        }
-
-        .element {
-            transition: all 0.3s ease;
-        }
-        .element:hover {
-            background-color: #3498db;
-            transform: scale(1.1);
-        }
-
-        /* Alt boşluk */
         .content {
-            padding-top: 20px;
+            flex: 1;
+            padding: 20px;
+            background-color: rgb(197, 142, 142);
+            color: antiquewhite;
+            font-size: 1rem; /* Varsayılan yazı boyutu */
         }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .image-container img {
+            flex: 1;
+            max-width: calc(33.33% - 10px);
+            height: auto;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Navbar Düzenlemeleri */
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+
+        .nav-item {
+            background-color: grey;
+            border-radius: 10px;
+            
+            min-width: 100%;
+            font-size: 15px;
+            margin: 10px;
+            text-align: center;
+            transition: font-size 0.3s ease, padding 0.3s ease;
+        }
+
+        /* Linklerin varsayılan alt çizgisini ve mavi çizgiyi kaldır */
+        .nav-link {
+            text-decoration: none !important;
+            color: rgb(255, 255, 255) !important;
+        }
+
+        /* Sosyal Medya İkonları */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            
+        }
+
+        .social-links img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Responsive Ayarlar */
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.3rem;
+            }
+
+            .nav-item {
+                font-size: 14px;
+                padding: 5px;
+            }
+
+            .social-links img {
+                width: 35px;
+                height: 35px;
+            }
+            .font-fix {
+        font-size: clamp(14px, 2.5vw, 22px);
+    }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1rem;
+            }
+
+            .nav-item {
+                font-size: 12px;
+                padding: 3px;
+            }
+
+            .social-links img {
+                width: 30px;
+                height: 30px;
+            }
+            .font-fix {
+        font-size: clamp(12px, 3vw, 20px);
+    }
+        }
+        .font-fix {
+    font-size: clamp(16px, 2vw, 25px); /* Minimum 16px, ekran genişliğinin %2'si ve maksimum 25px */
+    } 
     </style>
 </head>
 <body>
+    <div class="wrapper">
+        <!-- Offcanvas Navbar -->
+        <nav class="navbar navbar-dark bg-dark sticky-top">
+            <div class="container-fluid">
+                <!-- Navbar Brand -->
+                <a class="navbar-brand" href="#">Emine Çayır</a>
 
-    <!-- Sabit Menü -->
-    <nav class="sticky-menu">
-        <ul>
-            <h2>İÇERİK</h2>
-            <li><a href="Ailedanışmanığı.html">*Aile Danışmanlığı Nedir?</a></li>
-            <br>
-            <li><a href="İLETİŞİM.html">*İletişim bilgileri</a></li>
-        </ul>
-    </nav>
+                <!-- Sosyal Medya İkonları -->
+                <div class="social-links">
+                    <a href="https://www.instagram.com/empazaile52/">
+                        <img src="Instagram-Logo.wine.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/empazaile52">
+                        <img src="facebook.png" alt="Facebook">
+                    </a>
+                    <a href="https://www.google.com.tr/maps/place/Empaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1/@41.0295695,37.4972486,17z/data=!4m6!3m5!1s0x4062c505e846e999:0x75b4c973311c42ef!8m2!3d41.0295695!4d37.4998235!16s%2Fg%2F11wq6pmk01?hl=tr&entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D">
+                        <img src="RESİM 6.png" alt="Konum">
+                    </a>
+                </div>
 
-    <header>
-        <h1>BİYOGRAFİ:</h1>
-    </header>
-    
-    <div class="content">
-        <img class="profile-image" src="resim.jpeg" width="370" height="400" alt="Emine Çayır at an event">
-        <p>
-            Emine Çayır 09.01.1988 tarihinde doğmuştur. Ordu Fatsalıdır. Yaklaşık 18 yaşına kadar Ordu'da yaşamış, ardından evlilik sebebiyle taşınmıştır. Taşındığı İstanbul'da Aile danışmanlığı, çocuk ergen psikolojisi, rüya tabirliği, diksiyon eğitimi gibi birçok konuda eğitim almış ve yaklaşık 10 seneden beri aktif olarak Aile Danışmanı olarak çalışmaktadır. İstanbul’dan bir takım sebepler nedeniyle Ordu’ya dönmüş ve burada Aile danışmanlığı yapmaya başlamıştır.
-        </p>
+                <!-- Hamburger Menü -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Offcanvas Menü -->
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menü</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link" href="Ailedanışmanığı.html">Aile Danışmanlığı Nedir</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="İLETİŞİM.html">İletişim Bilgileri</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="medya.html">Medya</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- İçerik -->
+        <div class="content">
+            <div class="image-container">
+                <img src="WhatsApp Görsel 3f78.jpg" alt="Emine Çayır">
+                <img src="WhatsApp Görsel 78.jpg" alt="Emine Çayır">
+                <img src="resim.jpeg" alt="Emine Çayır">
+            </div>
+            <p class="font-fix">
+                Emine Çayır 09.01.1988 tarihinde doğmuştur. Ordu Fatsalıdır. Yaklaşık 18 yaşına kadar Ordu'da yaşamış, ardından evlilik sebebiyle taşınmıştır. Taşındığı İstanbul'da Aile danışmanlığı, çocuk ergen psikolojisi, rüya tabirliği, diksiyon eğitimi gibi birçok konuda eğitim almış ve yaklaşık 10 seneden beri aktif olarak Aile Danışmanı olarak çalışmaktadır. İstanbul’dan bir takım sebepler nedeniyle Ordu’ya dönmüş ve burada Aile danışmanlığı yapmaya başlamıştır.
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Emine Çayır. Tüm hakları saklıdır.</p>
+        </footer>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Emine Çayır. Tüm hakları saklıdır.</p>
-    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
