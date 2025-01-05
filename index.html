@@ -112,8 +112,12 @@
             }
             .font-fix {
         font-size: clamp(16px, 2.5vw, 22px);
+       }
+       .big-header{
+        font-size: clamp(18px, 2vw, 25px); /* Minimum 16px, ekran genişliğinin %2'si ve maksimum 25px */
     }
-        }
+    }
+        
 
         @media (max-width: 576px) {
             .navbar-brand {
@@ -132,6 +136,9 @@
             .font-fix {
         font-size: clamp(14px, 3vw, 20px);
     }
+    .big-header{
+        font-size: clamp(20px, 2vw, 25px); /* Minimum 16px, ekran genişliğinin %2'si ve maksimum 25px */
+    }
         }
         .font-fix {
     font-size: clamp(18px, 2vw, 25px); /* Minimum 16px, ekran genişliğinin %2'si ve maksimum 25px */
@@ -139,6 +146,19 @@
     .big-header{
         font-size: clamp(20px, 2vw, 25px); /* Minimum 16px, ekran genişliğinin %2'si ve maksimum 25px */
     }
+    .whatsapp-navbar-button {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .whatsapp-navbar-button:hover {
+            background-color: #1DA851;
+        }
     </style>
 </head>
 <body>
@@ -160,6 +180,8 @@
                     <a href="https://www.google.com.tr/maps/place/Empaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1/@41.0295695,37.4972486,17z/data=!4m6!3m5!1s0x4062c505e846e999:0x75b4c973311c42ef!8m2!3d41.0295695!4d37.4998235!16s%2Fg%2F11wq6pmk01?hl=tr&entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D">
                         <img src="RESİM 6.png" alt="Konum">
                     </a>
+                    <!-- WhatsApp Butonu -->
+                 <button class="whatsapp-navbar-button" data-bs-toggle="modal" data-bs-target="#whatsappModal">WhatsApp</button>
                 </div>
 
                 <!-- Hamburger Menü -->
@@ -221,6 +243,27 @@
                 Emine Çayır, Ordu’da ailelere daha etkili hizmet verebilmek için grup terapileri ve atölye çalışmaları düzenlemeyi planlamaktadır. Özellikle evlilik öncesi danışmanlık ve ebeveyn eğitim programları gibi alanlarda yeni projeler geliştirmeyi hedeflemektedir. Ayrıca, okullarda ve çeşitli kurumlarda seminerler vererek aile içi iletişim ve çocuk gelişimi konularında toplumsal farkındalığı artırmayı amaçlamaktadır.
              </p>
         </div>
+<!-- WhatsApp Modal (Popup) -->
+<!-- Mevcut Modal Yapısı -->
+<div class="modal fade" id="whatsappModal" tabindex="-1" aria-labelledby="whatsappModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="whatsappModalLabel">WhatsApp Mesaj Gönder</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Ad Textarea -->
+                <textarea id="name" class="form-control mb-3" rows="2" placeholder="Adınızı yazın" required></textarea>
+                <!-- Mesaj Textarea -->
+                <textarea id="message" class="form-control" rows="5" placeholder="Mesajınızı yazın" required></textarea>
+                <!-- Gönder Butonu -->
+                <button id="sendWhatsAppButton" class="btn btn-success w-100 mt-3">Gönder</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
         <!-- Footer -->
         <footer>
@@ -229,5 +272,33 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+ document.addEventListener('DOMContentLoaded', function () {
+    const sendWhatsAppButton = document.getElementById('sendWhatsAppButton'); // Gönder butonu
+    const nameInput = document.getElementById('name'); // Ad Textarea
+    const messageInput = document.getElementById('message'); // Mesaj Textarea
+    const phoneNumber = '905426101403'; // WhatsApp telefon numarası
+
+    sendWhatsAppButton.addEventListener('click', function () {
+        const name = nameInput.value.trim();
+        const message = messageInput.value.trim();
+
+        if (name && message) {
+            // Dinamik mesaj oluştur
+            const newMessage = `Merhaba, benim adım ${name}. Mesajım: ${message}`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(newMessage)}`;
+
+            // WhatsApp'ı yeni sekmede aç
+            window.open(whatsappUrl, '_blank');
+
+            // Form alanlarını temizle
+            nameInput.value = '';
+            messageInput.value = '';
+        } else {
+            alert('Lütfen adınızı ve mesajınızı yazınız!');
+        }
+    });
+});
+    </script>
 </body>
 </html>
