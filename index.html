@@ -85,10 +85,10 @@
         }
 
         .social-links img {
-            width: 40px;
-            height: 40px;
+            width: clamp(30px, 5vw, 40px); /* Minimum 30px, ekran genişliğine göre %5, maksimum 40px */
+            height: clamp(30px, 5vw, 40px);
             border-radius: 8px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
         }
 
         .social-links img:hover {
@@ -107,14 +107,19 @@
             }
 
             .social-links img {
-                width: 35px;
-                height: 35px;
+                .social-links img {
+        width: clamp(25px, 7vw, 35px);
+        height: clamp(25px, 7vw, 35px);
+    }
             }
             .font-fix {
         font-size: clamp(16px, 2.5vw, 22px);
        }
        .big-header{
         font-size: clamp(18px, 2vw, 25px); /* Minimum 16px, ekran genişliğinin %2'si ve maksimum 25px */
+    }
+    .whatsapp-navbar-button{
+        font-size: 1px;
     }
     }
         
@@ -130,8 +135,10 @@
             }
 
             .social-links img {
-                width: 30px;
-                height: 30px;
+                .social-links img {
+        width: clamp(20px, 9vw, 30px);
+        height: clamp(20px, 9vw, 30px);
+    }
             }
             .font-fix {
         font-size: clamp(14px, 3vw, 20px);
@@ -147,18 +154,15 @@
         font-size: clamp(20px, 2vw, 25px); /* Minimum 16px, ekran genişliğinin %2'si ve maksimum 25px */
     }
     .whatsapp-navbar-button {
-            background-color: #25D366;
-            color: white;
+          
+         
             border: none;
             border-radius: 5px;
-            padding: 5px 10px;
             font-size: 14px;
             cursor: pointer;
         }
 
-        .whatsapp-navbar-button:hover {
-            background-color: #1DA851;
-        }
+        
     </style>
 </head>
 <body>
@@ -181,7 +185,7 @@
                         <img src="RESİM 6.png" alt="Konum">
                     </a>
                     <!-- WhatsApp Butonu -->
-                 <button class="whatsapp-navbar-button" data-bs-toggle="modal" data-bs-target="#whatsappModal">WhatsApp</button>
+                 <button class="whatsapp-navbar-button" data-bs-toggle="modal" data-bs-target="#whatsappModal"><img src="RESİM w.png"width alt=""></button>
                 </div>
 
                 <!-- Hamburger Menü -->
@@ -249,7 +253,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="whatsappModalLabel">WhatsApp Mesaj Gönder</h5>
+                <h5 class="modal-title" id="whatsappModalLabel"><img src="pngtree-whatsapp-icon-png-image_8704827.png" alt=""></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
             </div>
             <div class="modal-body">
