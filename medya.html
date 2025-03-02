@@ -91,6 +91,11 @@
             height: clamp(30px, 5vw, 40px);
             border-radius: 8px;
             transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+            border: 2px solid white;  
+            border-radius: 50%;
+            padding: 2px;
+            margin: 2px;
+            
         }
 
         .social-links img:hover {
@@ -200,7 +205,7 @@
 
 /* Hover Durumu */
 .slogan-list li:hover {
-    color: #ff9e8f;
+    color: #4b2721;
     transform: scale(1.05);
     text-shadow: 0px 2px 5px rgba(255, 102, 0, 0.5);
 }
@@ -209,7 +214,7 @@
     justify-content: center; /* Yatay ortalama */
     align-items: center; /* Dikey ortalama */
     flex-direction: column; /* Dikeyde sıralama */
-    
+    margin-top: 20px;
     gap: 20px; /* Butonlar arasına boşluk */
     background-color: rgb(197, 142, 142); /* İçerik arka planı */
 }
@@ -224,6 +229,16 @@
     justify-content: center; 
     cursor: pointer;
       }
+      .probio{
+        background: rgba(255, 255, 255, 0.2); /* Yarı saydam beyaz arka plan */
+    backdrop-filter: blur(10px); /* Cam efekti */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Gölge efekti */
+      }
+      .insfix{
+        margin-left: 10px;
+      }
     </style>
 </head>
 <body>
@@ -236,9 +251,11 @@
 
                 <!-- Sosyal Medya İkonları -->
                 <div class="social-links">
+                    <div class="insfix">
                     <a href="https://www.instagram.com/empazaile52/">
                         <img src="Instagram-Logo.wine.svg" alt="Instagram">
                     </a>
+                </div>
                     <a href="https://www.facebook.com/empazaile52">
                         <img src="facebook.png" alt="Facebook">
                     </a>
@@ -330,7 +347,9 @@
         </div>
     </div>
 </div>
+
 <section class="slogan-section">
+    <div class="probio">
     <h3 class="text-center slogan-title">"TÜM BUNLAR İÇİN EMPAZ AİLE DANIŞMANLIĞI"</h3>
     <ul class="slogan-list">
         <li>Güçlü bağlar, mutlu yuvalar.</li>
@@ -364,6 +383,7 @@
         <li>Değişim sevgiyle başlar.</li>
         <li>Her aile, ikinci bir şansı hak eder.</li>
     </ul>
+</div>
 </section>
 <!-- WhatsApp Modal (Popup) -->
 <!-- Mevcut Modal Yapısı -->
