@@ -56,24 +56,33 @@
         }
 
         /* Navbar Responsive Ayarları */
-        .navbar-brand {
-            font-size: 1.5rem;
-        }
+         .navbar {
+    background: rgba(0, 0, 0, 0.85) !important;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 15px 0;
+}
 
-        .nav-item {
-            background-color: grey;
-            border-radius: 10px;
-            min-width: 100%;
-            font-size: 15px;
-            margin: 10px;
-            text-align: center;
-            transition: font-size 0.3s ease, padding 0.3s ease;
-        }
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #f6f5f5 !important;
+}
 
-        .navbar-toggler {
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
+.navbar-nav .nav-item {
+    margin: 0 10px;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 8px 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
 
         footer {
             background-color: rgba(0, 0, 0, 0.8);
