@@ -45,6 +45,10 @@
             height: clamp(30px, 5vw, 40px);
             border-radius: 8px;
             transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+            border: 2px solid white;  
+            border-radius: 50%;
+            padding: 2px;
+            margin: 2px;
         }
 
         .social-links img:hover {
@@ -189,6 +193,19 @@
     justify-content: center; 
     cursor: pointer;
       }
+      .probio{
+        
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px); /* Cam efekti */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Daha belirgin gölge */
+      margin-bottom: 20px;
+
+      }
+      .insfix{
+        margin-left: 10px;
+      }
     </style>
 </head>
 <body>
@@ -201,9 +218,11 @@
 
                 <!-- Sosyal Medya İkonları -->
                 <div class="social-links">
-                    <a href="https://www.instagram.com/empazaile52/">
-                        <img src="Instagram-Logo.wine.svg" alt="Instagram">
-                    </a>
+                    <div class="insfix">
+                        <a href="https://www.instagram.com/empazaile52/">
+                            <img src="Instagram-Logo.wine.svg" alt="Instagram">
+                        </a>
+                    </div>
                     <a href="https://www.facebook.com/empazaile52">
                         <img src="facebook.png" alt="Facebook">
                     </a>
@@ -243,6 +262,7 @@
 
        <!-- İçerik --> 
         <div class="content">
+            <div class="probio">
             <h1>AİLE DANIŞMANLIĞI</h1>
             <p>
                 Aile danışmanlığı, sadece bir sorun olduğunda başvurulan bir hizmet değil, aynı zamanda ailelerin potansiyellerini en üst düzeye çıkarmalarına ve daha sağlıklı ilişkiler kurmalarına yardımcı olan bir destek sistemidir.
@@ -283,7 +303,7 @@
                 <br><br>
                 Eğer ailenizde herhangi bir sorun yaşıyorsanız, bir aile danışmanından destek almak için çekinmeyin.
             </p>
-        
+        </div>
         
             <div class="image-container">
                 <img src="resim2.png" alt="Resim 2">
