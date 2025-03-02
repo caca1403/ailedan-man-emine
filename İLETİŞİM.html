@@ -53,6 +53,10 @@
             height: 40px;
             border-radius: 8px;
             transition: transform 0.3s ease;
+            border: 2px solid white;  
+            border-radius: 50%;
+            padding: 2px;
+            margin: 2px;
             
         }
 
@@ -92,6 +96,7 @@
                 .social-links img {
         width: clamp(25px, 7vw, 35px);
         height: clamp(25px, 7vw, 35px);
+        
     }
             }
             .font-fix {
@@ -148,6 +153,16 @@
     justify-content: center; 
     cursor: pointer;
       }
+      .probio{
+        background: rgba(255, 255, 255, 0.2); /* Yarı saydam beyaz arka plan */
+    backdrop-filter: blur(10px); /* Cam efekti */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Gölge efekti */
+      }
+      .insfix{
+        margin-left: 10px;
+      }
     </style>
 </head>
 <body>
@@ -160,9 +175,11 @@
 
                 <!-- Sosyal Medya İkonları -->
                 <div class="social-links">
+                    <div class="insfix">
                     <a href="https://www.instagram.com/empazaile52/">
                         <img src="Instagram-Logo.wine.svg" alt="Instagram">
                     </a>
+                </div>
                     <a href="https://www.facebook.com/empazaile52">
                         <img src="facebook.png" alt="Facebook">
                     </a>
@@ -202,6 +219,7 @@
 
         <!-- İçerik -->
         <div class="content container">
+            <div class="probio">
             <header class="text-center mb-4">
                 <strong>İş yerinin adresi: Mustafa Kemal Paşa Mahallesi, Pazar Sokak, Sadeler Pasajı No:15, Kat:1</strong>
             </header>
@@ -218,6 +236,7 @@
                     Telefon numarasından kendisine ulaşamayanlar yukarıda verilen linkleri (simge) kullanarak sosyal medya hesapları aracılığıyla kendisine ulaşabilirsiniz. Eğer Aile danışmanımızı adresinde ziyaret etmek isterseniz, konumu yukarıda verilmiştir.
                 </p>
             </section>
+        </div>
         </div>
 <!-- WhatsApp Modal (Popup) -->
 <!-- Mevcut Modal Yapısı -->
