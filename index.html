@@ -42,6 +42,7 @@
             max-width: calc(33.33% - 10px);
             height: auto;
             border-radius: 8px;
+            border: 2px solid white; 
         }
 
         footer {
@@ -89,7 +90,10 @@
             height: clamp(30px, 5vw, 40px);
             border-radius: 8px;
             transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
-            
+            border: 2px solid white;  
+            border-radius: 50%;
+            padding: 2px;
+            margin: 2px;
         }
 
         .social-links img:hover {
@@ -167,6 +171,17 @@
     cursor: pointer;
         }
 
+        .probio{
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px); /* Cam efekti */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Daha belirgin gölge */
+      }
+      .insfix{
+        margin-left: 10px;
+      }
         
     </style>
 </head>
@@ -180,9 +195,11 @@
 
                 <!-- Sosyal Medya İkonları -->
                 <div class="social-links">
-                    <a href="https://www.instagram.com/empazaile52/">
-                        <img src="Instagram-Logo.wine.svg" alt="Instagram">
-                    </a>
+                    <div class="insfix">
+                        <a href="https://www.instagram.com/empazaile52/">
+                            <img src="Instagram-Logo.wine.svg" alt="Instagram">
+                        </a>
+                    </div>
                     <a href="https://www.facebook.com/empazaile52">
                         <img src="facebook.png" alt="Facebook">
                     </a>
@@ -228,6 +245,7 @@
                 <img src="WhatsApp Görsel 78.jpg" alt="Emine Çayır">
                 <img src="resim.jpeg" alt="Emine Çayır">
             </div>
+            <div class="probio">
             <p class="font-fix">
                 <header class="big-header">1. Eğitim ve Mesleki Gelişim</header>
                 <p>
@@ -251,6 +269,7 @@
                 <p>
                 Emine Çayır, Ordu’da ailelere daha etkili hizmet verebilmek için grup terapileri ve atölye çalışmaları düzenlemeyi planlamaktadır. Özellikle evlilik öncesi danışmanlık ve ebeveyn eğitim programları gibi alanlarda yeni projeler geliştirmeyi hedeflemektedir. Ayrıca, okullarda ve çeşitli kurumlarda seminerler vererek aile içi iletişim ve çocuk gelişimi konularında toplumsal farkındalığı artırmayı amaçlamaktadır.
              </p>
+            </div>
         </div>
 <!-- WhatsApp Modal (Popup) -->
 <!-- Mevcut Modal Yapısı -->
