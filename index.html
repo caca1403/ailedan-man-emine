@@ -3,24 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Empaz Aile Danışmanlığı - Emine Çayır | Ordu'nun önde gelen aile danışmanı. 10 yıllık deneyimle evlilik, çift terapisi ve aile danışmanlığı hizmetleri. Aile Danışmanı Emine Çayır ile profesyonel destek alın.">
-    <meta name="keywords" content="empaz aile danışmanlığı, emine çayır, aile danışmanı emine, ordu aile danışmanı, emine çayır aile danışmanlığı, empaz aile, aile terapisti ordu">
-    <meta name="author" content="Emine Çayır">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-    <link rel="canonical" href="https://www.empazaile.com"/>
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Empaz Aile Danışmanlığı | Aile Danışmanı Emine Çayır">
-    <meta property="og:description" content="Empaz Aile Danışmanlığı - Emine Çayır ile profesyonel aile danışmanlığı hizmetleri. Ordu'da güvenilir ve uzman aile danışmanlığı.">
-    <meta property="og:image" content="guncel1.jpg">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Empaz Aile Danışmanlığı | Aile Danışmanı Emine Çayır">
-    <meta name="twitter:description" content="Empaz Aile Danışmanlığı - Emine Çayır ile profesyonel aile danışmanlığı hizmetleri. Ordu'da güvenilir ve uzman aile danışmanlığı.">
-    
-    <title>Empaz Aile Danışmanlığı | Aile Danışmanı Emine Çayır - Ordu</title>
+    <meta name="description" content="Emine Çayır kısa bir biyografi/tanıtım ve aile danışmanlığı hakkında kapsamlı bilgiler.">
+    <meta name="keywords" content="danışmanlık, eğitim, rehberlik, Emine Çayır, aile danışmanlığı, aile danışmanı emine, emine çayır aile danışmanlığı , empaz aile danışmanlığı">
+    <title>Emine Çayır İş Tanıtımı ve Bir Biyografi</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -71,22 +56,14 @@
     background: rgba(0, 0, 0, 0.85) !important;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 }
 .offcanvas-header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .navbar-brand {
-    font-size: clamp(1rem, 2.5vw, 1.8rem);
+    font-size: 1.8rem;
     font-weight: bold;
     color: #f6f5f5 !important;
-    white-space: normal;
-    text-align: left;
-    line-height: 1.2;
-    padding-right: 10px;
-    max-width: 40%;
 }
 
 .navbar-nav .nav-item {
@@ -110,63 +87,86 @@
         .social-links {
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin: 0 auto;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            
         }
 
         .social-links img {
-            width: clamp(25px, 4vw, 35px);
-            height: clamp(25px, 4vw, 35px);
+            width: clamp(30px, 5vw, 40px); /* Minimum 30px, ekran genişliğine göre %5, maksimum 40px */
+            height: clamp(30px, 5vw, 40px);
+            border-radius: 8px;
+            transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+            border: 2px solid white;  
             border-radius: 50%;
             padding: 2px;
-            border: 2px solid white;
-            transition: transform 0.3s ease;
+            margin: 2px;
         }
 
         .social-links img:hover {
-            transform: scale(1.1);
+            transform: scale(1.2);
         }
 
         /* Responsive Ayarlar */
         @media (max-width: 768px) {
             .navbar-brand {
-                font-size: clamp(0.9rem, 3vw, 1.3rem);
-                max-width: 50%;
+                font-size: 1.3rem;
             }
-            
-            .social-links {
-                gap: 5px;
+
+            .nav-item {
+                font-size: 14px;
+                padding: 5px;
             }
-            
+
             .social-links img {
-                width: clamp(22px, 5vw, 30px);
-                height: clamp(22px, 5vw, 30px);
+                .social-links img {
+        width: clamp(25px, 7vw, 35px);
+        height: clamp(25px, 7vw, 35px);
+    }
             }
-        }
+            .font-fix {
+        font-size: clamp(16px, 2.5vw, 22px);
+         color: black;       
+       }
+       .big-header{
+        font-size: clamp(18px, 2vw, 25px); /* Minimum 16px, ekran genişliğinin %2'si ve maksimum 25px */
+    }
+    .whatsapp-navbar-button{
+        font-size: 1px;
+    }
+    }
         
+
         @media (max-width: 576px) {
             .navbar-brand {
-                font-size: clamp(0.8rem, 3.5vw, 1rem);
-                max-width: 60%;
+                font-size: 1rem;
             }
-            
-            .social-links {
-                gap: 3px;
+
+            .nav-item {
+                font-size: 12px;
+                padding: 3px;
             }
-            
+
             .social-links img {
-                width: clamp(20px, 6vw, 25px);
-                height: clamp(20px, 6vw, 25px);
-            }
+                
+        width: clamp(20px, 9vw, 30px);
+        height: clamp(20px, 9vw, 30px);
+    }
+            
+            .font-fix {
+        font-size: clamp(14px, 3vw, 20px);
+    }
+    .big-header{
+        font-size: clamp(20px, 2vw, 25px); /* Minimum 16px, ekran genişliğinin %2'si ve maksimum 25px */
+    }
         }
         .font-fix {
-    font-size: clamp(16px, 2.5vw, 22px);
-    color: black;       
-}
-    .big-header {
-        font-size: clamp(18px, 2vw, 25px);
-        margin-bottom: 15px;
+    font-size: clamp(18px, 2vw, 25px); /* Minimum 16px, ekran genişliğinin %2'si ve maksimum 25px */
+    } 
+    .big-header{
+        font-size: clamp(20px, 2vw, 25px); /* Minimum 16px, ekran genişliğinin %2'si ve maksimum 25px */
     }
     .whatsapp-navbar-button {
             background-color: transparent !important;
@@ -178,25 +178,19 @@
     align-items: center; 
     justify-content: center; 
     cursor: pointer;
-    min-width: auto;
-}
+        }
 
-.whatsapp-navbar-button img {
-    width: clamp(25px, 4vw, 35px);
-    height: clamp(25px, 4vw, 35px);
-}
-
-.probio{
-    margin-top: 20px;
-    background: rgba(255, 255, 255, 0.2);
+        .probio{
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px); /* Cam efekti */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Daha belirgin gölge */
-  }
-  .insfix{
-    margin-left: 5px;
-  }
+      }
+      .insfix{
+        margin-left: 10px;
+      }
         
     </style>
 </head>
@@ -206,7 +200,7 @@
         <nav class="navbar navbar-dark bg-dark sticky-top">
             <div class="container-fluid">
                 <!-- Navbar Brand -->
-                <a class="navbar-brand" href="#">Empaz Aile Danışmanlığı | Emine Çayır</a>
+                <a class="navbar-brand" href="#">Emine Çayır</a>
 
                 <!-- Sosyal Medya İkonları -->
                 <div class="social-links">
@@ -267,25 +261,25 @@
             <p class="font-fix">
                 <header class="big-header">1. Eğitim ve Mesleki Gelişim</header>
                 <p>
-                Emine Çayır, İstanbul'a taşındıktan sonra mesleki anlamda kendini geliştirmek için çeşitli eğitim programlarına katılmıştır. Aile Danışmanlığı ve Çocuk-Ergen Psikolojisi alanında uzmanlaşmıştır. Bunun yanı sıra, bireylerle daha etkili iletişim kurabilmek için Diksiyon Eğitimi almış, rüya tabirleri konusunda da eğitim görerek bu alanda farklı bir perspektif kazanmıştır. Bu çeşitlilik, danışmanlık yaklaşımına zenginlik katmıştır.
+                Emine Çayır, İstanbul’a taşındıktan sonra mesleki anlamda kendini geliştirmek için çeşitli eğitim programlarına katılmıştır. Aile Danışmanlığı ve Çocuk-Ergen Psikolojisi alanında uzmanlaşmıştır. Bunun yanı sıra, bireylerle daha etkili iletişim kurabilmek için Diksiyon Eğitimi almış, rüya tabirleri konusunda da eğitim görerek bu alanda farklı bir perspektif kazanmıştır. Bu çeşitlilik, danışmanlık yaklaşımına zenginlik katmıştır.
                 <p>
                     <header class="big-header">2. Mesleki Deneyim ve Başarılar</header>
                 <p>
-                Yaklaşık 10 yıldır aile danışmanlığı yapan Çayır, İstanbul'da çalıştığı dönemde birçok aileye rehberlik etmiş, evlilik sorunları, ebeveynlik rehberliği, çocuk ve ergen iletişimi gibi konularda önemli katkılar sağlamıştır. Çalışmalarında çözüm odaklı bir yaklaşımı benimsemiş, bireylerin ve ailelerin kendi güçlü yönlerini keşfetmelerine yardımcı olmuştur.
+                Yaklaşık 10 yıldır aile danışmanlığı yapan Çayır, İstanbul’da çalıştığı dönemde birçok aileye rehberlik etmiş, evlilik sorunları, ebeveynlik rehberliği, çocuk ve ergen iletişimi gibi konularda önemli katkılar sağlamıştır. Çalışmalarında çözüm odaklı bir yaklaşımı benimsemiş, bireylerin ve ailelerin kendi güçlü yönlerini keşfetmelerine yardımcı olmuştur.
                 <p>
-                    <header class="big-header">3. Ordu'ya Dönüş ve Yeni Başlangıçlar</header>
+                    <header class="big-header">3. Ordu’ya Dönüş ve Yeni Başlangıçlar</header>
                 <p>
-                İstanbul'da kazandığı deneyimleri memleketi Ordu'ya taşımaya karar veren Çayır, burada yeni bir ofis açarak aile danışmanlığı hizmeti vermeye devam etmektedir. Ordu'da, aile danışmanlığına ihtiyaç duyan bireyler için güvenilir bir rehber olmayı sürdürmektedir.
+                İstanbul’da kazandığı deneyimleri memleketi Ordu’ya taşımaya karar veren Çayır, burada yeni bir ofis açarak aile danışmanlığı hizmeti vermeye devam etmektedir. Ordu’da, aile danışmanlığına ihtiyaç duyan bireyler için güvenilir bir rehber olmayı sürdürmektedir.
                 <p>
                     <header class="big-header">4. Yaklaşım ve Felsefesi</header>
                 <p>
-                Emine Çayır'ın danışmanlık anlayışı, aile bağlarının güçlendirilmesi, iletişim sorunlarının çözülmesi ve bireylerin kendilerini daha iyi anlamalarını sağlamaya dayanır. Çocukların ve gençlerin sağlıklı bir şekilde büyüyebilmesi için ebeveynlere rehberlik etmeyi de önemli bir sorumluluk olarak görür.
+                Emine Çayır’ın danışmanlık anlayışı, aile bağlarının güçlendirilmesi, iletişim sorunlarının çözülmesi ve bireylerin kendilerini daha iyi anlamalarını sağlamaya dayanır. Çocukların ve gençlerin sağlıklı bir şekilde büyüyebilmesi için ebeveynlere rehberlik etmeyi de önemli bir sorumluluk olarak görür.
                 <p>
                     <header class="big-header">5. Kişisel İlgi Alanları</header>
                 Mesleğinin yanı sıra kişisel gelişim ve manevi derinleşmeye önem veren Çayır, özellikle rüya tabirleri üzerine araştırmalar yapmayı bir tutku haline getirmiştir. Bunun yanında, iletişim becerilerini sürekli geliştirme amacı taşır ve bu alandaki eğitimlere katılmaya devam etmektedir.
                 <header class="big-header">6. Gelecek Planları</header>
                 <p>
-                Emine Çayır, Ordu'da ailelere daha etkili hizmet verebilmek için grup terapileri ve atölye çalışmaları düzenlemeyi planlamaktadır. Özellikle evlilik öncesi danışmanlık ve ebeveyn eğitim programları gibi alanlarda yeni projeler geliştirmeyi hedeflemektedir. Ayrıca, okullarda ve çeşitli kurumlarda seminerler vererek aile içi iletişim ve çocuk gelişimi konularında toplumsal farkındalığı artırmayı amaçlamaktadır.
+                Emine Çayır, Ordu’da ailelere daha etkili hizmet verebilmek için grup terapileri ve atölye çalışmaları düzenlemeyi planlamaktadır. Özellikle evlilik öncesi danışmanlık ve ebeveyn eğitim programları gibi alanlarda yeni projeler geliştirmeyi hedeflemektedir. Ayrıca, okullarda ve çeşitli kurumlarda seminerler vererek aile içi iletişim ve çocuk gelişimi konularında toplumsal farkındalığı artırmayı amaçlamaktadır.
              </p>
             </div>
         </div>
@@ -313,7 +307,7 @@
 
         <!-- Footer -->
         <footer>
-            <p>&copy; 2024 Empaz Aile Danışmanlığı - Aile Danışmanı Emine Çayır. Tüm hakları saklıdır.</p>
+            <p>&copy; 2024 Emine Çayır. Tüm hakları saklıdır.</p>
         </footer>
     </div>
 
