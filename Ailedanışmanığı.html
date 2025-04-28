@@ -270,6 +270,13 @@
                              <li class="nav-item">
                                 <a class="nav-link" href="sertifikalar.html">Sertifikalar</a>
                             </li>
+                            <li>
+                                <div class="text-center mt-5">
+                                    <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#randevuModal">
+                                      📅 Randevu Al
+                                    </button>
+                                  </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -330,6 +337,102 @@
                 <img src="OIP.jpg" alt="Resim 7">
             </div>
         </div>
+  <!-- Randevu Modalı -->
+  <div class="modal fade" id="randevuModal" tabindex="-1" aria-labelledby="randevuModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4">
+        <div class="modal-header">
+          <h5 class="modal-title" id="randevuModalLabel">📋 Randevu Talep Formu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+  
+          <div class="mb-3">
+            <label for="randevuName" class="form-label">👤 Adınız Soyadınız</label>
+            <input id="randevuName" type="text" class="form-control" required>
+          </div>
+  
+          <div class="mb-3">
+            <label for="randevuPhone" class="form-label">📞 Telefon Numaranız</label>
+            <input id="randevuPhone" type="text" class="form-control" required>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="randevuDate" class="form-label">🗓️ Tarih</label>
+              <input id="randevuDate" type="date" class="form-control" required>
+              <div id="selectedDay" class="form-text mt-1 text-muted"></div>
+            </div>
+  
+            <div class="col-md-6 mb-3">
+              <label for="randevuTime" class="form-label">🕑 Saat</label>
+              <select id="randevuTime" class="form-select" required>
+                <option value="">Saat Seçiniz</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="randevuNote" class="form-label">📝 Not (İsteğe Bağlı)</label>
+            <textarea id="randevuNote" class="form-control" rows="3"></textarea>
+          </div>
+  
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="hatirlatmaIstiyorum">
+            <label class="form-check-label" for="hatirlatmaIstiyorum">
+              ⏰ 1 gün önceden hatırlatma istiyorum
+            </label>
+          </div>
+  
+          <div class="d-grid gap-2">
+            <button id="previewButton" class="btn btn-success btn-lg">📋 Bilgileri Önizle</button>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Önizleme Modalı -->
+  <div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="previewModalLabel">Bilgilerinizi Kontrol Edin</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>İsim:</strong> <span id="previewName"></span></p>
+          <p><strong>Telefon:</strong> <span id="previewPhone"></span></p>
+          <p><strong>Tarih:</strong> <span id="previewDate"></span> (<span id="previewDay"></span>)</p>
+          <p><strong>Saat:</strong> <span id="previewTime"></span></p>
+          <p><strong>Not:</strong> <span id="previewNote"></span></p>
+        </div>
+        <div class="modal-footer">
+          <button id="confirmButton" class="btn btn-primary">✅ Onayla ve Gönder</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Başarı Bildirimi -->
+  <div id="successAlert" class="alert alert-success position-fixed top-0 start-50 translate-middle-x mt-5" style="z-index: 2000; display: none; width: 300px;" role="alert">
+    🎉 Randevu talebiniz alınmıştır. Teşekkür ederiz!
+  </div>
+  
+  <!-- Hafta Sonu Uyarı -->
+  <div id="weekendAlert" class="alert alert-warning position-fixed top-0 start-50 translate-middle-x mt-5" style="z-index: 2000; display: none; width: 300px;" role="alert">
+    ❌ Hafta sonu için randevu alınamaz. Lütfen hafta içi bir gün seçiniz.
+  </div>
 <!-- WhatsApp Modal (Popup) -->
 <!-- Mevcut Modal Yapısı -->
 <div class="modal fade" id="whatsappModal" tabindex="-1" aria-labelledby="whatsappModalLabel" aria-hidden="true">
@@ -385,5 +488,139 @@
            });
        });
            </script>
+           <script>
+ document.addEventListener('DOMContentLoaded', function () {
+  const previewButton = document.getElementById('previewButton');
+  const confirmButton = document.getElementById('confirmButton');
+  const randevuName = document.getElementById('randevuName');
+  const randevuPhone = document.getElementById('randevuPhone');
+  const randevuDate = document.getElementById('randevuDate');
+  const randevuTime = document.getElementById('randevuTime');
+  const randevuNote = document.getElementById('randevuNote');
+  const hatirlatmaIstiyorum = document.getElementById('hatirlatmaIstiyorum');
+  const selectedDay = document.getElementById('selectedDay');
+  const randevuPhoneNumber = '905455521485'; // WhatsApp numaran
+
+  const days = ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'];
+
+  // Bugünden önce tarih seçilmesin
+  const today = new Date().toISOString().split('T')[0];
+  randevuDate.setAttribute('min', today);
+
+  // Tarih seçilince gün adı göster + hafta sonu kontrol
+  randevuDate.addEventListener('change', function () {
+    const selectedDate = new Date(this.value);
+    const dayIndex = selectedDate.getDay();
+    const dayName = days[dayIndex];
+
+    if (dayIndex === 0 || dayIndex === 6) { // Pazar veya Cumartesi
+        const weekendAlert = document.getElementById('weekendAlert');
+        weekendAlert.style.display = 'block';
+
+        this.value = '';
+        selectedDay.textContent = '';
+
+        // 3 saniye sonra uyarıyı kapat
+        setTimeout(function() {
+            weekendAlert.style.display = 'none';
+        }, 3000);
+    } else {
+        selectedDay.textContent = `Seçilen gün: ${dayName}`;
+    }
+});
+
+
+  // Önizleme Butonu
+  previewButton.addEventListener('click', function () {
+    if (randevuName.value && randevuPhone.value && randevuDate.value && randevuTime.value) {
+      const selectedDate = new Date(randevuDate.value);
+      const dayName = days[selectedDate.getDay()];
+
+      document.getElementById('previewName').textContent = randevuName.value;
+      document.getElementById('previewPhone').textContent = randevuPhone.value;
+      document.getElementById('previewDate').textContent = randevuDate.value;
+      document.getElementById('previewDay').textContent = dayName;
+      document.getElementById('previewTime').textContent = randevuTime.value;
+      document.getElementById('previewNote').textContent = randevuNote.value || 'Yok';
+
+      new bootstrap.Modal(document.getElementById('previewModal')).show();
+    } else {
+      alert('Lütfen tüm zorunlu alanları doldurunuz.');
+    }
+  });
+
+  // Onayla ve Gönder
+  confirmButton.addEventListener('click', function () {
+    const name = randevuName.value.trim();
+    const phone = randevuPhone.value.trim();
+    const date = randevuDate.value;
+    const time = randevuTime.value;
+    const note = randevuNote.value.trim() || 'Yok';
+    const selectedDate = new Date(date);
+    const dayName = days[selectedDate.getDay()];
+
+    // Başarı mesajı
+    const successAlert = document.getElementById('successAlert');
+    successAlert.style.display = 'block';
+
+    // .ics dosyası oluştur
+    const startDateTime = `${date}T${time.replace(':', '')}00`;
+    const alarmMinutes = hatirlatmaIstiyorum.checked ? 1440 : 0; // 1 gün önceden hatırlatma
+
+    const icsContent = `
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:Randevu - ${name}
+DTSTART:${startDateTime}
+DTEND:${startDateTime}
+DESCRIPTION:Telefon: ${phone} - Not: ${note}
+${alarmMinutes > 0 ? `BEGIN:VALARM\nTRIGGER:-P1D\nDESCRIPTION:Randevu Hatırlatma\nEND:VALARM` : ''}
+END:VEVENT
+END:VCALENDAR`.trim();
+
+    const blob = new Blob([icsContent], { type: 'text/calendar' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'randevu.ics';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // 2 saniye sonra WhatsApp aç
+    setTimeout(() => {
+      successAlert.style.display = 'none';
+      const newMessage = `
+╔══════════════════════════════╗
+║         📅 Randevu Talebi         ║
+╠════════════╦══════════════════╣
+║ İsim        ║ ${name}             ║
+╠════════════╬══════════════════╣
+║ Telefon     ║ ${phone}           ║
+╠════════════╬══════════════════╣
+║ Tarih       ║ ${date} (${dayName}) ║
+╠════════════╬══════════════════╣
+║ Saat        ║ ${time}             ║
+╠════════════╬══════════════════╣
+║ Not         ║ ${note}            ║
+╚════════════╩══════════════════╝
+`;
+
+      const whatsappUrl = `https://wa.me/${randevuPhoneNumber}?text=${encodeURIComponent(newMessage)}`;
+      window.open(whatsappUrl, '_blank');
+
+      // Formu sıfırla
+      randevuName.value = '';
+      randevuPhone.value = '';
+      randevuDate.value = '';
+      randevuTime.value = '';
+      randevuNote.value = '';
+      hatirlatmaIstiyorum.checked = false;
+      selectedDay.textContent = '';
+    }, 2000);
+  });
+});
+            
+            </script>
 </body>
 </html>
