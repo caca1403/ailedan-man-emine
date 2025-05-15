@@ -6,7 +6,7 @@
     <title>Aile Danışmanlığı hakkında detaylı bilgiler.</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
+    <style>        
         body, html {
             background-color: rgb(197, 142, 142);
             font-family: 'Times New Roman', Times, serif;
@@ -16,20 +16,92 @@
             display: flex;
             flex-direction: column;
         }
-.offcanvas-header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
+
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.85) !important;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f6f5f5 !important;
+            margin-right: auto;
+        }
+
+        .offcanvas-end {
+            width: 300px !important;
+            background: linear-gradient(145deg, rgb(167, 112, 112), rgb(142, 87, 87)) !important;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .offcanvas-header {
+            background: linear-gradient(145deg, rgba(128, 0, 32, 0.3), rgba(128, 0, 32, 0.1));
+            padding: 2rem 1.5rem;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .offcanvas-header::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background-image: url(favicon.ico);
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .offcanvas-title {
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-left: 60px;
+        }
+
+        .offcanvas-body {
+            padding: 1.5rem;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), transparent);
+        }
+
+        .offcanvas-body .nav-link {
+            color: white !important;
+            font-size: 1.3rem !important;
+            padding: 1.2rem !important;
+            margin: 0.8rem 0;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .offcanvas-body .nav-link:hover {
+            background: rgba(255, 255, 255, 0.15) !important;
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
         .wrapper {
             flex: 1;
             display: flex;
             flex-direction: column;
             
-        }
-
+        }        
         .content {
             flex: 1;
-            padding: 20px;
-                margin-top: 80px;
+            padding: 40px;
+            margin-top: 80px;
+            background-color: rgb(197, 142, 142);
         }
 
         /* Sosyal Medya İkonları */
@@ -60,32 +132,32 @@
 
         /* Navbar Responsive Ayarları */
          .navbar {
-    background: rgba(0, 0, 0, 0.85) !important;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    padding: 15px 0;
-}
+            background: rgba(0, 0, 0, 0.85) !important;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 15px 0;
+        }
 
-.navbar-brand {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #f6f5f5 !important;
-}
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f6f5f5 !important;
+        }
 
-.navbar-nav .nav-item {
-    margin: 0 10px;
-}
+        .navbar-nav .nav-item {
+            margin: 0 10px;
+        }
 
-.navbar-nav .nav-link {
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: 8px 15px;
-    transition: all 0.3s ease-in-out;
-}
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 8px 15px;
+            transition: all 0.3s ease-in-out;
+        }
 
-.navbar-nav .nav-link:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-}
+        .navbar-nav .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
 
         footer {
             background-color: rgba(0, 0, 0, 0.8);
@@ -193,32 +265,320 @@
             }
         }
         .offcanvas-header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-     }
-     .whatsapp-navbar-button {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .whatsapp-navbar-button {
             background-color: transparent !important;
-    border: none; 
-    padding: 0;
-    margin: 0; 
-    border-radius: 0; 
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-    cursor: pointer;
-      }
-      .probio{
-        
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px); /* Cam efekti */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Daha belirgin gölge */
-      margin-bottom: 20px;
+            border: none; 
+            padding: 0;
+            margin: 0; 
+            border-radius: 0; 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            cursor: pointer;
+        }
+        .probio {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px); /* Cam efekti */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Daha belirgin gölge */
+            margin-bottom: 20px;
+        }
+        .insfix {
+            margin-left: 10px;
+        }
 
-      }
-      .insfix{
-        margin-left: 10px;
-      }
+        /* İçerik Stilleri */
+        .content-section {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(231, 76, 60, 0.1), rgba(41, 128, 185, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .content-section:hover::before {
+            opacity: 1;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #e74c3c, #c0392b);
+        }
+
+        .section-text {
+            color: #34495e;
+            font-size: 1.3rem !important;
+            line-height: 2;
+            margin-bottom: 1.8rem;
+            text-align: justify;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #e74c3c;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .highlight-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-box strong {
+            color: #e74c3c;
+            font-size: 1.4rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .section-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section-text ul li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.2rem;
+        }
+
+        .section-text ul li::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px rgba(231, 76, 60, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(231, 76, 60, 0.8); }
+            100% { text-shadow: 0 0 10px rgba(231, 76, 60, 0.5); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section:nth-child(1) { animation-delay: 0.2s; }
+        .content-section:nth-child(2) { animation-delay: 0.4s; }
+        .content-section:nth-child(3) { animation-delay: 0.6s; }
+        .content-section:nth-child(4) { animation-delay: 0.8s; }
+        .content-section:nth-child(5) { animation-delay: 1s; }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            .section-text {
+                font-size: 1.1rem !important;
+                line-height: 1.8;
+            }
+        }
+
+        /* Footer Styles */
+        .footer-container {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 40px 0;
+        }
+
+        .footer-contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-map {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-map iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        .footer-info {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-section, .social-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .contact-section h3, .social-section h3 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .contact-buttons, .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .whatsapp-button {
+            background: linear-gradient(45deg, #25d366, #128C7E);
+            border: none;
+            padding: 0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 70px !important;
+            height: 35px !important;
+        }
+
+        .calendar-button {
+            font-size: 20px !important;
+            line-height: 1 !important;
+            padding: 0 !important;
+            color: white;
+            background: linear-gradient(45deg, #6c757d, #495057);
+            border: none;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 70px !important;
+            height: 35px !important;
+            text-align: center;
+        }
+
+        .whatsapp-button img {
+            width: 40px !important;
+            height: 40px !important;
+            padding: 5px;
+        }
+
+        .social-button {
+            border: none;
+            padding: 0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 70px !important;
+            height: 35px !important;
+        }
+
+        .social-button img {
+            width: 50px !important;
+            height: 50px !important;
+            padding: 5px;
+        }
+
+        .social-button-instagram {
+            background: linear-gradient(45deg, #f09433, #bc1888);
+        }
+
+        .social-button-facebook {
+            background: linear-gradient(45deg, #3b5998, #1e3c72);
+        }
+
+        .whatsapp-button:hover, 
+        .calendar-button:hover, 
+        .social-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-contact {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-map, .footer-info {
+                width: 100%;
+            }
+            
+            .footer-map iframe {
+                height: 250px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -228,22 +588,6 @@
             <div class="container-fluid">
                 <!-- Navbar Brand -->
                 <a class="navbar-brand" href="#">Emine Çayır</a>
-
-                <!-- Sosyal Medya İkonları -->
-                <div class="social-links">
-                    <div class="insfix">
-                        <a href="https://www.instagram.com/empazaile/">
-                            <img src="Instagram-Logo.wine.svg" alt="Instagram">
-                        </a>
-                    </div>
-                    <a href="https://www.facebook.com/empazaile52">
-                        <img src="facebook.png" alt="Facebook">
-                    </a>
-                    <a href="https://www.google.com.tr/maps/place/Empaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1/@41.0295695,37.4972486,17z/data=!4m6!3m5!1s0x4062c505e846e999:0x75b4c973311c42ef!8m2!3d41.0295695!4d37.4998235!16s%2Fg%2F11wq6pmk01?hl=tr&entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D">
-                        <img src="RESİM 6.png" alt="Konum">
-                    </a>
-                    <button class="whatsapp-navbar-button" data-bs-toggle="modal" data-bs-target="#whatsappModal"><img src="RESİM w.png"width alt=""></button>
-                </div>
 
                 <!-- Hamburger Menü -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -270,13 +614,6 @@
                              <li class="nav-item">
                                 <a class="nav-link" href="sertifikalar.html">Sertifikalar</a>
                             </li>
-                            <li>
-                                <div class="text-center mt-5">
-                                    <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#randevuModal">
-                                      📅 Randevu Al
-                                    </button>
-                                  </div>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -286,48 +623,67 @@
        <!-- İçerik --> 
         <div class="content">
             <div class="probio">
-            <h1>AİLE DANIŞMANLIĞI</h1>
-            <p>
-                Aile danışmanlığı, sadece bir sorun olduğunda başvurulan bir hizmet değil, aynı zamanda ailelerin potansiyellerini en üst düzeye çıkarmalarına ve daha sağlıklı ilişkiler kurmalarına yardımcı olan bir destek sistemidir.
-                <br><br>
-                Aile Danışmanının Rolü Nedir?
-                Değerlendirme: Ailenin dinamiklerini, iletişim kalıplarını, güçlü ve zayıf yönlerini değerlendirir. Bu değerlendirme, aile üyelerinin bireysel olarak ve bir bütün olarak ihtiyaçlarını belirlemek için önemlidir.
-                Hedef Belirleme: Aile ile birlikte, danışmanlık sürecinin sonunda ulaşılmak istenen hedefleri belirler. Bu hedefler, daha iyi iletişim kurmak, çatışmaları çözmek, güven ilişkilerini güçlendirmek veya bireysel büyümeyi desteklemek gibi çeşitli konuları içerebilir.
-                Müdahale: Ailenin ihtiyaçlarına göre farklı terapi teknikleri kullanır. Bu teknikler arasında sistemik aile terapisi, duygusal odaklı terapi, bilişsel davranışçı terapi gibi yöntemler yer alabilir.
-                Eğitim: Aile üyelerine, sağlıklı iletişim becerileri, problem çözme yöntemleri, duygusal düzenleme gibi konularda eğitim verir.
-                Destek: Aile üyelerine duygusal destek sağlar, onları güçlendirir ve değişim sürecinde motive eder.
-                <br><br>
-                Aile Danışmanlığı Neden Önemlidir?
-                Erken müdahale: Küçük sorunlar büyüyerek aile içinde ciddi sorunlara yol açabilir. Aile danışmanlığı, sorunlar büyüdükçe çözülmesi zorlaşmadan müdahale edilmesini sağlar.
-                Nesilden nesile aktarılan kalıpların kırılması: Aile içindeki olumsuz iletişim kalıpları ve davranış biçimleri, nesilden nesile aktarılabilir. Aile danışmanlığı, bu kalıpların farkına varılmasını ve yeni, daha sağlıklı kalıpların oluşturulmasını sağlar.
-                Bireysel ve ailesel büyüme: Aile danışmanlığı, aile üyelerinin kişisel olarak büyümelerine ve gelişmelerine yardımcı olurken, aynı zamanda ailenin bir bütün olarak güçlenmesini sağlar.
-                Çocukların sağlıklı gelişimi: Çocukların sağlıklı bir şekilde gelişmeleri, büyük ölçüde aile ortamından etkilenir. Aile danışmanlığı, çocukların duygusal, sosyal ve bilişsel gelişimlerini destekler.
-                <br><br>
-                Aile Danışmanlığı Hangi Sorunlarda Yardımcı Olabilir?
-                İletişim sorunları: Dinleme becerilerinin geliştirilmesi, empati kurma, duyguları ifade etme gibi konularda destek sağlar.
-                Çatışma yönetimi: Çatışmaların sağlıklı bir şekilde çözülmesi için gerekli becerilerin kazandırılması.
-                Ebeveynlik zorlukları: Çocuk yetiştirme konusunda yaşanan zorlukların üstesinden gelinmesi.
-                Evlilik sorunları: Evlilik içindeki güvensizlik, iletişimsizlik, sadakatsizlik gibi sorunların çözülmesi.
-                Aile içi şiddet: Şiddetin önlenmesi ve mağdurların iyileşmesi.
-                Ayrılık ve boşanma süreçleri: Bu süreçlerin daha sağlıklı bir şekilde yönetilmesi.
-                Kayıp ve yas: Yakın birini kaybetmenin yarattığı üzüntünün üstesinden gelinmesi.
-                Bağımlılık sorunları: Aile içindeki bağımlılık sorunlarının etkilerinin azaltılması.
-                <br><br>
-                Aile Danışmanlığı Nasıl Bir Süreçtir?
-                Aile danışmanlığı süreci, her ailenin ihtiyaçlarına göre şekillenir. Genellikle şu adımları içerir:
-                Değerlendirme: Ailenin durumu hakkında detaylı bilgi toplanır.
-                Hedef belirleme: Aile ile birlikte, danışmanlık sürecinin sonunda ulaşılmak istenen hedefler belirlenir.
-                Müdahale: Belirlenen hedeflere ulaşmak için uygun terapi teknikleri kullanılır.
-                Değerlendirme ve takip: Süreç boyunca düzenli olarak değerlendirmeler yapılarak ilerleme takip edilir ve gerekli durumlarda plan yeniden gözden geçirilir.
-                <br><br>
-                Aile danışmanlığı, ailelerin daha mutlu, sağlıklı ve uyumlu bir yaşam sürmelerine yardımcı olan önemli bir destek sistemidir.
-                <br><br>
-                Unutmayın, bir aile danışmanına başvurmak, bir zayıflık değil, aksine güçlü bir adım olabilir.
-                <br><br>
-                Eğer ailenizde herhangi bir sorun yaşıyorsanız, bir aile danışmanından destek almak için çekinmeyin.
-            </p>
-        </div>
-        
+                <div class="content-section">
+                    <h2 class="section-title">🏡 Aile Danışmanlığı Nedir?</h2>
+                    <p class="section-text">
+                        Aile danışmanlığı, sadece bir sorun olduğunda başvurulan bir hizmet değil, aynı zamanda ailelerin potansiyellerini en üst düzeye çıkarmalarına ve daha sağlıklı ilişkiler kurmalarına yardımcı olan bir destek sistemidir.
+                    </p>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">👥 Aile Danışmanının Rolü</h2>
+                    <div class="highlight-box">
+                        <p class="section-text">
+                            <strong>Değerlendirme:</strong> Ailenin dinamiklerini, iletişim kalıplarını, güçlü ve zayıf yönlerini değerlendirir.
+                        </p>
+                        <p class="section-text">
+                            <strong>Hedef Belirleme:</strong> Aile ile birlikte, danışmanlık sürecinin sonunda ulaşılmak istenen hedefleri belirler.
+                        </p>
+                        <p class="section-text">
+                            <strong>Müdahale ve Eğitim:</strong> Ailenin ihtiyaçlarına göre farklı terapi teknikleri kullanır ve eğitim verir.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">💫 Neden Önemlidir?</h2>
+                    <div class="highlight-box">
+                        <p class="section-text">
+                            • Erken müdahale ile sorunların büyümesi önlenir<br>
+                            • Nesilden nesile aktarılan olumsuz kalıplar kırılır<br>
+                            • Bireysel ve ailesel büyüme desteklenir<br>
+                            • Çocukların sağlıklı gelişimi güvence altına alınır
+                        </p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">🤝 Hangi Sorunlarda Yardımcı Olur?</h2>
+                    <div class="highlight-box">
+                        <p class="section-text">
+                            • İletişim sorunları<br>
+                            • Çatışma yönetimi<br>
+                            • Ebeveynlik zorlukları<br>
+                            • Evlilik sorunları<br>
+                            • Aile içi uyumsuzluklar<br>
+                            • Ayrılık ve boşanma süreçleri
+                        </p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">📝 Danışmanlık Süreci</h2>
+                    <p class="section-text">
+                        Aile danışmanlığı süreci, her ailenin ihtiyaçlarına göre şekillenir. Bu süreç değerlendirme, hedef belirleme, müdahale ve düzenli takip aşamalarını içerir.
+                    </p>
+                    <div class="highlight-box">
+                        <p class="section-text">
+                            Unutmayın, bir aile danışmanına başvurmak, bir zayıflık değil, aksine aileniz için atacağınız güçlü ve olumlu bir adımdır.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
             <div class="image-container">
                 <img src="resim2.png" alt="Resim 2">
                 <img src="resim3.jpg" alt="Resim 3">
@@ -452,10 +808,51 @@
             </div>
         </div>
     </div>
-</div>
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2024 Aile Danışmanlığı. Tüm hakları saklıdır.</p>
+</div>        <!-- Footer -->
+        <footer class="footer-container">
+            <div class="footer-contact">
+                <!-- Harita Bölümü -->
+                <div class="footer-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2991.499048485405!2d37.49724861744385!3d41.02956947929955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4062c505e846e999%3A0x75b4c973311c42ef!2sEmpaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1!5e0!3m2!1str!2str!4v1699338929705!5m2!1str!2str" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <!-- Bize Ulaşın -->
+                <div class="footer-info">
+                    <div class="contact-section">
+                        <h3>Bize Ulaşın</h3>
+                        <div class="contact-buttons">
+                            <a href="https://wa.me/905455521485" target="_blank" class="whatsapp-button">
+                                <img src="whatsappana.png" alt="WhatsApp">
+                            </a>
+                            <button class="calendar-button" data-bs-toggle="modal" data-bs-target="#randevuModal">
+                                📅
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bizi Takip Edin -->
+                    <div class="social-section">
+                        <h3>Bizi Takip Edin</h3>
+                        <div class="social-buttons">
+                            <a href="https://www.instagram.com/empazaile/" target="_blank" class="social-button-instagram social-button">
+                                <img src="Instagram-Logo.wine.svg" alt="Instagram">
+                            </a>
+                            <a href="https://www.facebook.com/empazaile52" target="_blank" class="social-button social-button-facebook">
+                                <img src="facebook.png" alt="Facebook">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-copyright">
+                <p>&copy; 2024 Emine Çayır. Tüm hakları saklıdır.</p>
+            </div>
         </footer>
     </div>
 
@@ -622,5 +1019,76 @@ END:VCALENDAR`.trim();
 });
             
             </script>
+            <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.content-section');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeInUp 1s ease forwards';
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        observer.observe(section);
+    });
+});
+            </script>
+            <script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Highlight kutuları için animasyon
+    const highlightBoxes = document.querySelectorAll('.highlight-box');
+    highlightBoxes.forEach(box => {
+        box.addEventListener('mouseover', () => {
+            box.style.transform = 'translateY(-5px)';
+            box.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
+        });
+
+        box.addEventListener('mouseout', () => {
+            box.style.transform = 'translateY(0)';
+            box.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+        });
+
+        // Tıklama efekti
+        box.addEventListener('click', () => {
+            box.style.animation = 'pulse 0.5s ease';
+            setTimeout(() => {
+                box.style.animation = '';
+            }, 500);
+        });
+    });
+
+    // Başlıklar için parlama efekti
+    const titles = document.querySelectorAll('.section-title');
+    titles.forEach(title => {
+        title.classList.add('glow-text');
+    });
+
+    // Scroll animasyonu için IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px'
+    });
+
+    document.querySelectorAll('.content-section').forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    });
+});
+</script>
 </body>
 </html>
