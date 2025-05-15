@@ -1836,7 +1836,94 @@
                     </div>
                 </div>
             </div>
+  <!-- Randevu Modalı -->
+  <div class="modal fade" id="randevuModal" tabindex="-1" aria-labelledby="randevuModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4">
+        <div class="modal-header">
+          <h5 class="modal-title" id="randevuModalLabel">📋 Randevu Talep Formu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+  
+          <div class="mb-3">
+            <label for="randevuName" class="form-label">👤 Adınız Soyadınız</label>
+            <input id="randevuName" type="text" class="form-control" required>
+          </div>
+  
+          <div class="mb-3">
+            <label for="randevuPhone" class="form-label">📞 Telefon Numaranız</label>
+            <input id="randevuPhone" type="text" class="form-control" required>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="randevuDate" class="form-label">🗓️ Tarih</label>
+              <input id="randevuDate" type="date" class="form-control" required>
+              <div id="selectedDay" class="form-text mt-1 text-muted"></div>
+            </div>
+  
+            <div class="col-md-6 mb-3">
+              <label for="randevuTime" class="form-label">🕑 Saat</label>
+              <select id="randevuTime" class="form-select" required>
+                <option value="">Saat Seçiniz</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="randevuNote" class="form-label">📝 Not (İsteğe Bağlı)</label>
+            <textarea id="randevuNote" class="form-control" rows="3"></textarea>
+          </div>
+  
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="hatirlatmaIstiyorum">
+            <label class="form-check-label" for="hatirlatmaIstiyorum">
+              ⏰ 1 gün önceden hatırlatma istiyorum
+            </label>
+          </div>
+  
+          <div class="d-grid gap-2">
+            <button id="previewButton" class="btn btn-success btn-lg">📋 Bilgileri Önizle</button>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
 
+<!-- Önizleme Modalı -->
+<div class="modal fade" id="previewModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Randevu Önizleme</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Ad Soyad:</strong> <span id="previewName"></span></p>
+                <p><strong>Telefon:</strong> <span id="previewPhone"></span></p>
+                <p><strong>Tarih:</strong> <span id="previewDate"></span></p>
+                <p><strong>Gün:</strong> <span id="previewDay"></span></p>
+                <p><strong>Saat:</strong> <span id="previewTime"></span></p>
+                <p><strong>Not:</strong> <span id="previewNote"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Düzenle</button>
+                <button type="button" class="btn btn-success" id="confirmFromPreview" data-bs-dismiss="modal">Onayla ve Gönder</button>
+            </div>
+        </div>
+    </div>
+</div>
             <!-- SSS -->
             <section class="faq-section">
                 <h2 class="section-title">💡 Sık Sorulan Sorular</h2>
