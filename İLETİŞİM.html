@@ -10,18 +10,20 @@
         body, html {
             background-color: rgb(197, 142, 142);
             font-family: 'Times New Roman', Times, serif;
-            
             height: 100%;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
         }
-.offcanvas-header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
+          .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f6f5f5 !important;
+            margin-right: auto;
+        }
         .wrapper {
-            flex: 1;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
@@ -29,7 +31,134 @@
         .content {
             flex: 1;
             padding: 20px;
-            padding-top: 100px; /* Navbar yüksekliği kadar boşluk bırak */
+            padding-top: 100px;
+            background-color: rgb(197, 142, 142);
+        }
+
+        .probio {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+            margin: 20px auto;
+            max-width: 1200px;
+            width: 95%;
+        }
+
+        .probio header {
+            margin-bottom: 30px;
+        }
+
+        .probio header strong {
+            font-size: 1.3rem;
+            color: #4b2721;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .probio section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .probio p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .probio strong {
+            color: #4b2721;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-box h3 {
+            color: #4b2721;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(75, 39, 33, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .info-box a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-box a:hover {
+            color: #4b2721;
+        }
+
+        @media (max-width: 768px) {
+            .probio {
+                padding: 15px;
+                margin: 10px;
+            }
+
+            .probio header strong {
+                font-size: 1.1rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-box {
+                padding: 15px;
+            }
+
+            .footer-contact {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .content {
+                padding: 10px;
+                padding-top: 80px;
+            }
+
+            .probio {
+                padding: 15px;
+            }
+
+            .probio section {
+                padding: 15px;
+            }
+
+            .probio p {
+                font-size: 0.9rem;
+            }
+        }
+
+        .offcanvas-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         footer {
@@ -67,161 +196,248 @@
         }
 
          .navbar {
-    background: rgba(0, 0, 0, 0.85) !important;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    padding: 15px 0;
-}
-
-.navbar-brand {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #f6f5f5 !important;
-}
-
-.navbar-nav .nav-item {
-    margin: 0 10px;
-}
-
-.navbar-nav .nav-link {
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: 8px 15px;
-    transition: all 0.3s ease-in-out;
-}
-
-.navbar-nav .nav-link:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-}
-
-        /* Metin Responsive Yazı Boyutu */
-        .content p, .content strong {
-            font-size: 1.2rem; /* Varsayılan yazı boyutu */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.85) !important;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 15px 0;
         }
 
-        @media (max-width: 768px) {
-            .content p, .content strong {
-                font-size: 1rem; /* Küçük ekranlarda yazı boyutunu küçült */
-            }
+        .offcanvas-end {
+            width: 300px !important;
+            background: linear-gradient(145deg, rgb(167, 112, 112), rgb(142, 87, 87)) !important;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
         }
-        .nav-link {
-            text-decoration: none !important;
-           
-        }
-        .nav-item {
-                font-size: 14px;
-                padding: 5px;
-            }
 
-            .social-links img {
-                .social-links img {
-        width: clamp(25px, 7vw, 35px);
-        height: clamp(25px, 7vw, 35px);
-        
-    }
-            }
-            .font-fix {
-        font-size: clamp(16px, 2.5vw, 22px);
-       }
-       
-    .whatsapp-navbar-button{
-        font-size: 1px;
-    }
-        @media (max-width: 576px) {
-            .navbar-brand {
-                font-size: 1rem;
-            }
-
-            .nav-item {
-                font-size: 12px;
-                padding: 3px;
-            }
-
-            .social-links img {
-                width: 30px;
-                height: 30px;
-            }
-
-            p {
-                font-size: 0.9rem;
-            }
-
-            h1 {
-                font-size: 1.2rem;
-                margin-top: 5px;
-            }
-
-            .image-container img {
-                flex: 1 1 100%;
-                max-width: 100%;
-            }
-            .social-links img {
-        width: clamp(20px, 9vw, 30px);
-        height: clamp(20px, 9vw, 30px);
-    }
-        }
         .offcanvas-header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-.whatsapp-navbar-button {
-           background-color: transparent !important;
-    border: none; 
-    padding: 0;
-    margin: 0; 
-    border-radius: 0; 
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-    cursor: pointer;
-      }
-      .probio{
-        background: rgba(255, 255, 255, 0.2); /* Yarı saydam beyaz arka plan */
-    backdrop-filter: blur(10px); /* Cam efekti */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Gölge efekti */
-      }
-      .insfix{
-        margin-left: 10px;
-      }
+            background: linear-gradient(145deg, rgba(128, 0, 32, 0.3), rgba(128, 0, 32, 0.1));
+            padding: 2rem 1.5rem;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .offcanvas-header::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background-image: url(favicon.ico);
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .offcanvas-title {
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-left: 60px;
+        }
+
+        .offcanvas-body {
+            padding: 1.5rem;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), transparent);
+        }
+
+        .offcanvas-body .nav-link {
+            color: white !important;
+            font-size: 1.3rem !important;
+            padding: 1.2rem !important;
+            margin: 0.8rem 0;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .offcanvas-body .nav-link:hover {
+            background: rgba(255, 255, 255, 0.15) !important;
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Footer Stilleri */
+        .footer-container {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 40px 0;
+        }
+
+        .footer-contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-map {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-map iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        .footer-info {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-section, .social-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .contact-section h3, .social-section h3 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .contact-buttons, .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .whatsapp-button {
+            background: linear-gradient(45deg, #25d366, #128C7E);
+            border: none;
+            padding: 0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 70px !important;
+            height: 35px !important;
+        }
+
+        .calendar-button {
+            font-size: 20px !important;
+            line-height: 1 !important;
+            padding: 0 !important;
+            color: white;
+            background: linear-gradient(45deg, #6c757d, #495057);
+            border: none;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 70px !important;
+            height: 35px !important;
+            text-align: center;
+        }
+
+        .whatsapp-button img {
+            width: 40px !important;
+            height: 40px !important;
+            padding: 5px;
+        }
+
+        .social-button {
+            border: none;
+            padding: 0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 70px !important;
+            height: 35px !important;
+        }
+
+        .social-button img {
+            width: 50px !important;
+            height: 50px !important;
+            padding: 5px;
+        }
+
+        .social-button-instagram {
+            background: linear-gradient(45deg, #f09433, #bc1888);
+        }
+
+        .social-button-facebook {
+            background: linear-gradient(45deg, #3b5998, #1e3c72);
+        }
+
+        .whatsapp-button:hover, 
+        .calendar-button:hover, 
+        .social-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content {
+            background-color: rgba(255, 255, 255, 0.26);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header {
+            border-bottom: 1px solid rgb(0, 0, 0);
+            padding: 1.5rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .modal-body .form-label {
+            color: #000000;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .footer-copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 30px;
+            padding-top: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="wrapper">
-        <!-- Offcanvas Navbar -->
+        <!-- Navbar -->
         <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
-                <!-- Navbar Brand -->
                 <a class="navbar-brand" href="#">Emine Çayır</a>
 
-                <!-- Sosyal Medya İkonları -->
-                <div class="social-links">
-                    <div class="insfix">
-                    <a href="https://www.instagram.com/empazaile/">
-                        <img src="Instagram-Logo.wine.svg" alt="Instagram">
-                    </a>
-                </div>
-                    <a href="https://www.facebook.com/empazaile52">
-                        <img src="facebook.png" alt="Facebook">
-                    </a>
-                    <a href="https://www.google.com.tr/maps/place/Empaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1/@41.0295695,37.4972486,17z/data=!4m6!3m5!1s0x4062c505e846e999:0x75b4c973311c42ef!8m2!3d41.0295695!4d37.4998235!16s%2Fg%2F11wq6pmk01?hl=tr&entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D">
-                        <img src="RESİM 6.png" alt="Konum">
-                    </a>
-                    <button class="whatsapp-navbar-button" data-bs-toggle="modal" data-bs-target="#whatsappModal"><img src="RESİM w.png"width alt=""></button>
-                   
-                    
-                </div>
-
                 <!-- Hamburger Menü -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <!-- Offcanvas Menü -->
-                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar">
                     <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menü</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <h5 class="offcanvas-title">Menü</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
                     </div>
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -229,47 +445,294 @@
                                 <a class="nav-link" href="index.html">Ana Sayfa</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="Ailedanışmanığı.html">Aile Danışmanlığı</a>
+                                <a class="nav-link" href="Ailedanışmanığı.html">Aile Danışmanlığı Nedir</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="medya.html">Medya</a>
                             </li>
-                             <li class="nav-item">
+                            <li class="nav-item">
                                 <a class="nav-link" href="sertifikalar.html">Sertifikalar</a>
-                            </li>
-                            <li>
-                                <div class="text-center mt-5">
-                                    <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#randevuModal">
-                                      📅 Randevu Al
-                                    </button>
-                                  </div>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </nav>
-
-        <!-- İçerik -->
+        </nav>        <!-- İçerik -->
         <div class="content container">
-            <div class="probio">
-            <header class="text-center mb-4">
-                <strong>İş yerinin adresi: Mustafa Kemal Paşa Mahallesi, Pazar Sokak, Sadeler Pasajı No:15, Kat:1</strong>
-            </header>
-            
-            <section>
-                <p>
-                    Yeni açtığı bu iş yerinde hafta içi her gün 09:00 - 17:00 arasında Aile danışmanlığı, çocuk ergen psikolojisi hakkında bireylere, çiftlere ve çocuklara seanslar vermektedir.
-                    Seanslar hakkında detaylı bilgi almak isteyenler için;
-                </p>
-                <p>
-                    <strong>Telefon numarası:</strong> 0545-552-1485
-                </p>
-                <p>
-                    Telefon numarasından kendisine ulaşamayanlar yukarıda verilen linkleri (simge) kullanarak sosyal medya hesapları aracılığıyla kendisine ulaşabilirsiniz. Eğer Aile danışmanımızı adresinde ziyaret etmek isterseniz, konumu yukarıda verilmiştir.
-                </p>
-            </section>
-        </div>
+            <div class="probio" style="background: linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05)); backdrop-filter: blur(10px);">
+                <div class="welcome-section text-center">
+                    <div class="welcome-icon">
+                        <span class="icon">💝</span>
+                    </div>
+                    <h1 class="welcome-title">Ailenize Profesyonel Destek</h1>
+                    <p class="welcome-text">
+                        Uzmanlığım ve yılların deneyimiyle ailelerimize hizmet veriyorum.<br>
+                        <span class="highlight-text">En geç 24 saat içinde size geri dönüş sağlanacaktır.</span>
+                    </p>
+                </div>
+
+                <div class="why-us-section">
+                    <h2 class="section-title text-center mb-4">Neden Beni Seçmelisiniz?</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">✨</div>
+                            <h4>Uzman Kadro</h4>
+                            <p>Uzmanlığım ve yılların deneyimiyle ailelerimize hizmet veriyorum.</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🤝</div>
+                            <h4>Güvenilir Yaklaşım</h4>
+                            <p>Gizlilik ve etik değerlere tam bağlılık</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">💫</div>
+                            <h4>Kişiye Özel Çözümler</h4>
+                            <p>Her ailenin kendine özgü dinamiklerine uygun danışmanlık hizmeti veriyorum.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-grid mt-5">
+                    <div class="contact-box address highlight-box">
+                        <div class="icon">📍</div>
+                        <h3>Adresimiz</h3>
+                        <p>Mustafa Kemal Paşa Mahallesi, <br>Pazar Sokak, Sadeler Pasajı<br>No:15, Kat:1, Fatsa/ORDU</p>
+                    </div>
+
+                    <div class="contact-box hours highlight-box">
+                        <div class="icon">⏰</div>
+                        <h3>Çalışma Saatleri</h3>
+                        <p>
+                            <strong>Hafta İçi:</strong> 09:00 - 17:00<br>
+                            <strong>Hafta Sonu:</strong> Kapalı<br>
+                            <small class="response-time">24 saat içinde dönüş garantisi</small>
+                        </p>
+                    </div>
+
+                    <div class="contact-box phone highlight-box">
+                        <div class="icon">📞</div>
+                        <h3>Hemen Ulaşın</h3>
+                        <a href="tel:+905455521485" class="phone-button">
+                            0545 552 14 85
+                        </a>
+                        <p class="mt-3 availability-text">
+                            Sizin için buradayım!
+                        </p>
+                    </div>
+                </div>
+
+                <style>
+                    .why-us-section {
+                        padding: 40px 0;
+                        margin: 30px 0;
+                        background: rgba(255, 255, 255, 0.1);
+                        border-radius: 20px;
+                    }
+
+                    .section-title {
+                        color: #4b2721;
+                        font-size: 2.5rem;
+                        font-weight: bold;
+                        margin-bottom: 30px;
+                        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+                    }
+
+                    .features-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                        gap: 30px;
+                        padding: 0 20px;
+                    }
+
+                    .feature-item {
+                        text-align: center;
+                        padding: 30px;
+                        background: rgba(255, 255, 255, 0.1);
+                        border-radius: 15px;
+                        transition: all 0.3s ease;
+                    }
+
+                    .feature-item:hover {
+                        transform: translateY(-10px);
+                        background: rgba(255, 255, 255, 0.2);
+                    }
+
+                    .feature-icon {
+                        font-size: 2.5rem;
+                        margin-bottom: 15px;
+                    }
+
+                    .feature-item h4 {
+                        color: #4b2721;
+                        font-size: 1.4rem;
+                        margin-bottom: 15px;
+                        font-weight: bold;
+                    }
+
+                    .feature-item p {
+                        color: #6d4141;
+                        font-size: 1.1rem;
+                        line-height: 1.6;
+                    }
+
+                    .highlight-text {
+                        display: inline-block;
+                        margin-top: 15px;
+                        padding: 10px 20px;
+                        background: linear-gradient(145deg, #4b2721, #6d4141);
+                        color: white;
+                        border-radius: 30px;
+                        font-weight: bold;
+                        font-size: 1.2rem;
+                    }
+
+                    .highlight-box {
+                        border: 2px solid rgba(255, 255, 255, 0.1);
+                        background: linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+                    }
+
+                    .response-time {
+                        display: block;
+                        margin-top: 10px;
+                        color: #4b2721;
+                        font-style: italic;
+                    }
+
+                    .availability-text {
+                        color: #4b2721;
+                        font-weight: bold;
+                        font-size: 1.1rem;
+                    }
+
+                    @media (max-width: 768px) {
+                        .features-grid {
+                            grid-template-columns: 1fr;
+                        }
+                        
+                        .highlight-text {
+                            font-size: 1rem;
+                            padding: 8px 16px;
+                        }
+                    }
+                </style>
+
+                <style>
+                    .welcome-section {
+                        padding: 50px 20px;
+                        position: relative;
+                    }
+                    
+                    .welcome-icon {
+                        width: 100px;
+                        height: 100px;
+                        margin: 0 auto 20px;
+                        background: linear-gradient(145deg, #4b2721, #6d4141);
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+                    }
+                    
+                    .welcome-icon .icon {
+                        font-size: 3rem;
+                        color: white;
+                    }
+                    
+                    .welcome-title {
+                        color: #4b2721;
+                        font-size: 3rem;
+                        margin-bottom: 20px;
+                        font-family: 'Times New Roman', serif;
+                        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+                    }
+                    
+                    .welcome-text {
+                        font-size: 1.5rem;
+                        color: #6d4141;
+                        max-width: 800px;
+                        margin: 0 auto;
+                        line-height: 1.8;
+                    }
+
+                    .contact-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                        gap: 30px;
+                        padding: 40px 20px;
+                    }
+
+                    .contact-box {
+                        padding: 30px;
+                        text-align: center;
+                        background: rgba(255, 255, 255, 0.1);
+                        border-radius: 20px;
+                        box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+                        transition: transform 0.3s ease;
+                    }
+
+                    .contact-box:hover {
+                        transform: translateY(-10px);
+                    }
+
+                    .contact-box .icon {
+                        font-size: 3rem;
+                        margin-bottom: 20px;
+                    }
+
+                    .contact-box h3 {
+                        color: #4b2721;
+                        font-size: 1.8rem;
+                        margin-bottom: 15px;
+                        font-family: 'Times New Roman', serif;
+                    }
+
+                    .contact-box p {
+                        color: #6d4141;
+                        font-size: 1.2rem;
+                        line-height: 1.8;
+                    }
+
+                    .phone-button {
+                        display: inline-block;
+                        padding: 15px 30px;
+                        background: linear-gradient(145deg, #4b2721, #6d4141);
+                        color: white;
+                        text-decoration: none;
+                        border-radius: 30px;
+                        font-size: 1.3rem;
+                        font-weight: bold;
+                        margin-top: 15px;
+                        transition: all 0.3s ease;
+                    }
+
+                    .phone-button:hover {
+                        transform: scale(1.05);
+                        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+                        color: white;
+                    }
+
+                    @media (max-width: 768px) {
+                        .welcome-title {
+                            font-size: 2.5rem;
+                        }
+                        
+                        .welcome-text {
+                            font-size: 1.2rem;
+                        }
+                        
+                        .contact-grid {
+                            grid-template-columns: 1fr;
+                            gap: 20px;
+                            padding: 20px;
+                        }
+                        
+                        .contact-box {
+                            padding: 20px;
+                        }
+                    }
+                </style>
+            </div>
         </div>
         
   <!-- Randevu Modalı -->
@@ -393,93 +856,132 @@
     </div>
 </div>
         <!-- Footer -->
-        <footer>
-            <p>&copy; 2024 Emine Çayır. Tüm hakları saklıdır.</p>
+        <footer class="footer-container">
+            <div class="footer-contact">
+                <!-- Harita Bölümü -->
+                <div class="footer-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2991.499048485405!2d37.49724861744385!3d41.02956947929955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4062c505e846e999%3A0x75b4c973311c42ef!2sEmpaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1!5e0!3m2!1str!2str!4v1699338929705!5m2!1str!2str" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <!-- Bize Ulaşın -->
+                <div class="footer-info">
+                    <div class="contact-section">
+                        <h3>Bize Ulaşın</h3>
+                        <div class="contact-buttons">
+                            <a href="https://wa.me/905455521485" target="_blank" class="whatsapp-button">
+                                <img src="whatsappana.png" alt="WhatsApp">
+                            </a>
+                            <button class="calendar-button" data-bs-toggle="modal" data-bs-target="#randevuModal">
+                                📅
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bizi Takip Edin -->
+                    <div class="social-section">
+                        <h3>Bizi Takip Edin</h3>
+                        <div class="social-buttons">
+                            <a href="https://www.instagram.com/empazaile/" target="_blank" class="social-button-instagram social-button">
+                                <img src="Instagram-Logo.wine.svg" alt="Instagram">
+                            </a>
+                            <a href="https://www.facebook.com/empazaile52" target="_blank" class="social-button social-button-facebook">
+                                <img src="facebook.png" alt="Facebook">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-copyright">
+                <p>&copy; 2024 Emine Çayır. Tüm hakları saklıdır.</p>
+            </div>
         </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
- document.addEventListener('DOMContentLoaded', function () {
-  const previewButton = document.getElementById('previewButton');
-  const confirmButton = document.getElementById('confirmButton');
-  const randevuName = document.getElementById('randevuName');
-  const randevuPhone = document.getElementById('randevuPhone');
-  const randevuDate = document.getElementById('randevuDate');
-  const randevuTime = document.getElementById('randevuTime');
-  const randevuNote = document.getElementById('randevuNote');
-  const hatirlatmaIstiyorum = document.getElementById('hatirlatmaIstiyorum');
-  const selectedDay = document.getElementById('selectedDay');
-  const randevuPhoneNumber = '905455521485'; // WhatsApp numaran
+document.addEventListener('DOMContentLoaded', function () {
+    const previewButton = document.getElementById('previewButton');
+    const confirmButton = document.getElementById('confirmButton');
+    const randevuName = document.getElementById('randevuName');
+    const randevuPhone = document.getElementById('randevuPhone');
+    const randevuDate = document.getElementById('randevuDate');
+    const randevuTime = document.getElementById('randevuTime');
+    const randevuNote = document.getElementById('randevuNote');
+    const hatirlatmaIstiyorum = document.getElementById('hatirlatmaIstiyorum');
+    const selectedDay = document.getElementById('selectedDay');
+    const randevuPhoneNumber = '905455521485';
 
-  const days = ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'];
+    const days = ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'];
 
-  // Bugünden önce tarih seçilmesin
-  const today = new Date().toISOString().split('T')[0];
-  randevuDate.setAttribute('min', today);
+    // Bugünden önce tarih seçilmesin
+    const today = new Date().toISOString().split('T')[0];
+    randevuDate.setAttribute('min', today);
 
-  // Tarih seçilince gün adı göster + hafta sonu kontrol
-  randevuDate.addEventListener('change', function () {
-    const selectedDate = new Date(this.value);
-    const dayIndex = selectedDate.getDay();
-    const dayName = days[dayIndex];
+    // Tarih seçilince gün adı göster + hafta sonu kontrol
+    randevuDate.addEventListener('change', function () {
+        const selectedDate = new Date(this.value);
+        const dayIndex = selectedDate.getDay();
+        const dayName = days[dayIndex];
 
-    if (dayIndex === 0 || dayIndex === 6) { // Pazar veya Cumartesi
-        const weekendAlert = document.getElementById('weekendAlert');
-        weekendAlert.style.display = 'block';
+        if (dayIndex === 0 || dayIndex === 6) { // Pazar veya Cumartesi
+            const weekendAlert = document.getElementById('weekendAlert');
+            weekendAlert.style.display = 'block';
 
-        this.value = '';
-        selectedDay.textContent = '';
+            this.value = '';
+            selectedDay.textContent = '';
 
-        // 3 saniye sonra uyarıyı kapat
-        setTimeout(function() {
-            weekendAlert.style.display = 'none';
-        }, 3000);
-    } else {
-        selectedDay.textContent = `Seçilen gün: ${dayName}`;
-    }
-});
+            setTimeout(function() {
+                weekendAlert.style.display = 'none';
+            }, 3000);
+        } else {
+            selectedDay.textContent = `Seçilen gün: ${dayName}`;
+        }
+    });
 
+    // Önizleme Butonu
+    previewButton.addEventListener('click', function () {
+        if (randevuName.value && randevuPhone.value && randevuDate.value && randevuTime.value) {
+            const selectedDate = new Date(randevuDate.value);
+            const dayName = days[selectedDate.getDay()];
 
-  // Önizleme Butonu
-  previewButton.addEventListener('click', function () {
-    if (randevuName.value && randevuPhone.value && randevuDate.value && randevuTime.value) {
-      const selectedDate = new Date(randevuDate.value);
-      const dayName = days[selectedDate.getDay()];
+            document.getElementById('previewName').textContent = randevuName.value;
+            document.getElementById('previewPhone').textContent = randevuPhone.value;
+            document.getElementById('previewDate').textContent = randevuDate.value;
+            document.getElementById('previewDay').textContent = dayName;
+            document.getElementById('previewTime').textContent = randevuTime.value;
+            document.getElementById('previewNote').textContent = randevuNote.value || 'Yok';
 
-      document.getElementById('previewName').textContent = randevuName.value;
-      document.getElementById('previewPhone').textContent = randevuPhone.value;
-      document.getElementById('previewDate').textContent = randevuDate.value;
-      document.getElementById('previewDay').textContent = dayName;
-      document.getElementById('previewTime').textContent = randevuTime.value;
-      document.getElementById('previewNote').textContent = randevuNote.value || 'Yok';
+            new bootstrap.Modal(document.getElementById('previewModal')).show();
+        } else {
+            alert('Lütfen tüm zorunlu alanları doldurunuz.');
+        }
+    });
 
-      new bootstrap.Modal(document.getElementById('previewModal')).show();
-    } else {
-      alert('Lütfen tüm zorunlu alanları doldurunuz.');
-    }
-  });
+    // Onayla ve Gönder
+    confirmButton.addEventListener('click', function () {
+        const name = randevuName.value.trim();
+        const phone = randevuPhone.value.trim();
+        const date = randevuDate.value;
+        const time = randevuTime.value;
+        const note = randevuNote.value.trim() || 'Yok';
+        const selectedDate = new Date(date);
+        const dayName = days[selectedDate.getDay()];
 
-  // Onayla ve Gönder
-  confirmButton.addEventListener('click', function () {
-    const name = randevuName.value.trim();
-    const phone = randevuPhone.value.trim();
-    const date = randevuDate.value;
-    const time = randevuTime.value;
-    const note = randevuNote.value.trim() || 'Yok';
-    const selectedDate = new Date(date);
-    const dayName = days[selectedDate.getDay()];
+        // Başarı mesajı
+        const successAlert = document.getElementById('successAlert');
+        successAlert.style.display = 'block';
 
-    // Başarı mesajı
-    const successAlert = document.getElementById('successAlert');
-    successAlert.style.display = 'block';
+        // .ics dosyası oluştur
+        const startDateTime = `${date}T${time.replace(':', '')}00`;
+        const alarmMinutes = hatirlatmaIstiyorum.checked ? 1440 : 0;
 
-    // .ics dosyası oluştur
-    const startDateTime = `${date}T${time.replace(':', '')}00`;
-    const alarmMinutes = hatirlatmaIstiyorum.checked ? 1440 : 0; // 1 gün önceden hatırlatma
-
-    const icsContent = `
-BEGIN:VCALENDAR
+        const icsContent = `BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
 SUMMARY:Randevu - ${name}
@@ -490,46 +992,49 @@ ${alarmMinutes > 0 ? `BEGIN:VALARM\nTRIGGER:-P1D\nDESCRIPTION:Randevu Hatırlatm
 END:VEVENT
 END:VCALENDAR`.trim();
 
-    const blob = new Blob([icsContent], { type: 'text/calendar' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'randevu.ics';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+        const blob = new Blob([icsContent], { type: 'text/calendar' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'randevu.ics';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
 
-    // 2 saniye sonra WhatsApp aç
-    setTimeout(() => {
-      successAlert.style.display = 'none';
-      const newMessage = `
-╔══════════════════════════════╗
-║         📅 Randevu Talebi         ║
-╠════════════╦══════════════════╣
-║ İsim        ║ ${name}             ║
-╠════════════╬══════════════════╣
-║ Telefon     ║ ${phone}           ║
-╠════════════╬══════════════════╣
-║ Tarih       ║ ${date} (${dayName}) ║
-╠════════════╬══════════════════╣
-║ Saat        ║ ${time}             ║
-╠════════════╬══════════════════╣
-║ Not         ║ ${note}            ║
-╚════════════╩══════════════════╝
-`;
+        // 2 saniye sonra WhatsApp aç
+        setTimeout(() => {
+            successAlert.style.display = 'none';
+            const newMessage = `
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃           RANDEVU ONAYI              ┃
+┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃
+┃ Ad         : ${name}
+┃ Telefon    : ${phone}
+┃ Tarih      : ${date} (${dayName})
+┃ Saat       : ${time}
+┃ Not        : ${note || "Belirtilmedi"}
+┃ Referans   : #${Math.floor(100000 + Math.random() * 900000)}
+┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃
+┃ Randevunuz başarıyla kaydedilmiştir.
+┃ Lütfen randevu saatinizden 5-10 dakika
+┃ önce hazır bulununuz.
+┃ 
+┃ Saygılarımızla,
+┃ Empaz Aile Danışmanlığı Ekibi
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛`;
 
-      const whatsappUrl = `https://wa.me/${randevuPhoneNumber}?text=${encodeURIComponent(newMessage)}`;
-      window.open(whatsappUrl, '_blank');
+            const whatsappUrl = `https://wa.me/${randevuPhoneNumber}?text=${encodeURIComponent(newMessage)}`;
+            window.open(whatsappUrl, '_blank');
 
-      // Formu sıfırla
-      randevuName.value = '';
-      randevuPhone.value = '';
-      randevuDate.value = '';
-      randevuTime.value = '';
-      randevuNote.value = '';
-      hatirlatmaIstiyorum.checked = false;
-      selectedDay.textContent = '';
-    }, 2000);
-  });
+            // Formu sıfırla
+            randevuName.value = '';
+            randevuPhone.value = '';
+            randevuDate.value = '';
+            randevuTime.value = '';
+            randevuNote.value = '';
+            hatirlatmaIstiyorum.checked = false;
+            selectedDay.textContent = '';
+        }, 2000);
+    });
 });
 </script>
 
