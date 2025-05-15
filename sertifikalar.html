@@ -6,6 +6,8 @@
     <title>Sertifikalar</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         body, html {
             background-color: rgb(197, 142, 142);
@@ -184,21 +186,69 @@
       .insfix{
         margin-left: 10px;
       }
-      .image-gallery-container {
-    display: flex;
-    justify-content: center; /* İçeriği ortala */
-    width: 100%; /* Sayfa genişliği kadar ol */
-    margin-top: 160px; /* Navbar ile boşluk */
-    margin-bottom: 120px;
+      .certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 40px;
+    margin: 120px auto;
+    max-width: 1400px;
 }
 
-.image-gallery-container {
+@media (max-width: 1200px) {
+    .certificates-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .certificates-grid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}
+
+.certificate-card {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
     display: flex;
-    justify-content: center; /* İçeriği tam ortalar */
-    align-items: center;
-    width: 100%; /* Sayfanın tamamını kaplar */
-    margin-top: 120px; /* Navbar ile boşluğu arttırdım */
-    margin-bottom: 120px;
+    flex-direction: column;
+}
+
+.certificate-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.certificate-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.certificate-content {
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.certificate-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.certificate-description {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 0;
+    line-height: 1.5;
 }
 
 .image-gallery {
@@ -251,39 +301,563 @@
 
 /* S6 Sertifikasını Diğerleriyle Aynı Boyuta Getirme */
 .image-gallery img:last-child {
-    aspect-ratio: 4 / 3; /* Aynı en-boy oranını koruyarak diğer sertifikalarla uyum sağlar */
+    aspect-ratio: 4 / 3;
     max-width: auto;
     height: auto;
     object-fit: contain;
 }
 
+/* İletişim Bölümü Stilleri */
+.contact-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.4);
+}
 
+.map-container, .whatsapp-container {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
+.map-container {
+    position: relative;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    border: none;
+}
+
+.map-button {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+}
+
+.map-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+}
+
+.map-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.whatsapp-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.whatsapp-container h3 {
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.whatsapp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.whatsapp-form textarea {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 14px;
+    resize: none;
+}
+
+.whatsapp-form button {
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.whatsapp-form button:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+}
+
+.whatsapp-form button img {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .map-container iframe {
+        height: 300px;
+    }
+
+    .map-button {
+        bottom: 20px;
+        right: 20px;
+        padding: 8px 15px;
+    }
+}    /* Yeni Footer Stilleri */
+    .footer-container {
+        background-color: rgba(0, 0, 0, 0.9);
+        color: white;
+        padding: 40px 0;
+    }
+
+    .footer-contact {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-map {
+        height: 300px;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .footer-map iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .footer-info {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-whatsapp {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .footer-whatsapp h3 {
+        color: #ffd700;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .footer-social {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .footer-social h3 {
+        color: #ffd700;
+        margin-bottom: 15px;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .social-icon {
+
+    
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        background: linear-gradient(45deg, #f09433, #bc1888);
+    }
+
+    .social-icon.facebook {
+        background: linear-gradient(45deg, #3b5998, #1e3c72);
+    }
+
+    .social-icon img {
+        width: 100px;
+        height: 40px;
+        object-fit: contain;
+        filter: none;
+    }
+
+    .whatsapp-direct-button {
+        width: 100px !important;
+        height: 40px !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 15px !important;
+        background: linear-gradient(45deg, #25d366, #128C7E) !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .whatsapp-direct-button img {
+        width: 40px !important;
+        height: 30px !important;
+        object-fit: contain;
+        filter: none;
+    }
+
+    .social-icon:hover,
+    .whatsapp-direct-button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .footer-copyright {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+        .footer-contact {
+            grid-template-columns: 1fr;
+        }
+
+        .footer-map {
+            height: 250px;
+        }
+    }
+
+    .location-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+    }
+
+    .location-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 800px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .close-location {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #333;
+    }
+
+    /* Sertifika Modal Stilleri */
+    .certificate-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        cursor: pointer;
+    }
+
+    .certificate-modal img {
+        max-width: 90%;
+        max-height: 90vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 3px solid white;
+        border-radius: 10px;
+    }
+    .offcanvas.offcanvas-end {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    opacity: 0.95;
+}
+    /* Hamburger menü güncellemeleri */
+    .navbar-toggler {
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        padding: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .navbar-toggler:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-toggler-icon {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+    /* Yeni konum butonu stilleri */
+    .footer-location {
+        text-align: center;
+        margin: 15px 0;
+    }
+
+    .directions-btn {
+       background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin: 0 auto;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .directions-btn:hover {
+        background: #3367d6;
+        transform: translateY(-2px);
+    }
+
+    .directions-btn img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .whatsapp-direct-button {
+        padding: 15px;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       
+        transition: all 0.3s ease;
+    }
+
+    .whatsapp-direct-button:hover {
+        transform: translateY(-2px);
+     
+    }
+
+    .navbar-toggler {
+        border: none !important;
+        padding: 0.5rem !important;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none !important;
+    }
+
+    .offcanvas {
+        background: rgba(0, 0, 0, 0.95) !important;
+    }
+
+    /* Çarpı işareti için özel stil */
+    .btn-close-white {
+        position: relative;
+        width: 35px !important;
+        height: 35px !important;
+        opacity: 1 !important;
+        padding: 0 !important;
+    }
+
+    .btn-close-white::before,
+    .btn-close-white::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background-color: white;
+        top: 50%;
+        left: 50%;
+        border-radius: 1px;
+    }
+
+    .btn-close-white::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .btn-close-white::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .btn-close-white:hover {
+        transform: rotate(90deg);
+        opacity: 0.8 !important;
+    }
+
+    /* Offcanvas header ve favicon için stil */
+    .offcanvas-header {
+        background: linear-gradient(145deg, rgba(128, 0, 32, 0.3), rgba(128, 0, 32, 0.1));
+        padding: 2rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .offcanvas-header::before {
+        content: '';
+        position: absolute;
+        left: 20px;
+        width: 50px;
+        height: 50px;
+        background-image: url('favicon.ico');
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .offcanvas-title {
+        color: white;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-left: 60px;
+    }
+
+    /* Bootstrap'in varsayılan close buton stilini ezmek için */
+    .btn-close {
+        background: none !important;
+    }
+
+    /* Offcanvas ve Header Stilleri */
+    .offcanvas-end {
+        width: 300px !important;
+        background: linear-gradient(145deg, rgb(167, 112, 112), rgb(142, 87, 87)) !important;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+    }
+
+    .offcanvas-header {
+        background: linear-gradient(145deg, rgba(128, 0, 32, 0.3), rgba(128, 0, 32, 0.1));
+        padding: 2rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .offcanvas-title {
+        color: white;
+        font-size: 2rem;
+        font-weight: 600;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        margin-left: 60px;
+    }
+
+    .btn-close-white {
+        position: relative;
+        width: 35px !important;
+        height: 35px !important;
+        opacity: 1 !important;
+        padding: 0 !important;
+        background: none !important;
+        margin: 0 !important;
+    }
+
+    .btn-close-white::before,
+    .btn-close-white::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background-color: white;
+        top: 50%;
+        left: 50%;
+        border-radius: 1px;
+    }
+
+    .btn-close-white::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .btn-close-white::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .btn-close-white:hover {
+        transform: rotate(90deg);
+        opacity: 0.8 !important;
+    }
+
+    .offcanvas-body {
+        padding: 1.5rem;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.1), transparent);
+    }
+
+    .offcanvas-body .nav-link {
+        color: white !important;
+        font-size: 1.3rem !important;
+        padding: 1.2rem !important;
+        margin: 0.8rem 0;
+        border-radius: 12px;
+        transition: all 0.4s ease;
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .offcanvas-body .nav-link:hover {
+        background: rgba(255, 255, 255, 0.15) !important;
+        transform: translateX(10px) scale(1.02);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
     </style>
 </head>
 <body>
     <div class="wrapper">
         <!-- Offcanvas Navbar -->
         <nav class="navbar navbar-dark bg-dark fixed-top">
-            <div class="container-fluid">
-                <!-- Navbar Brand -->
+            <div class="container-fluid">                <!-- Navbar Brand -->
                 <a class="navbar-brand" href="#">Emine Çayır</a>
-
-                <!-- Sosyal Medya İkonları -->
-                <div class="social-links">
-                    <div class="insfix">
-                    <a href="https://www.instagram.com/empazaile/">
-                        <img src="Instagram-Logo.wine.svg" alt="Instagram">
-                    </a>
-                </div>
-                    <a href="https://www.facebook.com/empazaile52">
-                        <img src="facebook.png" alt="Facebook">
-                    </a>
-                    <a href="https://www.google.com.tr/maps/place/Empaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1/@41.0295695,37.4972486,17z/data=!4m6!3m5!1s0x4062c505e846e999:0x75b4c973311c42ef!8m2!3d41.0295695!4d37.4998235!16s%2Fg%2F11wq6pmk01?hl=tr&entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D">
-                        <img src="RESİM 6.png" alt="Konum">
-                    </a>
-                    <button class="whatsapp-navbar-button" data-bs-toggle="modal" data-bs-target="#whatsappModal"><img src="RESİM w.png"width alt=""></button>
-                </div>
 
                 <!-- Hamburger Menü -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -314,18 +888,63 @@
                     </div>
                 </div>
             </div>
-        </nav>
-        <div class="image-gallery-container">
-            <div class="image-gallery">
-                <img src="s1.jpg" alt="Görsel 1">
-                <img src="s2.jpg" alt="Görsel 2">
-                <img src="s3.jpg" alt="Görsel 3">
-                <img src="s4.jpg" alt="Görsel 4">
-                <img src="s5.jpg" alt="Görsel 5">
-                <img src="s6.jpg" alt="Görsel 6">
+        </nav>        <div class="certificates-grid">
+            <!-- Çocuk Psikolojisi Sertifikası -->
+            <div class="certificate-card">
+                <img src="s1.jpg" alt="Çocuk Psikolojisi" class="certificate-image">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Çocuk Psikolojisi</h3>
+                    <p class="certificate-description">Çocuk Gelişimi ve Psikolojisi Uzmanlık Eğitimi</p>
+                </div>
+            </div>
+
+            <!-- Diksiyon Eğitimi Sertifikası -->
+            <div class="certificate-card">
+                <img src="s2.jpg" alt="Diksiyon Eğitimi" class="certificate-image">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Diksiyon Eğitimi</h3>
+                    <p class="certificate-description">Etkili İletişim ve Diksiyon Teknikleri</p>
+                </div>
+            </div>
+
+            <!-- Stres ve Zaman Yönetimi Sertifikası -->
+            <div class="certificate-card">
+                <img src="s3.jpg" alt="Stres ve Zaman Yönetimi" class="certificate-image">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Stres ve Zaman Yönetimi</h3>
+                    <p class="certificate-description">Profesyonel Stres ve Zaman Yönetimi Eğitimi</p>
+                </div>
+            </div>
+
+            <!-- Yaşam Koçluğu Sertifikası -->
+            <div class="certificate-card">
+                <img src="s4.jpg" alt="Yaşam Koçluğu" class="certificate-image">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Yaşam Koçluğu</h3>
+                    <p class="certificate-description">Profesyonel Yaşam Koçluğu Sertifikası</p>
+                </div>
+            </div>
+
+            <!-- Bilinçaltı Teknikleri Sertifikası -->
+            <div class="certificate-card">
+                <img src="s5.jpg" alt="Bilinçaltı Teknikleri" class="certificate-image">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Bilinçaltı Teknikleri</h3>
+                    <p class="certificate-description">Bilinçaltı Teknikleriyle Rüya Yorumlama</p>
+                </div>
+            </div>
+
+            <!-- Evlilik Danışmanlığı Sertifikası -->
+            <div class="certificate-card">
+                <img src="s6.jpg" alt="Evlilik Danışmanlığı" class="certificate-image">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Evlilik Danışmanlığı</h3>
+                    <p class="certificate-description">Evlilik ve İlişki Danışmanlığı Sertifikası</p>
+                </div>
             </div>
         </div>
-        </div>
+
+        
 <!-- WhatsApp Modal (Popup) -->
 <!-- Mevcut Modal Yapısı -->
 <div class="modal fade" id="whatsappModal" tabindex="-1" aria-labelledby="whatsappModalLabel" aria-hidden="true">
@@ -345,15 +964,75 @@
             </div>
         </div>
     </div>
-</div>
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2024 Emine Çayır. Tüm hakları saklıdır.</p>
+</div>        <!-- Footer -->
+        <footer class="footer-container">
+            <div class="footer-contact">
+                <!-- Harita Bölümü -->
+                <div class="footer-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2991.499048485405!2d37.49724861744385!3d41.02956947929955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4062c505e846e999%3A0x75b4c973311c42ef!2sEmpaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1!5e0!3m2!1str!2str!4v1699338929705!5m2!1str!2str" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                
+
+                <!-- WhatsApp ve Sosyal Medya -->
+                <div class="footer-info">
+                    <!-- WhatsApp Direkt Buton -->
+                    <div class="footer-whatsapp">
+                        <h3>Bize Ulaşın</h3>
+                        <a href="https://wa.me/905455521485" target="_blank" class="whatsapp-direct-button">
+                            <img src="whatsappana.png" alt="WhatsApp">
+                        </a>
+                    </div>
+
+
+                    <!-- Sosyal Medya -->
+                    <div class="footer-social">
+                        <h3>Bizi Takip Edin</h3>
+                        <div class="social-icons">
+                            <a href="https://www.instagram.com/empazaile/" target="_blank" class="social-icon">
+                                <img src="Instagram-Logo.wine.svg" alt="Instagram">
+                            </a>
+                            <a href="https://www.facebook.com/empazaile52" target="_blank" class="social-icon facebook">
+                                <img src="facebook.png" alt="Facebook">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-copyright">
+                <p>&copy; 2024 Emine Çayır. Tüm hakları saklıdır.</p>
+            </div>
         </footer>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Sertifika Modal -->
+    <div id="certificateModal" class="certificate-modal">
+        <img id="modalImage" src="" alt="Büyütülmüş Sertifika">
+    </div>
+
+    <!-- Konum Modal -->
+    <div id="locationModal" class="location-modal">
+        <div class="location-content">
+            <span class="close-location">&times;</span>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2991.499048485405!2d37.49724861744385!3d41.02956947929955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4062c505e846e999%3A0x75b4c973311c42ef!2sEmpaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1!5e0!3m2!1str!2str!4v1699338929705!5m2!1str!2str" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+    
+    
     <script>
+    
         document.addEventListener('DOMContentLoaded', function () {
            const sendWhatsAppButton = document.getElementById('sendWhatsAppButton'); // Gönder butonu
            const nameInput = document.getElementById('name'); // Ad Textarea
@@ -381,5 +1060,6 @@
            });
        });
            </script>
+    </script>
 </body>
 </html>
