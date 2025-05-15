@@ -9,25 +9,34 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        .offcanvas-header::before
+ {
+    content: '';
+    position: absolute;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background-image: url(favicon.ico);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .wrapper {
+            font-family: 'Times New Roman', Times, serif  'Noto Color Emoji', sans-serif;;
+        }        .wrapper {
+            flex: 1;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
         }
 
         .content {
             flex: 1;
-            padding: 20px;
-            background-color: rgb(197, 142, 142);
            
-            font-size: 1rem; /* Varsayılan yazı boyutu */
+            padding-top: 100px;
+            background-color: rgb(197, 142, 142);
         }
 
         .image-container {
@@ -35,6 +44,7 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 10px;
+            margin-bottom: 30px;
         }
 
         .image-container img {
@@ -42,21 +52,29 @@
             max-width: calc(33.33% - 10px);
             height: auto;
             border-radius: 8px;
-            border: 2px solid white; 
+            border: 2px solid white;
+            transition: transform 0.3s ease;
         }
 
-        footer {
-            background-color: rgba(0, 0, 0, 0.8);
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .footer-container {
+            background-color: rgba(0, 0, 0, 0.9);
             color: white;
-            text-align: center;
-            padding: 10px;
+            padding: 40px 0;
         }
 
-         .navbar {
-    background: rgba(0, 0, 0, 0.85) !important;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    padding: 15px 0;
-}
+        .navbar {
+            background: rgba(0, 0, 0, 0.85) !important;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
 .offcanvas-header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -191,66 +209,1128 @@
       .insfix{
         margin-left: 10px;
       }
+
+.whatsapp-direct-button {
+    width: 100px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 15px !important;
+    background: linear-gradient(45deg, #25d366, #128C7E) !important;
+    transition: all 0.3s ease !important;
+}
+
+.whatsapp-direct-button img {
+    width: 40px !important;
+    height: 30px !important;
+    object-fit: contain;
+    filter: none;
+}
+
+.social-icon:hover,
+.whatsapp-direct-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.footer-copyright {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .footer-contact {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-map {
+        height: 250px;
+    }
+}
+
+.location-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.location-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.close-location {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.offcanvas.offcanvas-end {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    opacity: 0.95;
+}
+
+/* Hamburger menü güncellemeleri */
+.navbar-toggler {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler-icon {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+/* Yeni konum butonu stilleri */
+.footer-location {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.directions-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.directions-btn:hover {
+    background: #3367d6;
+    transform: translateY(-2px);
+}
+
+.directions-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.navbar-toggler {
+    border: none !important;
+    padding: 0.5rem !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+.offcanvas {
+    background: rgba(0, 0, 0, 0.95) !important;
+}
+
+/* Çarpı işareti için özel stil */
+.btn-close-white {
+    position: relative;
+    width: 35px !important;
+    height: 35px !important;
+    opacity: 1 !important;
+}
+
+/* Offcanvas Stilleri */
+        .offcanvas-end {
+            width: 300px !important;
+            background: linear-gradient(145deg, rgb(167, 112, 112), rgb(142, 87, 87)) !important;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .offcanvas-header {
+            background: linear-gradient(145deg, rgba(128, 0, 32, 0.3), rgba(128, 0, 32, 0.1));
+            padding: 2rem 1.5rem;
+            position: relative;
+        }
+
+        .offcanvas-title {
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-left: 60px;
+        }
+
+        .offcanvas-body {
+            padding: 1.5rem;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), transparent);
+        }
+
+        .offcanvas-body .nav-link {
+            color: white !important;
+            font-size: 1.3rem !important;
+            padding: 1.2rem !important;
+            margin: 0.8rem 0;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .offcanvas-body .nav-link:hover {
+            background: rgba(255, 255, 255, 0.15) !important;
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Footer Stilleri */
+        .footer-container {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 40px 0;
+        }
+
+        .footer-contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-map {
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .footer-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .footer-whatsapp {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .footer-whatsapp h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .footer-social {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .footer-social h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            background: linear-gradient(45deg, #f09433, #bc1888);
+        }
+
+        .social-icon.facebook {
+            background: linear-gradient(45deg, #3b5998, #1e3c72);
+        }
+
+        .social-icon img {
+            width: 100px;
+            height: 40px;
+            object-fit: contain;
+            filter: none;
+        }
+
+        /* Sosyal Medya Offcanvas */
+        .social-links-offcanvas {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links-offcanvas .social-icon img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links-offcanvas .social-icon:hover img {
+            transform: scale(1.2);
+        }
+          .modal-body .form-label {
+    color: #000000; /* veya istediğin başka bir renk */
+    font-weight: bold;
+    font-size: 1rem;
+}
+       .h5 {
+            font-size: 1.5rem;
+            color: #000000;
+        }
+        /* Modal Stilleri */
+        .modal-content {
+           background-color: rgba(255, 255, 255, 0.26);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header {
+            border-bottom: 1px solid rgb(0, 0, 0);
+            padding: 1.5rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        /* Çarpı İşareti Stilleri */
+        .btn-close-white {
+            position: relative;
+            width: 35px !important;
+            height: 35px !important;
+            opacity: 1 !important;
+            padding: 0 !important;
+            background: none !important;
+            margin: 0 !important;
+        }
+
+        .btn-close-white::before,
+        .btn-close-white::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background-color: white;
+            top: 50%;
+            left: 50%;
+            border-radius: 1px;
+        }
+
+        .btn-close-white::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .btn-close-white::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        .btn-close-white:hover {
+            transform: rotate(90deg);
+            opacity: 0.8 !important;
+        }
+
+        /* Responsive Ayarlar */
+        @media (max-width: 992px) {
+            .footer-contact {
+                grid-template-columns: 1fr;
+            }
+        }
+
+  .contact-buttons .social-icon,
+  .social-icons .social-icon {
+    width: 70px !important;
+    height: 35px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    border-radius: 12px !important;
+  }
+
+  .contact-buttons .social-icon img,
+  .social-icons .social-icon img {
+    width: 60px !important;
+   
+    max-height: 40px !important;
+    object-fit: contain;
+  }
+
+  .contact-buttons .social-icon.randevu img{
+    font-size: 15px !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    text-align: center;
+    
+  }
+
+        @media (max-width: 768px) {
+            .offcanvas-title {
+                font-size: 1.5rem;
+                margin-left: 40px;
+            }
+
+            .offcanvas-body .nav-link {
+                font-size: 1.1rem !important;
+                padding: 1rem !important;
+            }
+
+           
+        
+        }
+
+        @media (max-width: 576px) {
+            .footer-map {
+                height: 250px;
+            }
+
+            
+
+            .offcanvas-end {
+                width: 260px !important;
+            }
+           
+            
+
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            color: #fff;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* İletişim Butonları Stilleri */
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        } .contact-buttons .social-icon {
+            width: 100px;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 15px;
+        }
+
+        .contact-buttons .social-icon.whatsapp {
+            background: linear-gradient(45deg, #25d366, #128C7E);
+        }
+
+        .contact-buttons .social-icon.randevu {
+    width: 70px !important;  /* diğer ikonla aynı */
+    height: 35px !important;  /* diğer ikonla aynı */
+    font-size: 20px !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 15px !important;
+    background: linear-gradient(45deg, #6c757d, #495057) !important;
+    color: white !important;
+    text-decoration: none !important;
+}
+
+        .contact-buttons .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-buttons .social-icon img {
+            width: 40px;
+            height: 30px;
+            object-fit: contain;
+            filter: none;
+        }
+
+        .expertise-grid, .approach-grid, .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .expertise-item, .approach-item, .service-item {
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .expertise-item:hover, .approach-item:hover, .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .expertise-item header, .approach-item h4, .service-item h4 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fff;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        section {
+            margin-bottom: 60px;
+            padding: 20px;
+        }
+
+        .big-header {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .expertise-grid, .approach-grid, .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .intro-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        .hero-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem;
+            margin-bottom: 4rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 4rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .featured-image {
+            flex: 1;
+        }
+
+        .main-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transition: transform 0.5s ease;
+        }
+
+        .main-image:hover {
+            transform: scale(1.02) translateY(-10px);
+        }
+
+        .bio-section {
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+        }
+
+        .bio-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .bio-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .bio-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .experience-highlights {
+            display: flex;
+            justify-content: space-around;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .highlight-item {
+            text-align: center;
+        }
+
+        .highlight-number {
+            display: block;
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-text {
+            font-size: 1.2rem;
+        }
+
+        .services-section {
+            padding: 4rem 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .service-card .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .service-link {
+            margin-top: auto;
+            padding: 0.8rem 1.5rem;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .service-link:hover {
+            background: rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .faq-section {
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .faq-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+        }
+
+        .cta-button.whatsapp {
+            background: linear-gradient(45deg, #25d366, #128C7E);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .experience-highlights {
+                flex-direction: column;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .profiles-section {
+            padding: 4rem 2rem;
+        }
+
+        .profile-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .profile-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .journey-section {
+            padding: 4rem 2rem;
+        }
+
+        .journey-map {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .journey-step {
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .journey-step:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .step-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-right: 2rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .daily-tip {
+            padding: 4rem 2rem;
+        }
+
+        .tip-card {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .why-me-section {
+            padding: 4rem 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .scroll-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            color: inherit;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-button:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .pulse-button {
+            margin-top: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .profile-cards, .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Yeni Modal Stilleri */
+        .fullscreen-welcome {
+            min-height: 100vh;
+            background: linear-gradient(145deg, rgba(197, 142, 142, 0.95), rgba(142, 87, 87, 0.95));
+            backdrop-filter: blur(10px);
+        }
+
+        .fullscreen-welcome .modal-content {
+            background: transparent;
+            border: none;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .fullscreen-welcome img {
+            width: 200px !important;
+            height: 200px !important;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+            border: 4px solid white;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        /* Problem Modal Stilleri */
+        .modal-dialog {
+            max-width: 600px;
+        }
+
+        .modal-content {
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .modal-header {
+            background: linear-gradient(145deg, rgb(197, 142, 142), rgb(142, 87, 87));
+            color: white;
+            border-radius: 20px 20px 0 0;
+            padding: 1.8rem;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .problem-description {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .solution-section {
+            background: rgba(197, 142, 142, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .expected-results {
+            background: rgba(255,255,255,0.9);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border: 1px solid rgba(197, 142, 142, 0.2);
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: block;
+            border: 4px solid rgba(255,255,255,0.8);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .section-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: rgb(197, 142, 142);
+        }
         
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <!-- Offcanvas Navbar -->
-        <nav class="navbar navbar-dark bg-dark sticky-top">
+    <div class="wrapper">        <!-- Offcanvas Navbar -->
+        <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
                 <!-- Navbar Brand -->
                 <a class="navbar-brand" href="#">Emine Çayır</a>
-
-                <!-- Sosyal Medya İkonları -->
-                <div class="social-links">
-                    <div class="insfix">
-                        <a href="https://www.instagram.com/empazaile/">
-                            <img src="Instagram-Logo.wine.svg" alt="Instagram">
-                        </a>
-                    </div>
-                    <a href="https://www.facebook.com/empazaile52">
-                        <img src="facebook.png" alt="Facebook">
-                    </a>
-                    <a href="https://www.google.com.tr/maps/place/Empaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1/@41.0295695,37.4972486,17z/data=!4m6!3m5!1s0x4062c505e846e999:0x75b4c973311c42ef!8m2!3d41.0295695!4d37.4998235!16s%2Fg%2F11wq6pmk01?hl=tr&entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D">
-                        <img src="RESİM 6.png" alt="Konum">
-                    </a>
-                    <!-- WhatsApp Butonu -->
-                 <button class="whatsapp-navbar-button" data-bs-toggle="modal" data-bs-target="#whatsappModal"><img src="RESİM w.png"width alt=""></button>
-                </div>
 
                 <!-- Hamburger Menü -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- Offcanvas Menü -->
-                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <!-- Offcanvas Menü -->                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menü</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                           
                             <li class="nav-item">
-                                <a class="nav-link" href="Ailedanışmanığı.html">Aile Danışmanlığı Nedir</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="İLETİŞİM.html">İletişim Bilgileri</a>
+                                <a class="nav-link" href="Ailedanışmanığı.html">Aile Danışmanlığı</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="medya.html">Medya</a>
                             </li>
-                             <li class="nav-item">
+                            <li class="nav-item">
+                                <a class="nav-link" href="İLETİŞİM.html">İletişim</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="sertifikalar.html">Sertifikalar</a>
                             </li>
-                            <li>
-                                <div class="text-center mt-5">
-                                    <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#randevuModal">
-                                      📅 Randevu Al
-                                    </button>
-                                  </div>
-                            </li>
+  
                         </ul>
                     </div>
                 </div>
@@ -258,158 +1338,606 @@
         </nav>
 
         <!-- İçerik -->
-        <div class="content">
-            <div class="image-container">
-                <img src="guncel1.jpg" alt="Emine Çayır">
-                <img src="guncel2.jpg" alt="Emine Çayır">
-                <img src="WhatsApp Görsel 78.jpg" alt="Emine Çayır">
+        <div class="content">            <!-- Hoşgeldiniz Modalı -->
+            <div class="modal fade fullscreen-welcome" id="hosgeldinizModal" tabindex="-1">
+                <div class="modal-dialog modal-fullscreen">
+                    <div class="modal-content">
+                        <div class="modal-body text-center">
+                            <img src="E.png" alt="Profil Fotoğrafı" style="width:200px;height:200px;border-radius:50%;margin-bottom:2rem;border:4px solid white;">
+                            <h1 class="display-4 mb-4">Empaz Aile Danışmanlığı'na Hoş Geldiniz</h1>
+                            <p class="lead mb-5">Size ve ailenize güvenli, gizli ve profesyonel destek sunmak için buradayım.</p>
+                            <button class="btn btn-light btn-lg" data-bs-dismiss="modal">Keşfetmeye Başla</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="probio">
-            <p class="font-fix">
-                <header class="big-header">1. Eğitim ve Mesleki Gelişim</header>
-                <p>
-                Emine Çayır, İstanbul’a taşındıktan sonra mesleki anlamda kendini geliştirmek için çeşitli eğitim programlarına katılmıştır. Aile Danışmanlığı ve Çocuk-Ergen Psikolojisi alanında uzmanlaşmıştır. Bunun yanı sıra, bireylerle daha etkili iletişim kurabilmek için Diksiyon Eğitimi almış, rüya tabirleri konusunda da eğitim görerek bu alanda farklı bir perspektif kazanmıştır. Bu çeşitlilik, danışmanlık yaklaşımına zenginlik katmıştır.
-                <p>
-                    <header class="big-header">2. Mesleki Deneyim ve Başarılar</header>
-                <p>
-                Yaklaşık 10 yıldır aile danışmanlığı yapan Çayır, İstanbul’da çalıştığı dönemde birçok aileye rehberlik etmiş, evlilik sorunları, ebeveynlik rehberliği, çocuk ve ergen iletişimi gibi konularda önemli katkılar sağlamıştır. Çalışmalarında çözüm odaklı bir yaklaşımı benimsemiş, bireylerin ve ailelerin kendi güçlü yönlerini keşfetmelerine yardımcı olmuştur.
-                <p>
-                    <header class="big-header">3. Ordu’ya Dönüş ve Yeni Başlangıçlar</header>
-                <p>
-                İstanbul’da kazandığı deneyimleri memleketi Ordu’ya taşımaya karar veren Çayır, burada yeni bir ofis açarak aile danışmanlığı hizmeti vermeye devam etmektedir. Ordu’da, aile danışmanlığına ihtiyaç duyan bireyler için güvenilir bir rehber olmayı sürdürmektedir.
-                <p>
-                    <header class="big-header">4. Yaklaşım ve Felsefesi</header>
-                <p>
-                Emine Çayır’ın danışmanlık anlayışı, aile bağlarının güçlendirilmesi, iletişim sorunlarının çözülmesi ve bireylerin kendilerini daha iyi anlamalarını sağlamaya dayanır. Çocukların ve gençlerin sağlıklı bir şekilde büyüyebilmesi için ebeveynlere rehberlik etmeyi de önemli bir sorumluluk olarak görür.
-                <p>
-                    <header class="big-header">5. Kişisel İlgi Alanları</header>
-                Mesleğinin yanı sıra kişisel gelişim ve manevi derinleşmeye önem veren Çayır, özellikle rüya tabirleri üzerine araştırmalar yapmayı bir tutku haline getirmiştir. Bunun yanında, iletişim becerilerini sürekli geliştirme amacı taşır ve bu alandaki eğitimlere katılmaya devam etmektedir.
-                <header class="big-header">6. Gelecek Planları</header>
-                <p>
-                Emine Çayır, Ordu’da ailelere daha etkili hizmet verebilmek için grup terapileri ve atölye çalışmaları düzenlemeyi planlamaktadır. Özellikle evlilik öncesi danışmanlık ve ebeveyn eğitim programları gibi alanlarda yeni projeler geliştirmeyi hedeflemektedir. Ayrıca, okullarda ve çeşitli kurumlarda seminerler vererek aile içi iletişim ve çocuk gelişimi konularında toplumsal farkındalığı artırmayı amaçlamaktadır.
-             </p>
+
+            <!-- Hero Bölümü -->
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Aile Danışmanı Emine Çayır ile<br>Güvenli Bir Yolculuğa Hazır mısınız?</h1>
+                    <p class="hero-subtitle">Bireysel, çift ve çocuk-ergen danışmanlığıyla yanınızdayım.</p>
+                    <div class="contact-buttons" style="margin-top:2rem;">
+                    </div>
+                </div>
+                <div class="featured-image">
+                    <img src="guncel1.jpg" alt="Emine Çayır" class="main-image">
+                </div>
             </div>
-        </div>
-<!-- WhatsApp Modal (Popup) -->
-<!-- Mevcut Modal Yapısı -->
-<div class="modal fade" id="whatsappModal" tabindex="-1" aria-labelledby="whatsappModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="whatsappModalLabel"><img src="pngtree-whatsapp-icon-png-image_8704827.png" alt=""></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+
+            <!-- Kısa Biyografi -->
+            <section class="bio-section">
+                <div class="bio-content">
+                    <h2>Emine Çayır Kimdir?</h2>
+                    <p class="bio-text">Uzman Aile Danışmanı, Psikolojik Danışman ve Eğitmen olarak 10+ yıllık deneyimimle bireysel, çift ve ailelere yönelik danışmanlık hizmeti sunuyorum. Empaz Aile Danışmanlığı'nın kurucusuyum. Gizlilik, etik ve güvenle yanınızdayım.</p>
+                    <div class="experience-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-number">10+</span>
+                            <span class="highlight-text">Yıl Deneyim</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-number">1000+</span>
+                            <span class="highlight-text">Danışan</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-number">20+</span>
+                            <span class="highlight-text">Eğitim & Sertifika</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Uzmanlık Alanları -->
+            <section>
+                <h2 class="section-title">Uzmanlık Alanları</h2>
+                <div class="approach-grid">
+                    <div class="approach-item">
+                        <h4>🧠 Bireysel Terapi</h4>
+                        <p>Kişisel sorunlar, kaygı, stres ve yaşam zorlukları için birebir destek.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h4>💕 Çift/Aile Danışmanlığı</h4>
+                        <p>Çiftler ve aileler arası iletişim, güven ve bağlılık çalışmaları.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h4>👶 Çocuk & Ergen Danışmanlığı</h4>
+                        <p>Çocuklar ve ergenler için gelişimsel ve duygusal destek.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h4>🌐 Online Seans</h4>
+                        <p>Uzaktan, güvenli ve esnek danışmanlık imkanı.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h4>🧩 Terapi Yaklaşımları</h4>
+                        <p>Bilişsel Davranışçı Terapi (BDT), EMDR ve çözüm odaklı terapi teknikleri.</p>
+                    </div>
+                </div>
+            </section>            <!-- En Sık Karşılaşılan Problemler -->
+            <section>
+                <h2 class="section-title">🧠 Aile Danışmanlığının En Çok İlgilendiği Problemler</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">💬</div>
+                        <h3>Evlilik İçi İletişim Problemleri</h3>
+                        <p>Eşler arasında yanlış anlama, duygusal kopukluk, öfke kontrolü eksikliği</p>
+                        <a href="#" class="service-link" data-bs-toggle="modal" data-bs-target="#problem1Modal">Detaylı Bilgi</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💔</div>
+                        <h3>Güvensizlik ve Sadakatsizlik</h3>
+                        <p>Aldatma, kıskançlık, geçmiş olaylara takılma gibi güven zedelenmeleri</p>
+                        <a href="#" class="service-link" data-bs-toggle="modal" data-bs-target="#problem2Modal">Detaylı Bilgi</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🧒</div>
+                        <h3>Çocuk ve Ergenle İletişim</h3>
+                        <p>Anne-baba ile çocuk/ergen arasında çatışmalar, otorite sorunları</p>
+                        <a href="#" class="service-link" data-bs-toggle="modal" data-bs-target="#problem3Modal">Detaylı Bilgi</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">😔</div>
+                        <h3>Boşanma Süreci Sorunları</h3>
+                        <p>Boşanma öncesi çatışmalar, çocukların etkilenmesi, yeni düzene uyum</p>
+                        <a href="#" class="service-link" data-bs-toggle="modal" data-bs-target="#problem4Modal">Detaylı Bilgi</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🧩</div>
+                        <h3>Aile İçi Roller Karmaşası</h3>
+                        <p>Rol belirsizlikleri, sınır sorunları, karışık aile dinamikleri</p>
+                        <a href="#" class="service-link" data-bs-toggle="modal" data-bs-target="#problem5Modal">Detaylı Bilgi</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📢</div>
+                        <h3>Ailede Şiddet ve Travma</h3>
+                        <p>Fiziksel, duygusal veya psikolojik şiddet durumlarında destek</p>
+                        <a href="#" class="service-link" data-bs-toggle="modal" data-bs-target="#problem6Modal">Detaylı Bilgi</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💰</div>
+                        <h3>Ekonomik Sorunların Etkileri</h3>
+                        <p>Maddi sorunların aile ilişkilerine yansıması ve çözüm yolları</p>
+                        <a href="#" class="service-link" data-bs-toggle="modal" data-bs-target="#problem7Modal">Detaylı Bilgi</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🧳</div>
+                        <h3>Büyük Değişimlere Uyum</h3>
+                        <p>Taşınma, hastalık, kayıp gibi yaşam olaylarına adaptasyon süreci</p>
+                        <a href="#" class="service-link" data-bs-toggle="modal" data-bs-target="#problem8Modal">Detaylı Bilgi</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Problem Detay Modalları -->
+            <div class="modal fade" id="problem1Modal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Evlilik İçi İletişim Problemleri</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="problem-description">
+                                <img src="resim2.png" alt="Ekonomik Sorunlar" class="profile-image">
+                                <h6>🔍 Problem Detayları:</h6>
+                                <ul>
+                                    <li>Yanlış iletişim kalıpları ve çatışmalar</li>
+                                    <li>Duygusal kopukluk ve uzaklaşma</li>
+                                    <li>Öfke kontrolü ve tartışma yönetimi</li>
+                                    <li>Empati eksikliği ve anlayış sorunları</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="solution-section">
+                                <h6>💡 Çözüm Yaklaşımımız:</h6>
+                                <ul>
+                                    <li>Ben dili kullanımı ve aktif dinleme teknikleri</li>
+                                    <li>Duygu düzenleme ve ifade becerileri geliştirme</li>
+                                    <li>Çatışma çözümü için pratik stratejiler</li>
+                                    <li>Empati egzersizleri ve rol değişimi çalışmaları</li>
+                                </ul>
+                            </div>
+
+                            <div class="expected-results mt-4">
+                                <h6>✨ Beklenen Sonuçlar:</h6>
+                                <ul>
+                                    <li>Daha sağlıklı iletişim kalıpları</li>
+                                    <li>Güçlenmiş duygusal bağ</li>
+                                    <li>Azalmış çatışma sıklığı</li>
+                                    <li>Artan ilişki doyumu</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            <!-- Diğer Problem Modalları -->
+            <div class="modal fade" id="problem2Modal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Çift İlişkilerindeki Problemler</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="resim2.png" alt="Çift Terapisi" class="profile-image">
+                            
+                            <div class="problem-description">
+                                <h4><i class="fas fa-exclamation-circle section-icon"></i> Problem Tanımı</h4>
+                                <p>Çift ilişkilerinde yaşanan zorluklar şunları içerebilir:</p>
+                                <ul>
+                                    <li>İletişim kopuklukları</li>
+                                    <li>Güven sorunları</li>
+                                    <li>Duygusal uzaklaşma</li>
+                                    <li>Çatışma yönetimi zorlukları</li>
+                                    <li>Bağlanma problemleri</li>
+                                </ul>
+                            </div>
+
+                            <div class="solution-section">
+                                <h4><i class="fas fa-lightbulb section-icon"></i> Çözüm Önerileri</h4>
+                                <ul>
+                                    <li>Etkili iletişim becerilerinin geliştirilmesi</li>
+                                    <li>Çatışma çözme tekniklerinin öğrenilmesi</li>
+                                    <li>Empati ve anlayışın artırılması</li>
+                                    <li>Güven yeniden inşa etme çalışmaları</li>
+                                    <li>Duygusal bağın güçlendirilmesi</li>
+                                </ul>
+                            </div>
+
+                            <div class="expected-results">
+                                <h4><i class="fas fa-check-circle section-icon"></i> Beklenen Sonuçlar</h4>
+                                <ul>
+                                    <li>Daha güçlü ve sağlıklı bir ilişki</li>
+                                    <li>İyileştirilmiş iletişim becerileri</li>
+                                    <li>Artan duygusal yakınlık</li>
+                                    <li>Daha etkili problem çözme yeteneği</li>
+                                    <li>Güven ve bağlılığın yeniden tesisi</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            <div class="modal fade" id="problem3Modal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Çocuk ve Ergen İletişim Sorunları</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="resim2.png" alt="Çocuk ve Ergen İletişimi" class="profile-image">
+                            
+                            <div class="problem-description">
+                                <i class="section-icon">👥</i>
+                                <p>Çocuk ve ergenlerle yaşanan iletişim zorlukları, ailelerin sıklıkla karşılaştığı önemli sorunlardan biridir. Bu dönemlerde:</p>
+                                <ul>
+                                    <li>Ergenlik dönemi değişimleri</li>
+                                    <li>Okul ve akademik performans sorunları</li>
+                                    <li>Teknoloji bağımlılığı</li>
+                                    <li>Akran ilişkileri</li>
+                                    <li>Aile içi çatışmalar</li>
+                                </ul>
+                            </div>
+
+                            <div class="solution-section">
+                                <h5><i class="section-icon">💡</i> Çözüm Yaklaşımları</h5>
+                                <ul>
+                                    <li>Yaş dönemine uygun iletişim teknikleri</li>
+                                    <li>Ebeveyn-çocuk ilişki danışmanlığı</li>
+                                    <li>Sınır koyma ve disiplin stratejileri</li>
+                                    <li>Teknoloji kullanımı dengesi</li>
+                                    <li>Akademik motivasyon desteği</li>
+                                </ul>
+                            </div>
+
+                            <div class="expected-results">
+                                <h5><i class="section-icon">✨</i> Beklenen Sonuçlar</h5>
+                                <ul>
+                                    <li>Daha güçlü aile bağları</li>
+                                    <li>Etkili iletişim becerileri</li>
+                                    <li>Akademik başarıda artış</li>
+                                    <li>Özgüven gelişimi</li>
+                                    <li>Sağlıklı teknoloji kullanımı</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            <div class="modal fade" id="problem4Modal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Boşanma Süreci Sorunları</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="guncel1.jpg" alt="Boşanma Süreci" class="profile-image">
+                            
+                            <div class="problem-description">
+                                <i class="section-icon">💔</i>
+                                <p>Boşanma süreci, tüm aile üyeleri için zorlu bir dönemdir ve şu konuları içerir:</p>
+                                <ul>
+                                    <li>Duygusal travma yönetimi</li>
+                                    <li>Çocukların sürece adaptasyonu</li>
+                                    <li>Ortak ebeveynlik zorlukları</li>
+                                    <li>Yasal süreç stresi</li>
+                                    <li>Yeni yaşam düzenine geçiş</li>
+                                </ul>
+                            </div>
+
+                            <div class="solution-section">
+                                <h5><i class="section-icon">💡</i> Çözüm Yaklaşımları</h5>
+                                <ul>
+                                    <li>Bireysel ve aile terapisi desteği</li>
+                                    <li>Çocuk odaklı danışmanlık</li>
+                                    <li>İletişim stratejileri geliştirme</li>
+                                    <li>Ortak ebeveynlik planlaması</li>
+                                    <li>Stres yönetimi teknikleri</li>
+                                </ul>
+                            </div>
+
+                            <div class="expected-results">
+                                <h5><i class="section-icon">✨</i> Beklenen Sonuçlar</h5>
+                                <ul>
+                                    <li>Sağlıklı bir geçiş süreci</li>
+                                    <li>Çocukların uyumu</li>
+                                    <li>Etkili ortak ebeveynlik</li>
+                                    <li>Duygusal iyileşme</li>
+                                    <li>Yeni yaşama adaptasyon</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            <div class="modal fade" id="problem5Modal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Aile İçi Rol Karmaşası</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="guncel2.jpg" alt="Aile Rolleri" class="profile-image">
+                            
+                            <div class="problem-description">
+                                <i class="section-icon">🔄</i>
+                                <p>Aile içi rollerin karışması ve belirsizleşmesi şu sorunlara yol açabilir:</p>
+                                <ul>
+                                    <li>Ebeveyn-çocuk rol karmaşası</li>
+                                    <li>Sorumluluk dağılımı dengesizliği</li>
+                                    <li>Sınır sorunları</li>
+                                    <li>Aile içi hiyerarşi bozulması</li>
+                                    <li>İletişim kopuklukları</li>
+                                </ul>
+                            </div>
+
+                            <div class="solution-section">
+                                <h5><i class="section-icon">💡</i> Çözüm Yaklaşımları</h5>
+                                <ul>
+                                    <li>Rol ve sorumluluk analizi</li>
+                                    <li>Aile içi sınırların yeniden yapılandırılması</li>
+                                    <li>İletişim becerilerinin geliştirilmesi</li>
+                                    <li>Aile dinamiklerinin düzenlenmesi</li>
+                                    <li>Dengeli görev dağılımı</li>
+                                </ul>
+                            </div>
+
+                            <div class="expected-results">
+                                <h5><i class="section-icon">✨</i> Beklenen Sonuçlar</h5>
+                                <ul>
+                                    <li>Net rol tanımları</li>
+                                    <li>Sağlıklı aile yapısı</li>
+                                    <li>Dengeli sorumluluk dağılımı</li>
+                                    <li>İyileştirilmiş iletişim</li>
+                                    <li>Güçlenmiş aile bağları</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-                <!-- Ad Textarea -->
-                <textarea id="name" class="form-control mb-3" rows="2" placeholder="Adınızı yazın" required></textarea>
-                <!-- Mesaj Textarea -->
-                <textarea id="message" class="form-control" rows="5" placeholder="Mesajınızı yazın" required></textarea>
-                <!-- Gönder Butonu -->
-                <button id="sendWhatsAppButton" class="btn btn-success w-100 mt-3">Gönder</button>
+
+            <div class="modal fade" id="problem6Modal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Ailede Şiddet ve Travma</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                                                <div class="modal-body">
+                            <img src="guncel2.jpg" alt="Aile Rolleri" class="profile-image">
+                            
+                            <div class="problem-description">
+                                <i class="section-icon">🔄</i>
+                                <p>Fiziksel, duygusal veya psikolojik şiddet durumlarında destek</p>
+                                <ul>
+                                    <li>Fiziksel şiddet</li>
+                                    <li>Duygusal istismar</li>
+                                    <li>Psikolojik travma</li>
+                                    <li>Güvenli alan oluşturma</li>
+                                </ul>
+                            </div>
+
+                            <div class="solution-section">
+                                <h5><i class="section-icon">💡</i> Çözüm Yaklaşımları</h5>
+                                <ul>
+                                    <li>Rol ve sorumluluk analizi</li>
+                                    <li>Aile içi sınırların yeniden yapılandırılması</li>
+                                    <li>İletişim becerilerinin geliştirilmesi</li>
+                                    <li>Aile dinamiklerinin düzenlenmesi</li>
+                                    <li>Dengeli görev dağılımı</li>
+                                </ul>
+                            </div>
+
+                            <div class="expected-results">
+                                <h5><i class="section-icon">✨</i> Beklenen Sonuçlar</h5>
+                                <ul>
+                                    <li>Net rol tanımları</li>
+                                    <li>Sağlıklı aile yapısı</li>
+                                    <li>Dengeli sorumluluk dağılımı</li>
+                                    <li>İyileştirilmiş iletişim</li>
+                                    <li>Güçlenmiş aile bağları</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            <div class="modal fade" id="problem7Modal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Ekonomik Sorunların Etkileri</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="resim2.png" alt="Ekonomik Sorunlar" class="profile-image">
+                            
+                            <div class="problem-description">
+                                <i class="section-icon">💰</i>
+                                <p>Ekonomik zorluklar, aile yaşamını birçok açıdan etkileyebilir:</p>
+                                <ul>
+                                    <li>Mali stres ve kaygı</li>
+                                    <li>Aile içi çatışmalar</li>
+                                    <li>Yaşam standardı değişiklikleri</li>
+                                    <li>Gelecek kaygısı</li>
+                                    <li>İş-aile dengesi sorunları</li>
+                                </ul>
+                            </div>
+
+                            <div class="solution-section">
+                                <h5><i class="section-icon">💡</i> Çözüm Yaklaşımları</h5>
+                                <ul>
+                                    <li>Finansal planlama desteği</li>
+                                    <li>Stres yönetimi teknikleri</li>
+                                    <li>Aile bütçe danışmanlığı</li>
+                                    <li>Kaynak yönetimi stratejileri</li>
+                                    <li>İş arama ve kariyer desteği</li>
+                                </ul>
+                            </div>
+
+                            <div class="expected-results">
+                                <h5><i class="section-icon">✨</i> Beklenen Sonuçlar</h5>
+                                <ul>
+                                    <li>Mali stres yönetimi</li>
+                                    <li>Daha iyi finansal planlama</li>
+                                    <li>Aile içi uyumun artması</li>
+                                    <li>Yaşam kalitesinin korunması</li>
+                                    <li>Gelecek güveni</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
-  <!-- Randevu Modalı -->
-  <div class="modal fade" id="randevuModal" tabindex="-1" aria-labelledby="randevuModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content p-4">
-        <div class="modal-header">
-          <h5 class="modal-title" id="randevuModalLabel">📋 Randevu Talep Formu</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-  
-          <div class="mb-3">
-            <label for="randevuName" class="form-label">👤 Adınız Soyadınız</label>
-            <input id="randevuName" type="text" class="form-control" required>
-          </div>
-  
-          <div class="mb-3">
-            <label for="randevuPhone" class="form-label">📞 Telefon Numaranız</label>
-            <input id="randevuPhone" type="text" class="form-control" required>
-          </div>
-  
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="randevuDate" class="form-label">🗓️ Tarih</label>
-              <input id="randevuDate" type="date" class="form-control" required>
-              <div id="selectedDay" class="form-text mt-1 text-muted"></div>
+
+            <div class="modal fade" id="problem8Modal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Büyük Değişimlere Uyum</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="resim2.png" alt="Değişim Süreci" class="profile-image">
+                            
+                            <div class="problem-description">
+                                <i class="section-icon">🔄</i>
+                                <p>Büyük yaşam değişimleri, aileler için zorlayıcı olabilir:</p>
+                                <ul>
+                                    <li>Taşınma ve çevre değişikliği</li>
+                                    <li>Yeni aile üyesi katılımı</li>
+                                    <li>İş değişiklikleri</li>
+                                    <li>Sağlık sorunları</li>
+                                    <li>Yaşam tarzı değişimleri</li>
+                                </ul>
+                            </div>
+
+                            <div class="solution-section">
+                                <h5><i class="section-icon">💡</i> Çözüm Yaklaşımları</h5>
+                                <ul>
+                                    <li>Adaptasyon stratejileri</li>
+                                    <li>Aile içi iletişim desteği</li>
+                                    <li>Değişim yönetimi teknikleri</li>
+                                    <li>Stres azaltma yöntemleri</li>
+                                    <li>Yeni rutinler oluşturma</li>
+                                </ul>
+                            </div>
+
+                            <div class="expected-results">
+                                <h5><i class="section-icon">✨</i> Beklenen Sonuçlar</h5>
+                                <ul>
+                                    <li>Başarılı adaptasyon</li>
+                                    <li>Aile dayanıklılığının artması</li>
+                                    <li>Yeni fırsatların değerlendirilmesi</li>
+                                    <li>Güçlenmiş aile bağları</li>
+                                    <li>Pozitif yaşam değişimi</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-  
-            <div class="col-md-6 mb-3">
-              <label for="randevuTime" class="form-label">🕑 Saat</label>
-              <select id="randevuTime" class="form-select" required>
-                <option value="">Saat Seçiniz</option>
-                <option value="09:00">09:00</option>
-                <option value="10:00">10:00</option>
-                <option value="11:00">11:00</option>
-                <option value="12:00">12:00</option>
-                <option value="13:00">13:00</option>
-                <option value="14:00">14:00</option>
-                <option value="15:00">15:00</option>
-                <option value="16:00">16:00</option>
-                <option value="17:00">17:00</option>
-              </select>
-            </div>
-          </div>
-  
-          <div class="mb-3">
-            <label for="randevuNote" class="form-label">📝 Not (İsteğe Bağlı)</label>
-            <textarea id="randevuNote" class="form-control" rows="3"></textarea>
-          </div>
-  
-          <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" id="hatirlatmaIstiyorum">
-            <label class="form-check-label" for="hatirlatmaIstiyorum">
-              ⏰ 1 gün önceden hatırlatma istiyorum
-            </label>
-          </div>
-  
-          <div class="d-grid gap-2">
-            <button id="previewButton" class="btn btn-success btn-lg">📋 Bilgileri Önizle</button>
-          </div>
-  
+
+            <!-- SSS -->
+            <section class="faq-section">
+                <h2 class="section-title">💡 Sık Sorulan Sorular</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>Seanslar gizli midir?</h3>
+                        <p>Evet, tüm görüşmeler etik ve gizlilik ilkelerine uygun olarak yürütülür. Görüşmelerde paylaşılan bilgiler kesinlikle gizli tutulur.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Online seans mümkün mü?</h3>
+                        <p>Evet, online danışmanlık ile Türkiye'nin her yerinden destek alabilirsiniz. Görüntülü görüşme ile yüz yüze seansa benzer bir deneyim yaşarsınız.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Çocuklarla nasıl çalışıyorsunuz?</h3>
+                        <p>Çocuklarla yaş gruplarına uygun teknikler, oyun terapisi ve sanat terapisi yöntemleri kullanarak çalışıyoruz.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Seans süreleri ne kadardır?</h3>
+                        <p>Standart seanslar 50 dakika sürmektedir. İlk görüşme ise 60-90 dakika arasında değişebilir.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Danışmanlık süreci ne kadar sürer?</h3>
+                        <p>Her danışanın ihtiyacına göre değişmekle birlikte, ortalama 8-12 seans sürebilir. Süreç ilerledikçe değerlendirilir.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Ödeme seçenekleri nelerdir?</h3>
+                        <p>Nakit, kredi kartı ve havale/EFT ile ödeme yapılabilir. Detaylı bilgi için iletişime geçebilirsiniz.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Psikolojik Danışma Süreci Adımları -->
+            <section class="journey-section">
+                <h2 class="section-title">🧭 Danışma Süreci</h2>
+                <div class="journey-map">
+                    <div class="journey-step">
+                        <span class="step-number">1</span>
+                        <div>İlk görüşme ve ihtiyaç analizi</div>
+                    </div>
+                    <div class="journey-step">
+                        <span class="step-number">2</span>
+                        <div>Hedef belirleme ve yol haritası</div>
+                    </div>
+                    <div class="journey-step">
+                        <span class="step-number">3</span>
+                        <div>Terapi/danışmanlık süreci</div>
+                    </div>
+                    <div class="journey-step">
+                        <span class="step-number">4</span>
+                        <div>Değerlendirme ve kapanış</div>
+                    </div>
+                </div>
+            </section>
         </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Önizleme Modalı -->
-  <div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="previewModalLabel">Bilgilerinizi Kontrol Edin</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <p><strong>İsim:</strong> <span id="previewName"></span></p>
-          <p><strong>Telefon:</strong> <span id="previewPhone"></span></p>
-          <p><strong>Tarih:</strong> <span id="previewDate"></span> (<span id="previewDay"></span>)</p>
-          <p><strong>Saat:</strong> <span id="previewTime"></span></p>
-          <p><strong>Not:</strong> <span id="previewNote"></span></p>
-        </div>
-        <div class="modal-footer">
-          <button id="confirmButton" class="btn btn-primary">✅ Onayla ve Gönder</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Başarı Bildirimi -->
-  <div id="successAlert" class="alert alert-success position-fixed top-0 start-50 translate-middle-x mt-5" style="z-index: 2000; display: none; width: 300px;" role="alert">
-    🎉 Randevu talebiniz alınmıştır. Teşekkür ederiz!
-  </div>
-  
-  <!-- Hafta Sonu Uyarı -->
-  <div id="weekendAlert" class="alert alert-warning position-fixed top-0 start-50 translate-middle-x mt-5" style="z-index: 2000; display: none; width: 300px;" role="alert">
-    ❌ Hafta sonu için randevu alınamaz. Lütfen hafta içi bir gün seçiniz.
-  </div>
 
         <!-- Footer -->
-        <footer>
-            <p>&copy; 2024 Emine Çayır. Tüm hakları saklıdır.</p>
+        <footer class="footer-container">
+            <div class="footer-contact">
+                <!-- Harita Bölümü -->
+                <div class="footer-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2991.499048485405!2d37.49724861744385!3d41.02956947929955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4062c505e846e999%3A0x75b4c973311c42ef!2sEmpaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1!5e0!3m2!1str!2str!4v1699338929705!5m2!1str!2str" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                
+
+                <!-- WhatsApp ve Sosyal Medya -->
+                <div class="footer-info">                    <!-- İletişim Butonları -->
+                    <div class="footer-whatsapp">
+                        <h3>Bize Ulaşın</h3>
+                        <div class="contact-buttons">
+                            <a href="https://wa.me/905455521485" target="_blank" class="social-icon whatsapp">
+                                <img src="whatsappana.png" alt="WhatsApp">
+                            </a>
+                            <button class="social-icon randevu" data-bs-toggle="modal" data-bs-target="#randevuModal">
+                                📅 
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Sosyal Medya -->
+                    <div class="footer-social">
+                        <h3>Bizi Takip Edin</h3>
+                        <div class="social-icons">
+                            <a href="https://www.instagram.com/empazaile/" target="_blank" class="social-icon instagram">
+                                <img src="Instagram-Logo.wine.svg" alt="Instagram">
+                            </a>
+                            <a href="https://www.facebook.com/empazaile52" target="_blank" class="social-icon facebook">
+                                <img src="facebook.png" alt="Facebook">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-copyright">
+                <p>&copy; 2024 Emine Çayır. Tüm hakları saklıdır.</p>
+            </div>
         </footer>
     </div>
 
@@ -489,12 +2017,12 @@
   previewButton.addEventListener('click', function () {
     if (randevuName.value && randevuPhone.value && randevuDate.value && randevuTime.value) {
       const selectedDate = new Date(randevuDate.value);
-      const dayName = days[selectedDate.getDay()];
+      const dayIndex = days[selectedDate.getDay()];
 
       document.getElementById('previewName').textContent = randevuName.value;
       document.getElementById('previewPhone').textContent = randevuPhone.value;
       document.getElementById('previewDate').textContent = randevuDate.value;
-      document.getElementById('previewDay').textContent = dayName;
+      document.getElementById('previewDay').textContent = dayIndex;
       document.getElementById('previewTime').textContent = randevuTime.value;
       document.getElementById('previewNote').textContent = randevuNote.value || 'Yok';
 
@@ -546,20 +2074,26 @@ END:VCALENDAR`.trim();
     setTimeout(() => {
       successAlert.style.display = 'none';
       const newMessage = `
-╔══════════════════════════════╗
-║         📅 Randevu Talebi         ║
-╠════════════╦══════════════════╣
-║ İsim        ║ ${name}             ║
-╠════════════╬══════════════════╣
-║ Telefon     ║ ${phone}           ║
-╠════════════╬══════════════════╣
-║ Tarih       ║ ${date} (${dayName}) ║
-╠════════════╬══════════════════╣
-║ Saat        ║ ${time}             ║
-╠════════════╬══════════════════╣
-║ Not         ║ ${note}            ║
-╚════════════╩══════════════════╝
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃           RANDEVU ONAYI              ┃
+┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃
+┃ Ad         : ${name}
+┃ Telefon    : ${phone}
+┃ Tarih      : ${date} (${dayName})
+┃ Saat       : ${time}
+┃ Not        : ${note || "Belirtilmedi"}
+┃ Referans   : #${Math.floor(100000 + Math.random() * 900000)}
+┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃
+┃ Randevunuz başarıyla kaydedilmiştir.
+┃ Lütfen randevu saatinizden 5-10 dakika
+┃ önce hazır bulununuz.
+┃ 
+┃ Saygılarımızla,
+┃ Empaz Aile Danışmanlığı Ekibi
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 `;
+
+
 
       const whatsappUrl = `https://wa.me/${randevuPhoneNumber}?text=${encodeURIComponent(newMessage)}`;
       window.open(whatsappUrl, '_blank');
@@ -577,5 +2111,44 @@ END:VCALENDAR`.trim();
 });
     
     </script>
+
+<script>
+    // Hoşgeldiniz modalı otomatik açılır
+    document.addEventListener('DOMContentLoaded', function() {
+        var hosgeldinizModal = new bootstrap.Modal(document.getElementById('hosgeldinizModal'));
+        setTimeout(() => hosgeldinizModal.show(), 800);
+    });
+
+    // Kısa psikolojik test sonucu
+    function testSonucu() {
+        var q1 = document.getElementById('q1').value;
+        var q2 = document.getElementById('q2').value;
+        var puan = 0;
+        if (q1 === "Bazen") puan += 1;
+        if (q1 === "Sıkça") puan += 2;
+        if (q2 === "Bazen") puan += 1;
+        if (q2 === "Sıkça") puan += 2;
+
+        var sonuc = "";
+        if (puan <= 1) sonuc = "Anksiyete düzeyiniz düşük görünüyor.";
+        else if (puan <= 3) sonuc = "Orta düzeyde anksiyete belirtileri gözlemlenebilir.";
+        else sonuc = "Yüksek düzeyde anksiyete belirtileri var. Destek almanız önerilir.";
+
+        document.getElementById('testResult').textContent = sonuc;
+    }
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Problem detayları açıldığında animasyon ekle
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            modal.addEventListener('show.bs.modal', function() {
+                this.querySelector('.modal-content').style.animation = 'fadeInUp 0.3s ease forwards';
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
