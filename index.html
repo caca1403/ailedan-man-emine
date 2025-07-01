@@ -1239,7 +1239,7 @@
         }
 
         .modal-content {
-            background: rgba(255,255,255,0.98);
+            background: rgba(219, 213, 213, 0.442);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.2);
@@ -1273,7 +1273,7 @@
         }
 
         .expected-results {
-            background: rgba(255,255,255,0.9);
+            background: rgba(84, 70, 70, 0.262);
             padding: 1.5rem;
             border-radius: 15px;
             margin-top: 2rem;
@@ -2061,7 +2061,9 @@
 <script>
  document.addEventListener('DOMContentLoaded', function () {
   const previewButton = document.getElementById('previewButton');
-  const confirmButton = document.getElementById('confirmButton');
+  const confirmButton = document.getElementById('confirmFromPreview');
+
+
   const randevuName = document.getElementById('randevuName');
   const randevuPhone = document.getElementById('randevuPhone');
   const randevuDate = document.getElementById('randevuDate');
@@ -2119,7 +2121,6 @@
     }
   });
 
-  // Onayla ve Gönder
   confirmButton.addEventListener('click', function () {
     const name = randevuName.value.trim();
     const phone = randevuPhone.value.trim();
@@ -2135,7 +2136,7 @@
 
     // .ics dosyası oluştur
     const startDateTime = `${date}T${time.replace(':', '')}00`;
-    const alarmMinutes = hatirlatmaIstiyorum.checked ? 1440 : 0; // 1 gün önceden hatırlatma
+    const alarmMinutes = hatirlatmaIstiyorum.checked ? 1440 : 0;
 
     const icsContent = `
 BEGIN:VCALENDAR
@@ -2157,10 +2158,8 @@ END:VCALENDAR`.trim();
     link.click();
     document.body.removeChild(link);
 
-    // 2 saniye sonra WhatsApp aç
-    setTimeout(() => {
-      successAlert.style.display = 'none';
-      const newMessage = `
+    // Hemen WhatsApp mesajı hazırla ve yönlendir
+    const newMessage = `
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃           RANDEVU ONAYI              ┃
 ┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃
@@ -2180,21 +2179,26 @@ END:VCALENDAR`.trim();
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 `;
 
+    const whatsappUrl = `https://wa.me/${randevuPhoneNumber}?text=${encodeURIComponent(newMessage)}`;
+    window.location.href = whatsappUrl; // 🔁 Tarayıcı engeli olmayan garantili yol
 
+    // Formu sıfırla
+    randevuName.value = '';
+    randevuPhone.value = '';
+    randevuDate.value = '';
+    randevuTime.value = '';
+    randevuNote.value = '';
+    hatirlatmaIstiyorum.checked = false;
+    selectedDay.textContent = '';
+});
 
-      const whatsappUrl = `https://wa.me/${randevuPhoneNumber}?text=${encodeURIComponent(newMessage)}`;
-      window.open(whatsappUrl, '_blank');
-
-      // Formu sıfırla
-      randevuName.value = '';
-      randevuPhone.value = '';
-      randevuDate.value = '';
-      randevuTime.value = '';
-      randevuNote.value = '';
-      hatirlatmaIstiyorum.checked = false;
-      selectedDay.textContent = '';
-    }, 2000);
-  });
+  // Başarı mesajı için alert
+  const successAlert = document.createElement('div');
+  successAlert.id = 'successAlert';
+  successAlert.className = 'alert alert-success mt-3';
+  successAlert.textContent = 'Randevunuz başarıyla kaydedildi. WhatsApp üzerinden onay mesajı gönderildi.';
+  successAlert.style.display = 'none'; // Başlangıçta gizli
+  document.querySelector('.modal-body').appendChild(successAlert);
 });
     
     </script>
