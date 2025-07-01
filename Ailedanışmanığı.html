@@ -713,7 +713,7 @@
                 <img src="OIP.jpg" alt="Resim 7">
             </div>
         </div>
-  <!-- Randevu Modalı -->
+ <!-- Randevu Modalı -->
   <div class="modal fade" id="randevuModal" tabindex="-1" aria-labelledby="randevuModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content p-4">
@@ -777,38 +777,30 @@
       </div>
     </div>
   </div>
-  
-  <!-- Önizleme Modalı -->
-  <div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+
+<!-- Önizleme Modalı -->
+<div class="modal fade" id="previewModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="previewModalLabel">Bilgilerinizi Kontrol Edin</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Randevu Önizleme</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Ad Soyad:</strong> <span id="previewName"></span></p>
+                <p><strong>Telefon:</strong> <span id="previewPhone"></span></p>
+                <p><strong>Tarih:</strong> <span id="previewDate"></span></p>
+                <p><strong>Gün:</strong> <span id="previewDay"></span></p>
+                <p><strong>Saat:</strong> <span id="previewTime"></span></p>
+                <p><strong>Not:</strong> <span id="previewNote"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Düzenle</button>
+                <button type="button" class="btn btn-success" id="confirmFromPreview" data-bs-dismiss="modal">Onayla ve Gönder</button>
+            </div>
         </div>
-        <div class="modal-body">
-          <p><strong>İsim:</strong> <span id="previewName"></span></p>
-          <p><strong>Telefon:</strong> <span id="previewPhone"></span></p>
-          <p><strong>Tarih:</strong> <span id="previewDate"></span> (<span id="previewDay"></span>)</p>
-          <p><strong>Saat:</strong> <span id="previewTime"></span></p>
-          <p><strong>Not:</strong> <span id="previewNote"></span></p>
-        </div>
-        <div class="modal-footer">
-          <button id="confirmButton" class="btn btn-primary">✅ Onayla ve Gönder</button>
-        </div>
-      </div>
     </div>
-  </div>
-  
-  <!-- Başarı Bildirimi -->
-  <div id="successAlert" class="alert alert-success position-fixed top-0 start-50 translate-middle-x mt-5" style="z-index: 2000; display: none; width: 300px;" role="alert">
-    🎉 Randevu talebiniz alınmıştır. Teşekkür ederiz!
-  </div>
-  
-  <!-- Hafta Sonu Uyarı -->
-  <div id="weekendAlert" class="alert alert-warning position-fixed top-0 start-50 translate-middle-x mt-5" style="z-index: 2000; display: none; width: 300px;" role="alert">
-    ❌ Hafta sonu için randevu alınamaz. Lütfen hafta içi bir gün seçiniz.
-  </div>
+</div>
 <!-- WhatsApp Modal (Popup) -->
 <!-- Mevcut Modal Yapısı -->
 <div class="modal fade" id="whatsappModal" tabindex="-1" aria-labelledby="whatsappModalLabel" aria-hidden="true">
@@ -877,38 +869,41 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-           const sendWhatsAppButton = document.getElementById('sendWhatsAppButton'); // Gönder butonu
-           const nameInput = document.getElementById('name'); // Ad Textarea
-           const messageInput = document.getElementById('message'); // Mesaj Textarea
-           const phoneNumber = '905455521485'; // WhatsApp telefon numarası
-       
-           sendWhatsAppButton.addEventListener('click', function () {
-               const name = nameInput.value.trim();
-               const message = messageInput.value.trim();
-       
-               if (name && message) {
-                   // Dinamik mesaj oluştur
-                   const newMessage = `Merhaba, benim adım ${name}. Mesajım: ${message}`;
-                   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(newMessage)}`;
-       
-                   // WhatsApp'ı yeni sekmede aç
-                   window.open(whatsappUrl, '_blank');
-       
-                   // Form alanlarını temizle
-                   nameInput.value = '';
-                   messageInput.value = '';
-               } else {
-                   alert('Lütfen adınızı ve mesajınızı yazınız!');
-               }
-           });
-       });
-           </script>
-           <script>
+       <script>
+ document.addEventListener('DOMContentLoaded', function () {
+    const sendWhatsAppButton = document.getElementById('sendWhatsAppButton'); // Gönder butonu
+    const nameInput = document.getElementById('name'); // Ad Textarea
+    const messageInput = document.getElementById('message'); // Mesaj Textarea
+    const phoneNumber = '905455521485'; // WhatsApp telefon numarası
+
+    sendWhatsAppButton.addEventListener('click', function () {
+        const name = nameInput.value.trim();
+        const message = messageInput.value.trim();
+
+        if (name && message) {
+            // Dinamik mesaj oluştur
+            const newMessage = `Merhaba, benim adım ${name}. Mesajım: ${message}`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(newMessage)}`;
+
+            // WhatsApp'ı yeni sekmede aç
+            window.open(whatsappUrl, '_blank');
+
+            // Form alanlarını temizle
+            nameInput.value = '';
+            messageInput.value = '';
+        } else {
+            alert('Lütfen adınızı ve mesajınızı yazınız!');
+        }
+    });
+});
+    </script>
+
+<script>
  document.addEventListener('DOMContentLoaded', function () {
   const previewButton = document.getElementById('previewButton');
-  const confirmButton = document.getElementById('confirmButton');
+  const confirmButton = document.getElementById('confirmFromPreview');
+
+
   const randevuName = document.getElementById('randevuName');
   const randevuPhone = document.getElementById('randevuPhone');
   const randevuDate = document.getElementById('randevuDate');
@@ -951,12 +946,12 @@
   previewButton.addEventListener('click', function () {
     if (randevuName.value && randevuPhone.value && randevuDate.value && randevuTime.value) {
       const selectedDate = new Date(randevuDate.value);
-      const dayName = days[selectedDate.getDay()];
+      const dayIndex = days[selectedDate.getDay()];
 
       document.getElementById('previewName').textContent = randevuName.value;
       document.getElementById('previewPhone').textContent = randevuPhone.value;
       document.getElementById('previewDate').textContent = randevuDate.value;
-      document.getElementById('previewDay').textContent = dayName;
+      document.getElementById('previewDay').textContent = dayIndex;
       document.getElementById('previewTime').textContent = randevuTime.value;
       document.getElementById('previewNote').textContent = randevuNote.value || 'Yok';
 
@@ -966,7 +961,6 @@
     }
   });
 
-  // Onayla ve Gönder
   confirmButton.addEventListener('click', function () {
     const name = randevuName.value.trim();
     const phone = randevuPhone.value.trim();
@@ -982,7 +976,7 @@
 
     // .ics dosyası oluştur
     const startDateTime = `${date}T${time.replace(':', '')}00`;
-    const alarmMinutes = hatirlatmaIstiyorum.checked ? 1440 : 0; // 1 gün önceden hatırlatma
+    const alarmMinutes = hatirlatmaIstiyorum.checked ? 1440 : 0;
 
     const icsContent = `
 BEGIN:VCALENDAR
@@ -1004,111 +998,49 @@ END:VCALENDAR`.trim();
     link.click();
     document.body.removeChild(link);
 
-    // 2 saniye sonra WhatsApp aç
-    setTimeout(() => {
-      successAlert.style.display = 'none';
-      const newMessage = `
-╔══════════════════════════════╗
-║         📅 Randevu Talebi         ║
-╠════════════╦══════════════════╣
-║ İsim        ║ ${name}             ║
-╠════════════╬══════════════════╣
-║ Telefon     ║ ${phone}           ║
-╠════════════╬══════════════════╣
-║ Tarih       ║ ${date} (${dayName}) ║
-╠════════════╬══════════════════╣
-║ Saat        ║ ${time}             ║
-╠════════════╬══════════════════╣
-║ Not         ║ ${note}            ║
-╚════════════╩══════════════════╝
+    // Hemen WhatsApp mesajı hazırla ve yönlendir
+    const newMessage = `
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃           RANDEVU ONAYI              ┃
+┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃
+┃ Ad         : ${name}
+┃ Telefon    : ${phone}
+┃ Tarih      : ${date} (${dayName})
+┃ Saat       : ${time}
+┃ Not        : ${note || "Belirtilmedi"}
+┃ Referans   : #${Math.floor(100000 + Math.random() * 900000)}
+┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃
+┃ Randevunuz başarıyla kaydedilmiştir.
+┃ Lütfen randevu saatinizden 5-10 dakika
+┃ önce hazır bulununuz.
+┃ 
+┃ Saygılarımızla,
+┃ Empaz Aile Danışmanlığı Ekibi
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 `;
 
-      const whatsappUrl = `https://wa.me/${randevuPhoneNumber}?text=${encodeURIComponent(newMessage)}`;
-      window.open(whatsappUrl, '_blank');
+    const whatsappUrl = `https://wa.me/${randevuPhoneNumber}?text=${encodeURIComponent(newMessage)}`;
+    window.location.href = whatsappUrl; // 🔁 Tarayıcı engeli olmayan garantili yol
 
-      // Formu sıfırla
-      randevuName.value = '';
-      randevuPhone.value = '';
-      randevuDate.value = '';
-      randevuTime.value = '';
-      randevuNote.value = '';
-      hatirlatmaIstiyorum.checked = false;
-      selectedDay.textContent = '';
-    }, 2000);
-  });
+    // Formu sıfırla
+    randevuName.value = '';
+    randevuPhone.value = '';
+    randevuDate.value = '';
+    randevuTime.value = '';
+    randevuNote.value = '';
+    hatirlatmaIstiyorum.checked = false;
+    selectedDay.textContent = '';
 });
-            
-            </script>
-            <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('.content-section');
+
+  // Başarı mesajı için alert
+  const successAlert = document.createElement('div');
+  successAlert.id = 'successAlert';
+  successAlert.className = 'alert alert-success mt-3';
+  successAlert.textContent = 'Randevunuz başarıyla kaydedildi. WhatsApp üzerinden onay mesajı gönderildi.';
+  successAlert.style.display = 'none'; // Başlangıçta gizli
+  document.querySelector('.modal-body').appendChild(successAlert);
+});
     
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.animation = 'fadeInUp 1s ease forwards';
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        observer.observe(section);
-    });
-});
-            </script>
-            <script>
-document.addEventListener('DOMContentLoaded', () => {
-    // Highlight kutuları için animasyon
-    const highlightBoxes = document.querySelectorAll('.highlight-box');
-    highlightBoxes.forEach(box => {
-        box.addEventListener('mouseover', () => {
-            box.style.transform = 'translateY(-5px)';
-            box.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
-        });
-
-        box.addEventListener('mouseout', () => {
-            box.style.transform = 'translateY(0)';
-            box.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-        });
-
-        // Tıklama efekti
-        box.addEventListener('click', () => {
-            box.style.animation = 'pulse 0.5s ease';
-            setTimeout(() => {
-                box.style.animation = '';
-            }, 500);
-        });
-    });
-
-    // Başlıklar için parlama efekti
-    const titles = document.querySelectorAll('.section-title');
-    titles.forEach(title => {
-        title.classList.add('glow-text');
-    });
-
-    // Scroll animasyonu için IntersectionObserver
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px'
-    });
-
-    document.querySelectorAll('.content-section').forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(section);
-    });
-});
-</script>
+    </script>
 </body>
 </html>
