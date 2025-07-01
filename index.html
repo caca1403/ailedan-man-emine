@@ -2211,8 +2211,7 @@ END:VCALENDAR`.trim();
 });
     
     </script>
-
-<script>
+    <script>
     // Hoşgeldiniz modalı otomatik açılır
     document.addEventListener('DOMContentLoaded', function() {
         var hosgeldinizModal = new bootstrap.Modal(document.getElementById('hosgeldinizModal'));
@@ -2237,18 +2236,5 @@ END:VCALENDAR`.trim();
         document.getElementById('testResult').textContent = sonuc;
     }
 </script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Problem detayları açıldığında animasyon ekle
-        const modals = document.querySelectorAll('.modal');
-        modals.forEach(modal => {
-            modal.addEventListener('show.bs.modal', function() {
-                this.querySelector('.modal-content').style.animation = 'fadeInUp 0.3s ease forwards';
-            });
-        });
-    });
-</script>
-
 </body>
 </html>
