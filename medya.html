@@ -3,69 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Emine Çayır kısa bir biyografi/tanıtım ve aile danışmanlığı hakkında kapsamlı bilgiler.">
-    <meta name="keywords" content="danışmanlık, eğitim, rehberlik, Emine Çayır, aile danışmanlığı, aile danışmanı emine, emine çayır aile danışmanlığı , empaz aile danışmanlığı">
-    <title>Emine Çayır İş Tanıtımı ve Bir Biyografi</title>
+    <title>Aile Danışmanlığı hakkında detaylı bilgiler.</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .modal-body{
-            color:#000000;
-        }
+    <style>        
         body, html {
+            background-color: rgb(197, 142, 142);
+            font-family: 'Times New Roman', Times, serif;
             margin: 0;
             padding: 0;
             height: 100%;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .wrapper {
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .content {
-            flex: 1;
-            padding: 20px;
-            background-color: rgb(197, 142, 142);
-            font-size: 1rem;
-            padding-top: 100px;
-            color: white;
-            position: relative;
-            min-height: 100vh;
-        }
-        
-        .content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('resim.jpeg') center/cover no-repeat fixed;
-            opacity: 0.1;
-            z-index: 0;
-        }
-
-        .media-showcase {
-            position: relative;
-            z-index: 1;
-        }
-
-        .image-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-            color: black;
-        }
-
-        .image-container img {
-            flex: 1;
-            max-width: calc(33.33% - 10px);
-            height: auto;
-            border-radius: 8px;
         }
 
         .navbar {
@@ -83,22 +32,6 @@
             font-weight: bold;
             color: #f6f5f5 !important;
             margin-right: auto;
-        }
-
-        .navbar-nav .nav-item {
-            margin: 0 10px;
-        }
-
-        .navbar-nav .nav-link {
-            font-size: 1.1rem;
-            font-weight: 500;
-            padding: 8px 15px;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .navbar-nav .nav-link:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
         }
 
         .offcanvas-end {
@@ -158,29 +91,111 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
             border-color: rgba(255, 255, 255, 0.2);
         }
+        .wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            
+        }        
+        .content {
+            flex: 1;
+            padding: 40px;
+            margin-top: 80px;
+            background-color: rgb(197, 142, 142);
+        }
 
         /* Sosyal Medya İkonları */
         .social-links {
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 10px;
+        
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .social-links img {
-            width: 35px;
-            height: 35px;
+            width: clamp(30px, 5vw, 40px); /* Minimum 30px, ekran genişliğine göre %5, maksimum 40px */
+            height: clamp(30px, 5vw, 40px);
+            border-radius: 8px;
+            transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+            border: 2px solid white;  
             border-radius: 50%;
-            border: 2px solid white;
             padding: 2px;
-            transition: transform 0.3s ease;
+            margin: 2px;
         }
 
         .social-links img:hover {
             transform: scale(1.2);
         }
 
-        /* Responsive Ayarlar */
+        /* Navbar Responsive Ayarları */
+         .navbar {
+            background: rgba(0, 0, 0, 0.85) !important;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f6f5f5 !important;
+        }
+
+        .navbar-nav .nav-item {
+            margin: 0 10px;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 8px 15px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .image-container img {
+            flex: 1 1 calc(33.33% - 10px);
+            max-width: calc(33.33% - 10px);
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid white;
+        }
+        .nav-link {
+            text-decoration: none !important;
+            
+        }
         @media (max-width: 768px) {
             .navbar-brand {
                 font-size: 1.3rem;
@@ -192,33 +207,26 @@
             }
 
             .social-links img {
+                width: 35px;
+                height: 35px;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .image-container img {
+                flex: 1 1 calc(50% - 10px);
+                max-width: calc(50% - 10px);
+            }
+            .social-links img {
+                
                 width: clamp(25px, 7vw, 35px);
                 height: clamp(25px, 7vw, 35px);
-            }
-
-            .font-fix {
-                font-size: clamp(14px, 2.5vw, 22px);
-            }
-
-            .footer-contact {
-                grid-template-columns: 1fr;
-            }
-
-            .content-btn {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .footer-contact {
-                flex-direction: column;
-            }
-
-            .footer-map, .footer-info {
-                width: 100%;
-            }
-
-            .whatsapp-navbar-button {
-                font-size: 1px;
             }
         }
 
@@ -233,94 +241,32 @@
             }
 
             .social-links img {
+                width: 30px;
+                height: 30px;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            h1 {
+                font-size: 1.2rem;
+                margin-top: 5px;
+            }
+
+            .image-container img {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+            .social-links img {
+                
                 width: clamp(20px, 9vw, 30px);
                 height: clamp(20px, 9vw, 30px);
             }
-
-            .font-fix {
-                font-size: clamp(12px, 3vw, 20px);
-            }
         }
-
-        .font-fix {
-            font-size: clamp(16px, 2vw, 25px); /* Minimum 16px, ekran genişliğinin %2'si ve maksimum 25px */
+        .offcanvas-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
-
-        /* Linklerin varsayılan görünümünü düzenle */
-        .custom-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: rgb(184, 86, 0);
-            color: rgb(255, 255, 255) !important;
-            padding: 8px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            border: none;
-            width: 100%;
-            justify-content: center;
-            margin-top: 15px;
-        }
-
-        /* Hover durumunda görünüm */
-        .custom-link:hover {
-            background-color: rgb(51, 51, 51);
-            transform: translateY(-3px);
-        }
-
-        /* Slogan Bölümü Stili */
-        .slogan-section {
-            background-color: rgb(197, 142, 142);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Başlık Stili */
-        .slogan-title {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Slogan Listesi Stili */
-        .slogan-list {
-            list-style-type: none; /* Noktalı listeyi kaldır */
-            padding: 0;
-            margin: 0;
-        }
-
-        .slogan-list li {
-            font-size: 1.2rem;
-            padding: 5px 0;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        /* Hover Durumu */
-        .slogan-list li:hover {
-            color: #4b2721;
-            transform: scale(1.05);
-            text-shadow: 0px 2px 5px rgba(255, 102, 0, 0.5);
-        }
-
-        .content-btn {
-            display: flex;
-            justify-content: center; /* Yatay ortalama */
-            align-items: center; /* Dikey ortalama */
-            flex-direction: column; /* Dikeyde sıralama */
-            margin-top: 100px;
-            padding-top: 20px;
-            gap: 20px; /* Butonlar arasına boşluk */
-            background-color: rgb(197, 142, 142); /* İçerik arka planı */
-            padding-top: 20px;
-            margin-bottom: 30px;
-        }
-
         .whatsapp-navbar-button {
             background-color: transparent !important;
             border: none; 
@@ -332,55 +278,158 @@
             justify-content: center; 
             cursor: pointer;
         }
-
-        .whatsapp-navbar-button img {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            transition: transform 0.3s ease;
-        }
-
-        .whatsapp-navbar-button:hover img {
-            transform: scale(1.1);
-        }
-
-        .social-icon.whatsapp img {
-            background: white;
-            border-radius: 50%;
-            padding: 5px;
-        }
-
-        .social-icon.randevu {
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            padding: 10px 15px;
-        }
-
-        .social-icon.randevu:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.1);
-        }
-
         .probio {
-            background: rgba(255, 255, 255, 0.2); /* Yarı saydam beyaz arka plan */
+            background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px); /* Cam efekti */
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Gölge efekti */
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Daha belirgin gölge */
+            margin-bottom: 20px;
         }
-
         .insfix {
             margin-left: 10px;
         }
 
-        .whatsapp-randevu-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        /* İçerik Stilleri */
+        .content-section {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(231, 76, 60, 0.1), rgba(41, 128, 185, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .content-section:hover::before {
+            opacity: 1;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #e74c3c, #c0392b);
+        }
+
+        .section-text {
+            color: #34495e;
+            font-size: 1.3rem !important;
+            line-height: 2;
+            margin-bottom: 1.8rem;
+            text-align: justify;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #e74c3c;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .highlight-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-box strong {
+            color: #e74c3c;
+            font-size: 1.4rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .section-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section-text ul li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.2rem;
+        }
+
+        .section-text ul li::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px rgba(231, 76, 60, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(231, 76, 60, 0.8); }
+            100% { text-shadow: 0 0 10px rgba(231, 76, 60, 0.5); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section:nth-child(1) { animation-delay: 0.2s; }
+        .content-section:nth-child(2) { animation-delay: 0.4s; }
+        .content-section:nth-child(3) { animation-delay: 0.6s; }
+        .content-section:nth-child(4) { animation-delay: 0.8s; }
+        .content-section:nth-child(5) { animation-delay: 1s; }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            .section-text {
+                font-size: 1.1rem !important;
+                line-height: 1.8;
+            }
         }
 
         /* Footer Styles */
@@ -450,11 +499,6 @@
             transition: transform 0.3s ease;
             width: 70px !important;
             height: 35px !important;
-            
-            &:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            }
         }
 
         .calendar-button {
@@ -473,11 +517,6 @@
             width: 70px !important;
             height: 35px !important;
             text-align: center;
-
-            &:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            }
         }
 
         .whatsapp-button img {
@@ -520,27 +559,6 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .contact-buttons .social-icon,
-        .social-icons .social-icon {
-            width: 70px !important;
-            height: 35px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            border-radius: 15px !important;
-            background: linear-gradient(45deg, #6c757d, #495057) !important;
-            color: white !important;
-            text-decoration: none !important;
-        }
-
-        .contact-buttons .social-icon img,
-        .social-icons .social-icon img {
-            width: 40px;
-            height: 30px;
-            object-fit: contain;
-            filter: none;
-        }
-
         .footer-copyright {
             text-align: center;
             padding-top: 30px;
@@ -562,204 +580,8 @@
             }
         }
 
-        /* Modal Stilleri */
         .modal-content {
-            background-color: rgb(197, 142, 142);
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .modal-header {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 20px;
-        }
-
-        .modal-title {
-            color: white;
-            font-weight: 600;
-            font-size: 1.6rem;
-        }
-
-        .media-section {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .media-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #FFD700, #FF69B4, #8B4513);
-        }
-
-        .media-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .showcase-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 25px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-        }
-
-        .section-title {
-            color: rgb(35, 23, 11);
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            font-family: 'Times New Roman', serif;
-        }
-
-        .showcase-description {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: #502100;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            padding: 0 20px;
-        }
-
-        .media-section h3 {
-            color: #FFD700;
-            font-size: 2rem;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .program-description {
-            color: #742700;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin: 25px 0;
-            padding: 20px;
-            background: rgba(139, 69, 19, 0.15);
-            border-left: 4px solid #FFD700;
-            border-radius: 0 15px 15px 0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .live-player-section {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 25px;
-            margin: 30px 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            transform: translateY(0);
-            transition: all 0.4s ease;
-        }
-
-        .live-player-section:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .news-card {
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 15px 0;
-            transition: transform 0.3s ease;
-        }
-
-        .news-card h4 {
-            color: white;
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .news-card p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .custom-button {
-            background-color: rgb(173, 58, 0);
-            color: rgb(255, 255, 255);
-            border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            margin-top: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .custom-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .custom-button:hover::before {
-            left: 100%;
-        }
-
-        .custom-button:hover {
-            background-color: rgb(65, 65, 65);
-            transform: translateY(-3px);
-        }
-
-        .video-list, .news-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .video-list .custom-link, .news-list .custom-link {
-            background: rgb(138, 113, 113);
-            color: #4a1f00 !important;
-            padding: 20px;
-            border-radius: 15px;
-            text-decoration: none;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 215, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            min-height: 120px;
-        }
-
-        .video-list .custom-link:hover, .news-list .custom-link:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 215, 0, 0.3);
-        }
-
-        .modal-content {
-            background: rgba(219, 213, 213, 0.442);
+             background: rgba(219, 213, 213, 0.442);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.2);
@@ -781,17 +603,18 @@
 </head>
 <body>
     <div class="wrapper">
-        <!-- Navbar -->
-        <nav class="navbar navbar-dark bg-dark sticky-top">
+        <!-- Offcanvas Navbar -->
+        <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
+                <!-- Navbar Brand -->
                 <a class="navbar-brand" href="#">Emine Çayır</a>
 
-                
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                <!-- Hamburger Menü -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- Offcanvas Navbar -->
+                <!-- Offcanvas Menü -->
                 <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menü</h5>
@@ -800,138 +623,105 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="Ailedanışmanığı.html">Aile Danışmanlığı Nedir</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="İLETİŞİM.html">İletişim Bilgileri</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="index.html">Ana Sayfa</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="İLETİŞİM.html">İletişim</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="medya.html">Medya</a>
                             </li>
                              <li class="nav-item">
                                 <a class="nav-link" href="sertifikalar.html">Sertifikalar</a>
                             </li>
-                            
                         </ul>
                     </div>
                 </div>
             </div>
         </nav>
 
-        <!-- Ana İçerik -->
+       <!-- İçerik --> 
         <div class="content">
-            <div class="media-showcase">
-                <div class="showcase-header">
-                    <h1 class="section-title">Medya'da Biz</h1>
-                    <p class="showcase-description">
-                        Aile danışmanlığı yolculuğumuzda, toplumumuza değer katmak için çıktığımız bu yolda,
-                        medya aracılığıyla daha fazla insana ulaşmaya çalışıyoruz. TV programları ve basın 
-                        haberleriyle, aile danışmanlığının önemini ve etkisini paylaşıyoruz.
+            <div class="probio">
+                <div class="content-section">
+                    <h2 class="section-title">🏡 Aile Danışmanlığı Nedir?</h2>
+                    <p class="section-text">
+                        Aile danışmanlığı, sadece bir sorun olduğunda başvurulan bir hizmet değil, aynı zamanda ailelerin potansiyellerini en üst düzeye çıkarmalarına ve daha sağlıklı ilişkiler kurmalarına yardımcı olan bir destek sistemidir.
                     </p>
                 </div>
-                
-                <!-- TV Programları Bölümü -->
-                <div class="media-section tv-shows">
-                    <h3>
-                        <span class="icon">📺</span>
-                        TV52 Engelsiz Programı
-                    </h3>
-                    <p class="program-description">
-                        Her bölümde farklı konuları ele aldığımız Engelsiz Programı'nda, aile içi iletişimden 
-                        çocuk gelişimine, evlilik terapisinden bireysel danışmanlığa kadar pek çok önemli 
-                        konuyu uzman bakış açısıyla değerlendiriyoruz.
+
+                <div class="content-section">
+                    <h2 class="section-title">👥 Aile Danışmanının Rolü</h2>
+                    <div class="highlight-box">
+                        <p class="section-text">
+                            <strong>Değerlendirme:</strong> Ailenin dinamiklerini, iletişim kalıplarını, güçlü ve zayıf yönlerini değerlendirir.
+                        </p>
+                        <p class="section-text">
+                            <strong>Hedef Belirleme:</strong> Aile ile birlikte, danışmanlık sürecinin sonunda ulaşılmak istenen hedefleri belirler.
+                        </p>
+                        <p class="section-text">
+                            <strong>Müdahale ve Eğitim:</strong> Ailenin ihtiyaçlarına göre farklı terapi teknikleri kullanır ve eğitim verir.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">💫 Neden Önemlidir?</h2>
+                    <div class="highlight-box">
+                        <p class="section-text">
+                            • Erken müdahale ile sorunların büyümesi önlenir<br>
+                            • Nesilden nesile aktarılan olumsuz kalıplar kırılır<br>
+                            • Bireysel ve ailesel büyüme desteklenir<br>
+                            • Çocukların sağlıklı gelişimi güvence altına alınır
+                        </p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">🤝 Hangi Sorunlarda Yardımcı Olur?</h2>
+                    <div class="highlight-box">
+                        <p class="section-text">
+                            • İletişim sorunları<br>
+                            • Çatışma yönetimi<br>
+                            • Ebeveynlik zorlukları<br>
+                            • Evlilik sorunları<br>
+                            • Aile içi uyumsuzluklar<br>
+                            • Ayrılık ve boşanma süreçleri
+                        </p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">📝 Danışmanlık Süreci</h2>
+                    <p class="section-text">
+                        Aile danışmanlığı süreci, her ailenin ihtiyaçlarına göre şekillenir. Bu süreç değerlendirme, hedef belirleme, müdahale ve düzenli takip aşamalarını içerir.
                     </p>
-                    <!-- Ana video oynatıcı -->
-                    <div class="live-player-section">
-                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/SKKy9eEpZKw" 
-                            title="Engelsiz Programı TV52 - Bölüm 1" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <button class="custom-button mt-4" data-bs-toggle="modal" data-bs-target="#youtubeModal">
-                        Tüm Bölümleri Görüntüle
-                    </button>
-                </div>
-
-                <!-- Haberler Bölümü -->
-                <div class="media-section press">
-                    <h3>Basında Biz</h3>
-                    <!-- Ana haber önizleme -->
-                    <div class="news-card main-news">
-                        <h4>Kurtuluş Mahalle Muhtarlığında Aile Danışmanlığı Hizmeti</h4>
-                        <p>Vatandaşlara ücretsiz aile danışmanlığı hizmeti verilmeye başlandı...</p>
-                        <a href="https://www.facebook.com/fatsasosyaltv/videos/kurtulu%C5%9F-mahalle-muhtarl%C4%B1%C4%9F%C4%B1nda-aile-dan%C4%B1%C5%9Fmanl%C%C4%B1%C4%9F%C4%B1-hizmeti-veriliyorvatanda%C5%9Flara-m/321448590992192/" 
-                           class="custom-link" target="_blank">
-                            Haberi Görüntüle
-                        </a>
-                    </div>
-                    <button class="custom-button mt-4" data-bs-toggle="modal" data-bs-target="#haberModal">
-                        Tüm Haberleri Görüntüle
-                    </button>
-                </div>
-            </div>
-
-            <!-- Video Bölümleri Modal -->
-            <div class="modal fade" id="youtubeModal" tabindex="-1">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Tüm Bölümler</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="video-list">
-                                <a href="https://www.youtube.com/watch?v=SKKy9eEpZKw" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 1</a>
-                                <a href="https://www.youtube.com/watch?v=KOZ3lGIwCKw" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 2</a>
-                                <a href="https://www.youtube.com/watch?v=9KQRbPGLiYI" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 3</a>
-                                <a href="https://www.youtube.com/watch?v=ePWBzWDvtio" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 4</a>
-                                <a href="https://www.youtube.com/watch?v=OXgDFGcqigg" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 5</a>
-                                <a href="https://www.youtube.com/watch?v=BgxTY85Z1nU" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 6</a>
-                                <a href="https://www.youtube.com/watch?v=pomqPs4gLR4" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 7</a>
-                                <a href="https://www.youtube.com/watch?v=Zkx-5Z7bUms" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 8</a>
-                                <a href="https://www.youtube.com/watch?v=97UeiYFMeXw" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 9</a>
-                                <a href="https://www.youtube.com/watch?v=Z7XVjnkoabs" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 10</a>
-                                <a href="https://www.youtube.com/watch?v=Cd_Yz2bUPDQ" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 11</a>
-                                <a href="https://www.youtube.com/watch?v=Gzo6jV1s3dA" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 12</a>
-                            </div>
-                        </div>
+                    <div class="highlight-box">
+                        <p class="section-text">
+                            Unutmayın, bir aile danışmanına başvurmak, bir zayıflık değil, aksine aileniz için atacağınız güçlü ve olumlu bir adımdır.
+                        </p>
                     </div>
                 </div>
             </div>
-
-            <!-- Haberler Modal -->
-            <div class="modal fade" id="haberModal" tabindex="-1">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Tüm Haberler</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="news-list">
-                                <a href="https://www.facebook.com/fatsasosyaltv/videos/kurtulu%C5%9F-mahalle-muhtarl%C4%B1%C4%9F%C4%B1nda-aile-dan%C4%B1%C5%9Fmanl%C%C4%B1%C4%9F%C4%B1-hizmeti-veriliyorvatanda%C5%9Flara-m/321448590992192/" class="custom-link" target="_blank">
-                                    Kurtuluş Mahalle Muhtarlığında Aile Danışmanlığı Hizmeti
-                                </a>
-                                <a href="https://www.bing.com/ck/a?!&&p=d31373c003480a93802c8bd75eac8ec0a88f7343dab5e3c6abcfdc1f469c4a08JmltdHM9MTczNTk0ODgwMA&ptn=3&ver=2&hsh=4&fclid=2035c13f-a729-69f2-20e3-d47ca6b068bb&psq=aile+dan%c4%b1%c5%9fman%c4%b1+emine+%c3%a7ay%c4%b1r&u=a1aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL2ZhdHNhc29zeWFsdHYvcG9zdHMvODg5MDM2NDM2NzYyOTM4Lw&ntb=1" class="custom-link" target="_blank">
-                                    Aile Danışmanlığı Merkezi Açılış Haberi
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            
+            <div class="image-container">
+                <img src="resim2.png" alt="Resim 2">
+                <img src="resim3.jpg" alt="Resim 3">
+                <img src="resim4.jpg" alt="Resim 4">
+                <img src="resim7.jpeg" alt="Resim 5">
+                <img src="resim8.jpeg" alt="Resim 6">
+                <img src="OIP.jpg" alt="Resim 7">
             </div>
-
-            <!-- Randevu Modalı -->
-            <div class="modal fade" id="randevuModal" tabindex="-1" aria-labelledby="randevuModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content p-4">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="randevuModalLabel">📋 Randevu Talep Formu</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
+        </div>
+ <!-- Randevu Modalı -->
+  <div class="modal fade" id="randevuModal" tabindex="-1" aria-labelledby="randevuModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4">
+        <div class="modal-header">
+          <h5 class="modal-title" id="randevuModalLabel">📋 Randevu Talep Formu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
             <div id="draft-notification" class="alert alert-info alert-dismissible fade show" role="alert" style="display: none;">
                 Kaydedilmiş bir taslağınız var.
                 <button type="button" class="btn btn-sm btn-primary ms-2" id="load-draft">Yükle</button>
@@ -997,26 +787,25 @@
               <label for="randevuArea" class="form-label">🎯 Danışmanlık Alanı</label>
               <div class="input-group">
                 <select id="randevuArea" class="form-select" required>
-                    <option value="">Danışmanlık Alanı Seçiniz</option>
-                    <option value="Aile Danışmanlığı">Aile Danışmanlığı</option>
-                    <option value="Çocuk ve Ergen Danışmanlığı">Çocuk ve Ergen Danışmanlığı</option>
-                    <option value="Evlilik ve Çift Danışmanlığı">Evlilik ve Çift Danışmanlığı</option>
-                    <option value="Ebeveyn Eğitimi">Ebeveyn Eğitimi</option>
-                    <option value="Bireysel Danışmanlık">Bireysel Danışmanlık</option>
-                    <option value="Kriz & Uyum Danışmanlığı">Kriz & Uyum Danışmanlığı</option>
-                    <option value="Eğitim Danışmanlığı">Eğitim Danışmanlığı</option>
+                  <option value="">Danışmanlık Alanı Seçiniz</option>
+                  <option value="Aile Danışmanlığı">Aile Danışmanlığı</option>
+                  <option value="Çocuk ve Ergen Danışmanlığı">Çocuk ve Ergen Danışmanlığı</option>
+                  <option value="Evlilik ve Çift Danışmanlığı">Evlilik ve Çift Danışmanlığı</option>
+                  <option value="Ebeveyn Eğitimi">Ebeveyn Eğitimi</option>
+                  <option value="Bireysel Danışmanlık">Bireysel Danışmanlık</option>
+                  <option value="Kriz & Uyum Danışmanlığı">Kriz & Uyum Danışmanlığı</option>
+                  <option value="Eğitim Danışmanlığı">Eğitim Danışmanlığı</option>
                 </select>
                 <span class="input-group-text validation-icon" id="areaValidationIcon"></span>
               </div>
             </div>
-
             <div class="col-md-6 mb-3">
               <label for="randevuType" class="form-label">👥 Konsültasyon Türü</label>
               <div class="input-group">
                 <select id="randevuType" class="form-select" required>
-                    <option value="">Konsültasyon Türü Seçiniz</option>
-                    <option value="Online">Online</option>
-                    <option value="Yüz Yüze">Yüz Yüze</option>
+                  <option value="">Konsültasyon Türü Seçiniz</option>
+                  <option value="Online">Online</option>
+                  <option value="Yüz Yüze">Yüz Yüze</option>
                 </select>
                 <span class="input-group-text validation-icon" id="typeValidationIcon"></span>
               </div>
@@ -1040,38 +829,38 @@
           <div class="d-grid gap-2">
             <button id="previewButton" class="btn btn-success btn-lg" disabled>📋 Bilgileri Önizle</button>
           </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
 
-            <!-- Önizleme Modalı -->
-            <div class="modal fade" id="previewModal" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Randevu Önizleme</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p><strong>Ad Soyad:</strong> <span id="previewName"></span></p>
-                            <p><strong>Telefon:</strong> <span id="previewPhone"></span></p>
-                            <p><strong>Tarih:</strong> <span id="previewDate"></span></p>
-                            <p><strong>Gün:</strong> <span id="previewDay"></span></p>
-                            <p><strong>Saat:</strong> <span id="previewTime"></span></p>
-                            <p><strong>Danışmanlık Alanı:</strong> <span id="previewArea"></span></p>
-                            <p><strong>Konsültasyon Türü:</strong> <span id="previewType"></span></p>
-                            <p><strong>Not:</strong> <span id="previewNote"></span></p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Düzenle</button>
-                            <button type="button" class="btn btn-success" id="confirmFromPreview" data-bs-dismiss="modal">Onayla ve Gönder</button>
-                        </div>
-                    </div>
-                </div>
+<!-- Önizleme Modalı -->
+<div class="modal fade" id="previewModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Randevu Önizleme</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Ad Soyad:</strong> <span id="previewName"></span></p>
+                <p><strong>Telefon:</strong> <span id="previewPhone"></span></p>
+                <p><strong>Tarih:</strong> <span id="previewDate"></span></p>
+                <p><strong>Gün:</strong> <span id="previewDay"></span></p>
+                <p><strong>Saat:</strong> <span id="previewTime"></span></p>
+                <p><strong>Danışmanlık Alanı:</strong> <span id="previewArea"></span></p>
+                <p><strong>Konsültasyon Türü:</strong> <span id="previewType"></span></p>
+                <p><strong>Not:</strong> <span id="previewNote"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Düzenle</button>
+                <button type="button" class="btn btn-success" id="confirmFromPreview" data-bs-dismiss="modal">Onayla ve Gönder</button>
             </div>
         </div>
-        <!-- Başarı Bildirimi -->
+    </div>
+</div>
+<!-- Başarı Bildirimi -->
   <div id="successAlert" class="alert alert-success position-fixed top-0 start-50 translate-middle-x mt-5" style="z-index: 2000; display: none; width: 300px;" role="alert">
     🎉 Randevu talebiniz alınmıştır. Teşekkür ederiz!
   </div>
@@ -1080,13 +869,31 @@
   <div id="weekendAlert" class="alert alert-warning position-fixed top-0 start-50 translate-middle-x mt-5" style="z-index: 2000; display: none; width: 300px;" role="alert">
     ❌ Hafta sonu için randevu alınamaz. Lütfen hafta içi bir gün seçiniz.
   </div>
-
-        <!-- Footer -->
+<!-- WhatsApp Modal (Popup) -->
+<!-- Mevcut Modal Yapısı -->
+<div class="modal fade" id="whatsappModal" tabindex="-1" aria-labelledby="whatsappModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="whatsappModalLabel"><img src="pngtree-whatsapp-icon-png-image_8704827.png" alt=""></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Ad Textarea -->
+                <textarea id="name" class="form-control mb-3" rows="2" placeholder="Adınızı yazın" required></textarea>
+                <!-- Mesaj Textarea -->
+                <textarea id="message" class="form-control" rows="5" placeholder="Mesajınızı yazın" required></textarea>
+                <!-- Gönder Butonu -->
+                <button id="sendWhatsAppButton" class="btn btn-success w-100 mt-3">Gönder</button>
+            </div>
+        </div>
+    </div>
+</div>        <!-- Footer -->
         <footer class="footer-container">
             <div class="footer-contact">
                 <!-- Harita Bölümü -->
                 <div class="footer-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2991.499048485405!2d37.49724861744385!3d41.02956947929955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4062c505e846e999%3A0x75b4c973311c42ef!2sEmpaz-Aile-dan%C4%B1%C5%9Fmanl%C%C4%B1%C4%9F%C4%B1!5e0!3m2!1str!2str!4v1699338929705!5m2!1str!2str" 
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2991.499048485405!2d37.49724861744385!3d41.02956947929955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4062c505e846e999%3A0x75b4c973311c42ef!2sEmpaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1!5e0!3m2!1str!2str!4v1699338929705!5m2!1str!2str" 
                         allowfullscreen="" 
                         loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade">
@@ -1127,8 +934,9 @@
                 <p>&copy; 2024 Emine Çayır. Tüm hakları saklıdır.</p>
             </div>
         </footer>
+    </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         // --- Helper for the separate WhatsApp modal (if it exists) ---
@@ -1419,3 +1227,4 @@
 </script>
 </body>
 </html>
+
