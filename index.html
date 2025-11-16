@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Emine Çayır kısa bir biyografi/tanıtım ve aile danışmanlığı hakkında kapsamlı bilgiler.">
-    <meta name="keywords" content="danışmanlık, eğitim, rehberlik, Emine Çayır, aile danışmanlığı, aile danışmanı emine, emine çayır aile danışmanlığı , empaz aile danışmanlığı">
-    <title>Emine Çayır İş Tanıtımı ve Bir Biyografi</title>
+    <meta name="description" content="Empaz Aile Danışmanlığı - Emine Çayır. Profesyonel aile danışmanı, çocuk gelişimi uzmanı, evlilik danışmanı. 10+ yıl tecrübe. Ücretsiz ön görüşme. Online ve yüz yüze hizmet.">
+    <meta name="keywords" content="aile danışmanı, aile terapisi, çift danışmanlığı, çocuk gelişimi, ebeveyn eğitimi, evlilik danışmanı, psikolojik destek, Fatsa, Ordu">
+    <meta name="author" content="Emine Çayır">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Empaz Aile Danışmanlığı - Emine Çayır">
+    <meta property="og:description" content="Profesyonel aile danışmanlığı, çocuk gelişimi ve bireysel danışmanlık hizmetleri. 10+ yıl deneyim.">
+    <meta property="og:type" content="website">
+    <title>Empaz Aile Danışmanlığı | Emine Çayır - Profesyonel Danışman</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -192,6 +197,7 @@
             }
         }
 
+        
         /* Blog Grid Styles */
         .blog-grid {
             display: grid;
@@ -1830,6 +1836,125 @@
 .journey-item:hover .journey-badge {
     background: #c58e8e;
     color: #fff;
+}
+
+/* Testimonials Section Styles */
+.testimonials-section {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+}
+
+.testimonials-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.testimonials-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.testimonials-header h2 {
+    font-size: 2.5rem;
+    color: #14274E;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.testimonials-header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(197, 142, 142, 0.1);
+    transition: all 0.4s ease;
+    position: relative;
+    border-left: 5px solid #c58e8e;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(197, 142, 142, 0.15);
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c58e8e, #ffb6b6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.testimonial-info h3 {
+    color: #14274E;
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.testimonial-info p {
+    color: #999;
+    margin: 0.3rem 0 0 0;
+    font-size: 0.9rem;
+}
+
+.testimonial-rating {
+    color: #ffc107;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+.testimonial-text {
+    color: #666;
+    line-height: 1.8;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+.testimonial-quote-mark {
+    font-size: 3rem;
+    color: #c58e8e;
+    opacity: 0.2;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .testimonials-section {
+        padding: 3rem 1rem;
+    }
+
+    .testimonials-header h2 {
+        font-size: 2rem;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -4528,6 +4653,9 @@
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                            
                             <li class="nav-item">
+                                <a class="nav-link" href="#pricing">Fiyatlandırma</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="Ailedanışmanığı.html">Aile Danışmanlığı</a>
                             </li>
                             <li class="nav-item">
@@ -5036,6 +5164,114 @@
                         <div class="journey-dots left"></div>
                         <div class="journey-dots center"></div>
                         <div class="journey-dots right"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section class="testimonials-section" id="testimonials">
+                <div class="testimonials-container">
+                    <div class="testimonials-header">
+                        <h2>⭐ Müşteri Görüşleri</h2>
+                        <p>Emine Çayır'ın danışmanlığı ile yaşanan dönüşümler</p>
+                    </div>
+
+                    <div class="testimonials-grid">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote-mark">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">👩</div>
+                                <div class="testimonial-info">
+                                    <h3>Ayşe K.</h3>
+                                    <p>İstanbul - Aile Danışmanlığı</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">
+                                Emine hoca ile başladığımız danışmanlık süreci hayatımı ve aile ilişkilerimizi tamamen değiştirdi. İletişim sorunlarımızı çözmek için bize pratik ve gerçek çözümler sundu. Özellikle eşimle olan ilişkimiz çok iyileşti. Gerçekten çok teşekkür ederim.
+                            </p>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote-mark">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">👨</div>
+                                <div class="testimonial-info">
+                                    <h3>Mehmet D.</h3>
+                                    <p>Ankara - Çocuk Danışmanlığı</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">
+                                Oğlumun akademik başarısında ve sosyal ilişkilerinde ciddi sorunlar yaşıyorduk. Emine hoca sadece oğluma değil, bana da ailemize de rehberlik etti. Şimdi oğlum daha mutlu ve kendine güveni arttı. Çok iyi bir danışman.
+                            </p>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote-mark">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">👩‍🦰</div>
+                                <div class="testimonial-info">
+                                    <h3>Zeynep T.</h3>
+                                    <p>Izmir - Bireysel Danışmanlık</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">
+                                Kişisel gelişim konusunda çok ciddi sıkıntılar yaşıyordum. Emine hoca bana özgüven kazandırırken, aynı zamanda çok pratik teknikler öğretti. Yeni halimle çok daha mutlu ve başarılı hissediyorum. Tavsiye ederim.
+                            </p>
+                        </div>
+
+                        <!-- Testimonial 4 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote-mark">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">👩‍🦱</div>
+                                <div class="testimonial-info">
+                                    <h3>Fatma Y.</h3>
+                                    <p>Bursa - Çift Terapisi</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">
+                                Eşimle boşanmak üzereydik. Emine hoca bize yeniden birbirimizi anlamayı öğretti. Çift terapisi sayesinde evliliğimiz tamamen iyileşti. Her çift danışmanlık almak için buna ihtiyaç duyabilir. Çok profesyonel biri.
+                            </p>
+                        </div>
+
+                        <!-- Testimonial 5 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote-mark">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">👨‍💼</div>
+                                <div class="testimonial-info">
+                                    <h3>Ali S.</h3>
+                                    <p>Ankara - Stres Yönetimi</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">
+                                İş stresi hayatımı ele geçirmişti. Emine hoca bana danışmanlık sayesinde stres yönetimi tekniklerini öğrendim. Hayat kalitem çok yükseldi. Tüm stresli arkadaşlarıma tavsiye ediyorum.
+                            </p>
+                        </div>
+
+                        <!-- Testimonial 6 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote-mark">"</div>
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">👩‍🦱</div>
+                                <div class="testimonial-info">
+                                    <h3>Selin M.</h3>
+                                    <p>Izmir - Ebeveyn Eğitimi</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">
+                                Çocuğumu nasıl yetiştireceğim konusunda çok kafam karışıktı. Emine hoca ebeveynlik konusunda beni çok eğitti. Şimdi daha rahat ve kendi ihtiyaçlarına uygun bir parent olduğumu hissediyorum. Harika bir danışman.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -5605,7 +5841,8 @@
   <div id="weekendAlert" class="alert alert-warning position-fixed top-0 start-50 translate-middle-x mt-5" style="z-index: 2000; display: none; width: 300px;" role="alert">
     ❌ Hafta sonu için randevu alınamaz. Lütfen hafta içi bir gün seçiniz.
   </div>
-            
+
+           
             <!-- Blog Section -->
             <section class="blog-section">
                 <div class="container">
