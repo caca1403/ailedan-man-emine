@@ -764,38 +764,93 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
+            <div id="draft-notification" class="alert alert-info alert-dismissible fade show" role="alert" style="display: none;">
+                Kaydedilmiş bir taslağınız var.
+                <button type="button" class="btn btn-sm btn-primary ms-2" id="load-draft">Yükle</button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" id="discard-draft"></button>
+            </div>
+            <div class="mb-4 p-3 rounded" style="background-color: rgba(0, 0, 0, 0.05);">
+                <p class="lead mb-2"><strong>Randevu Süreci Nasıl İşler?</strong></p>
+                <ul class="list-unstyled mb-0">
+                    <li><small><i class="fas fa-check-circle text-success me-2"></i>Formu doldurun ve bilgilerinizi önizleyin.</small></li>
+                    <li><small><i class="fas fa-check-circle text-success me-2"></i>"Bilgileri Önizle" ve ardından "Onayla ve Gönder" butonlarına tıklayın.</small></li>
+                    <li><small><i class="fas fa-check-circle text-success me-2"></i>Ekibimiz en kısa sürede onay için sizinle iletişime geçecektir.</small></li>
+                </ul>
+            </div>
   
           <div class="mb-3">
             <label for="randevuName" class="form-label">👤 Adınız Soyadınız</label>
-            <input id="randevuName" type="text" class="form-control" required>
+            <div class="input-group">
+                <input id="randevuName" type="text" class="form-control" required>
+                <span class="input-group-text validation-icon" id="nameValidationIcon"></span>
+            </div>
           </div>
   
           <div class="mb-3">
             <label for="randevuPhone" class="form-label">📞 Telefon Numaranız</label>
-            <input id="randevuPhone" type="text" class="form-control" required>
+            <div class="input-group">
+                <input id="randevuPhone" type="text" class="form-control" required>
+                <span class="input-group-text validation-icon" id="phoneValidationIcon"></span>
+            </div>
           </div>
   
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="randevuDate" class="form-label">🗓️ Tarih</label>
-              <input id="randevuDate" type="date" class="form-control" required>
+              <div class="input-group">
+                <input id="randevuDate" type="date" class="form-control" required>
+                <span class="input-group-text validation-icon" id="dateValidationIcon"></span>
+              </div>
               <div id="selectedDay" class="form-text mt-1 text-muted"></div>
             </div>
   
             <div class="col-md-6 mb-3">
               <label for="randevuTime" class="form-label">🕑 Saat</label>
-              <select id="randevuTime" class="form-select" required>
-                <option value="">Saat Seçiniz</option>
-                <option value="09:00">09:00</option>
-                <option value="10:00">10:00</option>
-                <option value="11:00">11:00</option>
-                <option value="12:00">12:00</option>
-                <option value="13:00">13:00</option>
-                <option value="14:00">14:00</option>
-                <option value="15:00">15:00</option>
-                <option value="16:00">16:00</option>
-                <option value="17:00">17:00</option>
-              </select>
+              <div class="input-group">
+                <select id="randevuTime" class="form-select" required>
+                    <option value="">Saat Seçiniz</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                </select>
+                <span class="input-group-text validation-icon" id="timeValidationIcon"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="randevuArea" class="form-label">🎯 Danışmanlık Alanı</label>
+              <div class="input-group">
+                <select id="randevuArea" class="form-select" required>
+                  <option value="">Danışmanlık Alanı Seçiniz</option>
+                  <option value="Aile Danışmanlığı">Aile Danışmanlığı</option>
+                  <option value="Çocuk ve Ergen Danışmanlığı">Çocuk ve Ergen Danışmanlığı</option>
+                  <option value="Evlilik ve Çift Danışmanlığı">Evlilik ve Çift Danışmanlığı</option>
+                  <option value="Ebeveyn Eğitimi">Ebeveyn Eğitimi</option>
+                  <option value="Bireysel Danışmanlık">Bireysel Danışmanlık</option>
+                  <option value="Kriz & Uyum Danışmanlığı">Kriz & Uyum Danışmanlığı</option>
+                  <option value="Eğitim Danışmanlığı">Eğitim Danışmanlığı</option>
+                </select>
+                <span class="input-group-text validation-icon" id="areaValidationIcon"></span>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="randevuType" class="form-label">👥 Konsültasyon Türü</label>
+              <div class="input-group">
+                <select id="randevuType" class="form-select" required>
+                  <option value="">Konsültasyon Türü Seçiniz</option>
+                  <option value="Online">Online</option>
+                  <option value="Yüz Yüze">Yüz Yüze</option>
+                </select>
+                <span class="input-group-text validation-icon" id="typeValidationIcon"></span>
+              </div>
             </div>
           </div>
   
@@ -810,9 +865,11 @@
               ⏰ 1 gün önceden hatırlatma istiyorum
             </label>
           </div>
-  
+          
+          <div id="form-error" class="alert alert-danger" style="display: none;"></div>
+
           <div class="d-grid gap-2">
-            <button id="previewButton" class="btn btn-success btn-lg">📋 Bilgileri Önizle</button>
+            <button id="previewButton" class="btn btn-success btn-lg" disabled>📋 Bilgileri Önizle</button>
           </div>
   
         </div>
@@ -833,10 +890,13 @@
           <p><strong>Telefon:</strong> <span id="previewPhone"></span></p>
           <p><strong>Tarih:</strong> <span id="previewDate"></span> (<span id="previewDay"></span>)</p>
           <p><strong>Saat:</strong> <span id="previewTime"></span></p>
+          <p><strong>Danışmanlık Alanı:</strong> <span id="previewArea"></span></p>
+          <p><strong>Konsültasyon Türü:</strong> <span id="previewType"></span></p>
           <p><strong>Not:</strong> <span id="previewNote"></span></p>
         </div>
         <div class="modal-footer">
-          <button id="confirmButton" class="btn btn-primary">✅ Onayla ve Gönder</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Düzenle</button>
+          <button type="button" class="btn btn-success" id="confirmButton" data-bs-dismiss="modal">Onayla ve Gönder</button>
         </div>
       </div>
     </div>
@@ -924,138 +984,293 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const previewButton = document.getElementById('previewButton');
-    const confirmButton = document.getElementById('confirmButton');
-    const randevuName = document.getElementById('randevuName');
-    const randevuPhone = document.getElementById('randevuPhone');
-    const randevuDate = document.getElementById('randevuDate');
-    const randevuTime = document.getElementById('randevuTime');
-    const randevuNote = document.getElementById('randevuNote');
-    const hatirlatmaIstiyorum = document.getElementById('hatirlatmaIstiyorum');
-    const selectedDay = document.getElementById('selectedDay');
-    const randevuPhoneNumber = '905455521485';
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // --- Helper for the separate WhatsApp modal (if it exists) ---
+        const sendWhatsAppButton = document.getElementById('sendWhatsAppButton');
+        if (sendWhatsAppButton) {
+            const nameInput = document.getElementById('name');
+            const messageInput = document.getElementById('message');
+            const phoneNumber = '905455521485';
 
-    const days = ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'];
-
-    // Bugünden önce tarih seçilmesin
-    const today = new Date().toISOString().split('T')[0];
-    randevuDate.setAttribute('min', today);
-
-    // Tarih seçilince gün adı göster + hafta sonu kontrol
-    randevuDate.addEventListener('change', function () {
-        const selectedDate = new Date(this.value);
-        const dayIndex = selectedDate.getDay();
-        const dayName = days[dayIndex];
-
-        if (dayIndex === 0 || dayIndex === 6) { // Pazar veya Cumartesi
-            const weekendAlert = document.getElementById('weekendAlert');
-            weekendAlert.style.display = 'block';
-
-            this.value = '';
-            selectedDay.textContent = '';
-
-            setTimeout(function() {
-                weekendAlert.style.display = 'none';
-            }, 3000);
-        } else {
-            selectedDay.textContent = `Seçilen gün: ${dayName}`;
+            sendWhatsAppButton.addEventListener('click', function () {
+                const name = nameInput.value.trim();
+                const message = messageInput.value.trim();
+                if (name && message) {
+                    const newMessage = `Merhaba, benim adım ${name}. Mesajım: ${message}`;
+                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(newMessage)}`;
+                    window.open(whatsappUrl, '_blank');
+                    nameInput.value = '';
+                    messageInput.value = '';
+                } else {
+                    alert('Lütfen adınızı ve mesajınızı yazınız!');
+                }
+            });
         }
-    });
 
-    // Önizleme Butonu
-    previewButton.addEventListener('click', function () {
-        if (randevuName.value && randevuPhone.value && randevuDate.value && randevuTime.value) {
-            const selectedDate = new Date(randevuDate.value);
-            const dayName = days[selectedDate.getDay()];
+        // --- Main Appointment Modal Logic ---
+        const randevuModalEl = document.getElementById('randevuModal');
+        if (!randevuModalEl) return; // Stop if the main modal is not on this page
 
-            document.getElementById('previewName').textContent = randevuName.value;
-            document.getElementById('previewPhone').textContent = randevuPhone.value;
-            document.getElementById('previewDate').textContent = randevuDate.value;
-            document.getElementById('previewDay').textContent = dayName;
-            document.getElementById('previewTime').textContent = randevuTime.value;
-            document.getElementById('previewNote').textContent = randevuNote.value || 'Yok';
+        const randevuModal = new bootstrap.Modal(randevuModalEl);
+        const previewModalEl = document.getElementById('previewModal');
+        const previewModal = previewModalEl ? new bootstrap.Modal(previewModalEl) : null;
 
-            new bootstrap.Modal(document.getElementById('previewModal')).show();
-        } else {
-            alert('Lütfen tüm zorunlu alanları doldurunuz.');
+        // Form Elements
+        const formInputs = {
+            name: document.getElementById('randevuName'),
+            phone: document.getElementById('randevuPhone'),
+            date: document.getElementById('randevuDate'),
+            time: document.getElementById('randevuTime'),
+            area: document.getElementById('randevuArea'),
+            type: document.getElementById('randevuType'),
+            note: document.getElementById('randevuNote'),
+            reminder: document.getElementById('hatirlatmaIstiyorum')
+        };
+
+        // Validation Icons
+        const validationIcons = {
+            name: document.getElementById('nameValidationIcon'),
+            phone: document.getElementById('phoneValidationIcon'),
+            date: document.getElementById('dateValidationIcon'),
+            time: document.getElementById('timeValidationIcon'),
+            area: document.getElementById('areaValidationIcon'),
+            type: document.getElementById('typeValidationIcon')
+        };
+
+        // Buttons
+        const previewButton = document.getElementById('previewButton');
+        const confirmButton = document.getElementById('confirmButton');
+
+        // Draft Elements
+        const draftNotification = document.getElementById('draft-notification');
+        const loadDraftButton = document.getElementById('load-draft');
+        const discardDraftButton = document.getElementById('discard-draft');
+        
+        // Other UI
+        const selectedDayEl = document.getElementById('selectedDay');
+        const formErrorEl = document.getElementById('form-error');
+
+        // Constants
+        const DRAFT_KEY = 'appointmentDraft';
+        const WHATSAPP_NUMBER = '905455521485';
+        const DAYS = ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'];
+
+        // --- State Management ---
+        let validationState = {
+            name: false,
+            phone: false,
+            date: false,
+            time: false,
+            area: false,
+            type: false
+        };
+
+        // --- Functions ---
+
+        const updateValidationUI = (field, isValid) => {
+            const icon = validationIcons[field];
+            if (!icon) return;
+
+            if (isValid) {
+                icon.innerHTML = '✅';
+                icon.style.color = 'green';
+            } else {
+                icon.innerHTML = '❌';
+                icon.style.color = 'red';
+            }
+            validationState[field] = isValid;
+            checkFormValidity();
+        };
+
+        const checkFormValidity = () => {
+            const isFormValid = Object.values(validationState).every(Boolean);
+            previewButton.disabled = !isFormValid;
+        };
+
+        const saveDraft = () => {
+            const draft = {
+                name: formInputs.name.value,
+                phone: formInputs.phone.value,
+                date: formInputs.date.value,
+                time: formInputs.time.value,
+                area: formInputs.area.value,
+                type: formInputs.type.value,
+                note: formInputs.note.value,
+                reminder: formInputs.reminder.checked
+            };
+            localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+        };
+
+        const loadDraft = () => {
+            const draft = JSON.parse(localStorage.getItem(DRAFT_KEY));
+            if (!draft) return;
+
+            formInputs.name.value = draft.name || '';
+            formInputs.phone.value = draft.phone || '';
+            formInputs.date.value = draft.date || '';
+            formInputs.time.value = draft.time || '';
+            formInputs.area.value = draft.area || '';
+            formInputs.type.value = draft.type || '';
+            formInputs.note.value = draft.note || '';
+            formInputs.reminder.checked = draft.reminder || false;
+
+            // Trigger validation on loaded fields
+            Object.keys(formInputs).forEach(key => {
+                const event = new Event('input', { bubbles: true });
+                formInputs[key].dispatchEvent(event);
+            });
+        };
+
+        const clearDraft = () => {
+            localStorage.removeItem(DRAFT_KEY);
+        };
+
+        // --- Event Listeners ---
+
+        // Modal open: Check for draft
+        randevuModalEl.addEventListener('show.bs.modal', () => {
+            if (localStorage.getItem(DRAFT_KEY)) {
+                draftNotification.style.display = 'flex';
+            }
+        });
+
+        // Draft buttons
+        loadDraftButton.addEventListener('click', () => {
+            loadDraft();
+            draftNotification.style.display = 'none';
+        });
+        discardDraftButton.addEventListener('click', clearDraft);
+
+
+        // Real-time validation and draft saving
+        formInputs.name.addEventListener('input', e => {
+            const isValid = e.target.value.trim().length > 2;
+            updateValidationUI('name', isValid);
+            saveDraft();
+        });
+
+        formInputs.phone.addEventListener('input', e => {
+            // Auto-format phone number
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+            if (!x) return;
+            e.target.value = !x[2] ? x[1] : (x[1] || '0') + ' (' + x[2] + (x[3] ? ') ' + x[3] : '') + (x[4] ? ' ' + x[4] : '') + (x[5] ? ' ' + x[5] : '');
+            
+            const phoneRegex = /^0 \(\d{3}\) \d{3} \d{2} \d{2}$/;
+            const isValid = phoneRegex.test(e.target.value);
+            updateValidationUI('phone', isValid);
+            saveDraft();
+        });
+
+        formInputs.date.addEventListener('input', e => {
+            const selectedDate = new Date(e.target.value);
+            const dayIndex = selectedDate.getUTCDay();
+            let isValid = true;
+
+            if (dayIndex === 0 || dayIndex === 6) {
+                document.getElementById('weekendAlert').style.display = 'block';
+                setTimeout(() => { document.getElementById('weekendAlert').style.display = 'none'; }, 3000);
+                e.target.value = '';
+                if(selectedDayEl) selectedDayEl.textContent = '';
+                isValid = false;
+            } else {
+                if(selectedDayEl) selectedDayEl.textContent = `Seçilen gün: ${DAYS[dayIndex]}`;
+            }
+            updateValidationUI('date', isValid);
+            saveDraft();
+        });
+
+        formInputs.time.addEventListener('input', e => {
+            const isValid = e.target.value !== '';
+            updateValidationUI('time', isValid);
+            saveDraft();
+        });
+
+        formInputs.area.addEventListener('input', e => {
+            const isValid = e.target.value !== '';
+            updateValidationUI('area', isValid);
+            saveDraft();
+        });
+
+        formInputs.type.addEventListener('input', e => {
+            const isValid = e.target.value !== '';
+            updateValidationUI('type', isValid);
+            saveDraft();
+        });
+        
+        formInputs.note.addEventListener('input', saveDraft);
+        formInputs.reminder.addEventListener('change', saveDraft);
+
+        // Set min date for date input
+        const today = new Date().toISOString().split('T')[0];
+        formInputs.date.setAttribute('min', today);
+
+        // Preview button click
+        previewButton.addEventListener('click', function () {
+            if (previewModal) {
+                const selectedDate = new Date(formInputs.date.value);
+                const dayName = DAYS[selectedDate.getUTCDay()];
+
+                document.getElementById('previewName').textContent = formInputs.name.value;
+                document.getElementById('previewPhone').textContent = formInputs.phone.value;
+                document.getElementById('previewDate').textContent = formInputs.date.value;
+                document.getElementById('previewDay').textContent = dayName;
+                document.getElementById('previewTime').textContent = formInputs.time.value;
+                document.getElementById('previewArea').textContent = formInputs.area.value;
+                document.getElementById('previewType').textContent = formInputs.type.value;
+                document.getElementById('previewNote').textContent = formInputs.note.value || 'Yok';
+                
+                previewModal.show();
+            }
+        });
+
+        // Final confirmation and submission
+        if (confirmButton) {
+            confirmButton.addEventListener('click', function () {
+                const modalBody = this.closest('.modal-content').querySelector('.modal-body');
+                const modalFooter = this.closest('.modal-content').querySelector('.modal-footer');
+
+                if (modalBody) {
+                    modalBody.innerHTML = `
+                        <div class="text-center p-4">
+                            <i class="fas fa-check-circle fa-3x text-success mb-3" style="animation: pulse 1.5s infinite;"></i>
+                            <h4>Harika! Talebiniz Alındı.</h4>
+                            <p class="text-muted">Mesajınızı göndermek için şimdi WhatsApp'a yönlendiriliyorsunuz...</p>
+                        </div>`;
+                }
+                if (modalFooter) modalFooter.style.display = 'none';
+
+                setTimeout(() => {
+                    const name = formInputs.name.value.trim();
+                    const phone = formInputs.phone.value.trim();
+                    const date = formInputs.date.value;
+                    const time = formInputs.time.value;
+                    const area = formInputs.area.value;
+                    const type = formInputs.type.value;
+                    const note = formInputs.note.value.trim();
+                    const reminderText = formInputs.reminder.checked ? 'Evet, hatırlatma yapılsın.' : 'Hayır';
+                    const dayName = DAYS[new Date(date).getUTCDay()];
+
+                    const whatsappMessage = `*Yeni Randevu Talebi*%0A-----------------------------------%0A*Danışan Bilgileri:*%0A👤 *Ad Soyad:* ${name}%0A📞 *Telefon:* ${phone}%0A%0A*Randevu Detayları:*%0A🗓️ *Tarih:* ${date} (${dayName})%0A🕑 *Saat:* ${time}%0A🎯 *Danışmanlık Alanı:* ${area}%0A👥 *Konsültasyon Türü:* ${type}%0A⏰ *Hatırlatma:* ${reminderText}%0A%0A*Ek Notlar:*%0A📝 ${note || "Not belirtilmedi"}%0A-----------------------------------%0A_Bu mesaj randevu formu aracılığıyla otomatik olarak gönderilmiştir._`;
+                    
+                    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
+                    
+                    clearDraft(); // Clear the draft on successful submission
+                    window.open(whatsappUrl, '_blank');
+
+                    setTimeout(() => {
+                        if (previewModal) previewModal.hide();
+                        randevuModal.hide();
+                        window.location.reload();
+                    }, 1500);
+
+                }, 2500);
+            });
         }
+        
+        // Initial check in case of browser autofill
+        checkFormValidity();
     });
-
-    // Onayla ve Gönder
-    confirmButton.addEventListener('click', function () {
-        const name = randevuName.value.trim();
-        const phone = randevuPhone.value.trim();
-        const date = randevuDate.value;
-        const time = randevuTime.value;
-        const note = randevuNote.value.trim() || 'Yok';
-        const selectedDate = new Date(date);
-        const dayName = days[selectedDate.getDay()];
-
-        // Başarı mesajı
-        const successAlert = document.getElementById('successAlert');
-        successAlert.style.display = 'block';
-
-        // .ics dosyası oluştur
-        const startDateTime = `${date}T${time.replace(':', '')}00`;
-        const alarmMinutes = hatirlatmaIstiyorum.checked ? 1440 : 0;
-
-        const icsContent = `BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-SUMMARY:Randevu - ${name}
-DTSTART:${startDateTime}
-DTEND:${startDateTime}
-DESCRIPTION:Telefon: ${phone} - Not: ${note}
-${alarmMinutes > 0 ? `BEGIN:VALARM\nTRIGGER:-P1D\nDESCRIPTION:Randevu Hatırlatma\nEND:VALARM` : ''}
-END:VEVENT
-END:VCALENDAR`.trim();
-
-        const blob = new Blob([icsContent], { type: 'text/calendar' });
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = 'randevu.ics';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        // 2 saniye sonra WhatsApp aç
-        setTimeout(() => {
-            successAlert.style.display = 'none';
-            const newMessage = `
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃           RANDEVU ONAYI              ┃
-┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃
-┃ Ad         : ${name}
-┃ Telefon    : ${phone}
-┃ Tarih      : ${date} (${dayName})
-┃ Saat       : ${time}
-┃ Not        : ${note || "Belirtilmedi"}
-┃ Referans   : #${Math.floor(100000 + Math.random() * 900000)}
-┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃
-┃ Randevunuz başarıyla kaydedilmiştir.
-┃ Lütfen randevu saatinizden 5-10 dakika
-┃ önce hazır bulununuz.
-┃ 
-┃ Saygılarımızla,
-┃ Empaz Aile Danışmanlığı Ekibi
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛`;
-
-            const whatsappUrl = `https://wa.me/${randevuPhoneNumber}?text=${encodeURIComponent(newMessage)}`;
-            window.open(whatsappUrl, '_blank');
-
-            // Formu sıfırla
-            randevuName.value = '';
-            randevuPhone.value = '';
-            randevuDate.value = '';
-            randevuTime.value = '';
-            randevuNote.value = '';
-            hatirlatmaIstiyorum.checked = false;
-            selectedDay.textContent = '';
-        }, 2000);
-    });
-});
 </script>
 
     
