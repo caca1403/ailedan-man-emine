@@ -2,9 +2,9 @@
   "name": "Empaz Aile Danışmanlığı",
   "short_name": "EMPAZ",
   "description": "Profesyonel aile danışmanlığı hizmetleri",
-  "start_url": "/index.html",
-  "scope": "/",
-  "id": "/",
+  "start_url": ".",
+  "scope": ".",
+  "id": "/?homescreen=1",
   "icons": [
     {
       "src": "images/favicon/web-app-manifest-192x192.png",
