@@ -8,8 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>        
         body, html {
-            background-color: rgb(197, 142, 142);
-            font-family: 'Times New Roman', Times, serif;
+            background: linear-gradient(135deg, #fafbfc 0%, #fff5f5 50%, #fff0f0 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             height: 100%;
@@ -18,71 +18,227 @@
         }
 
         .navbar {
+            background: linear-gradient(135deg, rgba(44, 24, 16, 0.95), rgba(44, 24, 16, 0.98)) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.85) !important;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-            padding: 15px 0;
         }
 
         .navbar-brand {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #f6f5f5 !important;
-            margin-right: auto;
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 800;
+            color: #fff !important;
+            letter-spacing: -0.01em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .offcanvas-end {
-            width: 300px !important;
-            background: linear-gradient(145deg, rgb(167, 112, 112), rgb(142, 87, 87)) !important;
-            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
+        .navbar-brand:hover {
+            color: #FF6B6B !important;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+        }
+
+        .navbar-nav .nav-item {
+            margin: 0 0.5rem;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            font-weight: 600;
+            padding: 0.8rem 1.2rem;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            color: rgba(255, 255, 255, 0.85) !important;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #FF6B6B 0%, #c58e8e 100%);
+            transform: translateX(-50%);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 0 rgba(255, 107, 107, 0.5);
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 0.5rem;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0), rgba(255, 107, 107, 0));
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background: rgba(255, 107, 107, 0.15);
+            color: #FF6B6B !important;
+            transform: translateY(-2px) scale(1.08);
+            text-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
+        }
+
+        .navbar-nav .nav-link:hover::before {
+            width: 100%;
+            box-shadow: 0 2px 12px rgba(255, 107, 107, 0.4);
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(197, 142, 142, 0.1));
+        }
+
+        .navbar-toggler {
+            border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            padding: 0.5rem !important;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar-toggler:hover {
+            background: rgba(197, 142, 142, 0.15) !important;
+            border-color: #c58e8e !important;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none !important;
         }
 
         .offcanvas-header {
-            background: linear-gradient(145deg, rgba(128, 0, 32, 0.3), rgba(128, 0, 32, 0.1));
-            padding: 2rem 1.5rem;
+            background: linear-gradient(135deg, rgba(44, 24, 16, 0.95), rgba(44, 24, 16, 0.98));
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(197, 142, 142, 0.15);
             position: relative;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .offcanvas-header::before {
+        .offcanvas-header::after {
             content: '';
             position: absolute;
-            left: 20px;
+            bottom: -3px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #FF6B6B, #c58e8e, transparent);
+            animation: headerGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes headerGlow {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .offcanvas-logo {
             width: 50px;
             height: 50px;
-            background-image: url(favicon.ico);
-            background-size: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .offcanvas-title {
-            color: white;
-            font-size: 2rem;
-            font-weight: 600;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            margin-left: 60px;
+            color: white !important;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-left: 0;
+        }
+
+        .btn-close-white {
+            position: relative;
+            width: 40px !important;
+            height: 40px !important;
+            opacity: 1 !important;
+            padding: 0 !important;
+            background: rgba(197, 142, 142, 0.1) !important;
+            margin: 0 !important;
+            border-radius: 50%;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-close-white::before,
+        .btn-close-white::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background-color: white;
+            top: 50%;
+            left: 50%;
+            border-radius: 1px;
+        }
+
+        .btn-close-white::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .btn-close-white::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        .btn-close-white:hover {
+            transform: rotate(90deg);
+            opacity: 0.8 !important;
         }
 
         .offcanvas-body {
             padding: 1.5rem;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1), transparent);
         }
 
         .offcanvas-body .nav-link {
-            color: white !important;
-            font-size: 1.3rem !important;
-            padding: 1.2rem !important;
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-size: 1.1rem !important;
+            padding: 1rem 1.5rem !important;
             margin: 0.8rem 0;
             border-radius: 12px;
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .offcanvas-body .nav-link:hover {
+            background: transparent !important;
+            transform: translateX(8px);
+            color: #FF6B6B !important;
+        }
+
+        .offcanvas-body {
+            padding: clamp(1rem, 2vw, 1.5rem);
+            background: linear-gradient(180deg, rgba(44, 24, 16, 0.95) 0%, rgba(44, 24, 16, 0.98) 100%);
+        }
+
+        .offcanvas-body .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-size: clamp(1rem, 1.8vw, 1.1rem) !important;
+            padding: clamp(0.8rem, 1.5vw, 1.2rem) !important;
+            margin: clamp(0.6rem, 1vw, 0.8rem) 0;
+            border-radius: 12px;
+           
             background: rgba(255, 255, 255, 0.08);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .offcanvas-body .nav-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 0;
+            background: linear-gradient(180deg, #FF6B6B, #c58e8e);
+            border-radius: 2px;
+            transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .offcanvas-body .nav-link:hover {
@@ -90,18 +246,24 @@
             transform: translateX(10px) scale(1.02);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
             border-color: rgba(255, 255, 255, 0.2);
+            color: #FF6B6B !important;
         }
+
+        .offcanvas-body .nav-link:hover::before {
+            height: 80%;
+        }
+
         .wrapper {
             flex: 1;
             display: flex;
             flex-direction: column;
-            
-        }        
+        }
+
         .content {
             flex: 1;
-            padding: 40px;
-            margin-top: 80px;
-            background-color: rgb(197, 142, 142);
+            padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+            margin-top: clamp(4rem, 6vw, 5rem);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(249, 245, 243, 0.8) 100%);
         }
 
         /* Sosyal Medya İkonları */
@@ -151,7 +313,7 @@
             font-size: 1.1rem;
             font-weight: 500;
             padding: 8px 15px;
-            transition: all 0.3s ease-in-out;
+          
         }
 
         .navbar-nav .nav-link:hover {
@@ -187,7 +349,7 @@
 
         .image-container img {
             flex: 1 1 calc(33.33% - 10px);
-            max-width: calc(33.33% - 10px);
+           
             height: auto;
             border-radius: 8px;
             border: 2px solid white;
@@ -279,15 +441,28 @@
             cursor: pointer;
         }
         .probio {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px); /* Cam efekti */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Daha belirgin gölge */
-            margin-bottom: 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(249, 245, 243, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            border-radius: clamp(1rem, 2vw, 1.5rem);
+            box-shadow: 0 8px 24px rgba(197, 142, 142, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+            border: 2px solid rgba(197, 142, 142, 0.1);
+            position: relative;
+            overflow: hidden;
         }
-        .insfix {
-            margin-left: 10px;
+
+        .probio::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
         }
 
         /* İçerik Stilleri */
@@ -295,13 +470,15 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 1s ease forwards;
-            margin-bottom: 40px;
-            padding: 30px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            border-radius: clamp(1rem, 2vw, 1.5rem);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 245, 243, 0.95) 100%);
+            box-shadow: 0 8px 24px rgba(197, 142, 142, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1.5px solid rgba(197, 142, 142, 0.1);
             position: relative;
             overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .content-section::before {
@@ -311,9 +488,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(231, 76, 60, 0.1), rgba(41, 128, 185, 0.1));
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.05), rgba(197, 142, 142, 0.05));
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .content-section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(197, 142, 142, 0.15), 0 8px 24px rgba(0, 0, 0, 0.08);
+            border-color: rgba(197, 142, 142, 0.2);
         }
 
         .content-section:hover::before {
@@ -321,15 +505,28 @@
         }
 
         .section-title {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+            color: #2c1810;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            margin-bottom: clamp(1.2rem, 2.5vw, 2rem);
             text-align: center;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             position: relative;
-            padding-bottom: 15px;
+            padding-bottom: clamp(0.8rem, 1.5vw, 1rem);
+            background: linear-gradient(135deg, #2c1810 0%, #FF6B6B 50%, #2c1810 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGradient 4s ease-in-out infinite;
+            letter-spacing: -0.01em;
+        }
+
+        @keyframes titleGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .section-title::after {
@@ -338,71 +535,152 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: clamp(60px, 15vw, 120px);
             height: 3px;
-            background: linear-gradient(90deg, #e74c3c, #c0392b);
+            background: linear-gradient(90deg, #FF6B6B, #c58e8e);
+            border-radius: 2px;
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
         }
 
         .section-text {
             color: #34495e;
-            font-size: 1.3rem !important;
-            line-height: 2;
-            margin-bottom: 1.8rem;
+            font-size: clamp(1rem, 1.8vw, 1.2rem) !important;
+            line-height: 1.8;
+            margin-bottom: clamp(1.2rem, 2.5vw, 1.8rem);
             text-align: justify;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+            z-index: 2;
         }
 
         .highlight-box {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-            padding: 25px;
-            border-radius: 15px;
-            margin: 20px 0;
-            border-left: 4px solid #e74c3c;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.08) 0%, rgba(197, 142, 142, 0.08) 100%);
+            padding: clamp(1.5rem, 2.5vw, 2rem);
+            border-radius: clamp(1rem, 2vw, 1.5rem);
+            margin: clamp(1.2rem, 2vw, 1.8rem) 0;
+            border-left: 4px solid #FF6B6B;
+            border: 2px solid rgba(197, 142, 142, 0.15);
+            box-shadow: 0 4px 16px rgba(197, 142, 142, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, #FF6B6B 0%, #c58e8e 100%);
+            transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2;
         }
 
         .highlight-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-6px) translateX(4px);
+            box-shadow: 0 12px 32px rgba(255, 107, 107, 0.15);
+            border-color: rgba(255, 107, 107, 0.3);
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.12) 0%, rgba(197, 142, 142, 0.12) 100%);
+        }
+
+        .highlight-box:hover::before {
+            height: 100%;
         }
 
         .highlight-box strong {
-            color: #e74c3c;
-            font-size: 1.4rem;
+            color: #FF6B6B;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: clamp(0.6rem, 1.2vw, 0.8rem);
+            font-weight: 700;
         }
 
         .section-text ul {
             list-style: none;
             padding: 0;
+            margin: clamp(1rem, 2vw, 1.5rem) 0;
         }
 
         .section-text ul li {
-            padding: 10px 0;
-            padding-left: 30px;
+            padding: clamp(0.8rem, 1.5vw, 1rem) 0;
+            padding-left: clamp(1.8rem, 3vw, 2.5rem);
             position: relative;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 1.6vw, 1.1rem);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: rgba(44, 24, 16, 0.8);
+        }
+
+        .section-text ul li:hover {
+            padding-left: clamp(2.2rem, 3.5vw, 3rem);
+            color: #FF6B6B;
         }
 
         .section-text ul li::before {
-            content: '➤';
+            content: '✦';
             position: absolute;
             left: 0;
-            color: #e74c3c;
+            color: #FF6B6B;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
         }
 
-        .glow-text {
-            text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
-            animation: glow 2s ease-in-out infinite;
+        .section-text ul li:hover::before {
+            transform: scale(1.3) rotate(15deg);
+            text-shadow: 0 0 8px rgba(255, 107, 107, 0.5);
         }
 
-        @keyframes glow {
-            0% { text-shadow: 0 0 10px rgba(231, 76, 60, 0.5); }
-            50% { text-shadow: 0 0 20px rgba(231, 76, 60, 0.8); }
-            100% { text-shadow: 0 0 10px rgba(231, 76, 60, 0.5); }
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 30vw, 320px), 1fr));
+            gap: clamp(1rem, 2.5vw, 2rem);
+            margin-top: clamp(2rem, 4vw, 3rem);
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: clamp(1rem, 2vw, 1.5rem);
+            border: 3px solid rgba(197, 142, 142, 0.3);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 
+                0 8px 24px rgba(0, 0, 0, 0.1),
+                0 0 40px rgba(255, 107, 107, 0.1),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            filter: brightness(1) contrast(1.1) saturate(1.15) sepia(0.05) blur(0px);
+            position: relative;
+            backdrop-filter: blur(0px);
+        }
+
+        .image-container img:hover {
+            transform: translateY(-12px) scale(1.08) rotateZ(2deg);
+            border-color: #FF6B6B;
+            box-shadow: 
+                0 20px 50px rgba(255, 107, 107, 0.25),
+                0 0 60px rgba(255, 107, 107, 0.2),
+                inset 0 0 30px rgba(255, 255, 255, 0.2);
+            filter: brightness(1.15) contrast(1.25) saturate(1.35) sepia(0.08) blur(0px);
+            z-index: 10;
+            box-shadow: 
+                0 25px 60px rgba(255, 107, 107, 0.3),
+                0 0 80px rgba(197, 142, 142, 0.2),
+                inset 0 0 40px rgba(255, 255, 255, 0.25),
+                0 -5px 30px rgba(255, 107, 107, 0.15);
+        }
+
+        .image-container img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: clamp(1rem, 2vw, 1.5rem);
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), transparent);
+            pointer-events: none;
         }
 
         @keyframes fadeInUp {
@@ -422,6 +700,580 @@
         .content-section:nth-child(4) { animation-delay: 0.8s; }
         .content-section:nth-child(5) { animation-delay: 1s; }
 
+        /* İstatistik Bölümü */
+        .stats-section {
+            margin: clamp(3rem, 6vw, 5rem) 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 1.2s;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 25vw, 280px), 1fr));
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            margin: clamp(2rem, 4vw, 3rem) 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.08) 0%, rgba(197, 142, 142, 0.08) 100%);
+            padding: clamp(1.5rem, 2.5vw, 2rem);
+            border-radius: clamp(1rem, 2vw, 1.5rem);
+            text-align: center;
+            border: 2px solid rgba(197, 142, 142, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-12px) scale(1.05);
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.12) 0%, rgba(197, 142, 142, 0.12) 100%);
+            border-color: rgba(255, 107, 107, 0.3);
+            box-shadow: 0 16px 40px rgba(255, 107, 107, 0.15);
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #FF6B6B 0%, #c58e8e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: clamp(0.6rem, 1.2vw, 0.8rem);
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-label {
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            font-weight: 700;
+            color: #2c1810;
+            margin-bottom: clamp(0.8rem, 1.5vw, 1rem);
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-description {
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+            color: rgba(44, 24, 16, 0.75);
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Chart Bölümü */
+        .chart-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 245, 243, 0.95) 100%);
+            padding: clamp(2rem, 4vw, 3rem);
+            border-radius: clamp(1rem, 2vw, 1.5rem);
+            margin: clamp(2rem, 4vw, 3rem) 0;
+            box-shadow: 0 8px 24px rgba(197, 142, 142, 0.1);
+            border: 2px solid rgba(197, 142, 142, 0.1);
+        }
+
+        .chart-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            color: #2c1810;
+            text-align: center;
+            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+            background: linear-gradient(135deg, #2c1810 0%, #FF6B6B 50%, #2c1810 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .chart-container {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .chart-bar {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .chart-bar:nth-child(1) { animation-delay: 0.2s; }
+        .chart-bar:nth-child(2) { animation-delay: 0.4s; }
+        .chart-bar:nth-child(3) { animation-delay: 0.6s; }
+        .chart-bar:nth-child(4) { animation-delay: 0.8s; }
+
+        .chart-label {
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            font-weight: 700;
+            color: #2c1810;
+            margin-bottom: clamp(0.8rem, 1.5vw, 1rem);
+        }
+
+        .bar-wrapper {
+            display: flex;
+            gap: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .bar {
+            height: clamp(1.5rem, 3vw, 2rem);
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            min-width: clamp(40px, 5vw, 60px);
+        }
+
+        .bar.before {
+            background: linear-gradient(90deg, rgba(197, 142, 142, 0.3), rgba(197, 142, 142, 0.5));
+            box-shadow: 0 4px 12px rgba(197, 142, 142, 0.15);
+        }
+
+        .bar.after {
+            background: linear-gradient(90deg, #FF6B6B 0%, #c58e8e 100%);
+            box-shadow: 0 6px 18px rgba(255, 107, 107, 0.3);
+        }
+
+        .bar:hover {
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            transform: scaleY(1.1);
+        }
+
+        /* Kaynaklar Bölümü */
+        .sources-section {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(197, 142, 142, 0.05) 100%);
+            padding: clamp(2rem, 4vw, 3rem);
+            border-radius: clamp(1rem, 2vw, 1.5rem);
+            margin-top: clamp(2rem, 4vw, 3rem);
+            border-left: 4px solid #FF6B6B;
+            border: 2px solid rgba(197, 142, 142, 0.15);
+            border-left: 4px solid #FF6B6B;
+        }
+
+        .sources-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            color: #2c1810;
+            margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
+            background: linear-gradient(135deg, #2c1810 0%, #FF6B6B 50%, #2c1810 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .sources-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sources-list li {
+            padding: clamp(0.8rem, 1.5vw, 1.2rem);
+            margin: clamp(0.6rem, 1.2vw, 0.8rem) 0;
+            padding-left: clamp(2rem, 3.5vw, 2.5rem);
+            position: relative;
+            color: rgba(44, 24, 16, 0.8);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            line-height: 1.6;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sources-list li::before {
+            content: '📖';
+            position: absolute;
+            left: clamp(0.6rem, 1.2vw, 0.8rem);
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+        }
+
+        .sources-list li:hover {
+            background: rgba(255, 107, 107, 0.1);
+            padding-left: clamp(2.4rem, 3.8vw, 2.8rem);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.15);
+        }
+
+        .sources-list strong {
+            color: #FF6B6B;
+            font-weight: 700;
+        }
+
+        /* Graphics Section */
+        .graphics-section {
+            margin: clamp(2.5rem, 5vw, 4rem) 0;
+            padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(197, 142, 142, 0.05) 100%);
+            border-radius: clamp(1rem, 2vw, 1.5rem);
+            border: 2px solid rgba(197, 142, 142, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .graphics-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: #2c1810;
+            text-align: center;
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+            background: linear-gradient(135deg, #FF6B6B 0%, #c58e8e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: gradientFlow 3s ease-in-out infinite;
+        }
+
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 40vw, 350px), 1fr));
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .chart-box {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 245, 243, 0.95) 100%);
+            padding: clamp(1.5rem, 3vw, 2rem);
+            border-radius: clamp(1rem, 2vw, 1.5rem);
+            border: 2px solid rgba(197, 142, 142, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .chart-box:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 16px 40px rgba(255, 107, 107, 0.15);
+            border-color: #FF6B6B;
+        }
+
+        .chart-name {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: #2c1810;
+            text-align: center;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Pie Chart */
+        .pie-chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: clamp(1rem, 2vw, 1.5rem) 0;
+        }
+
+        .pie-chart {
+            width: clamp(150px, 25vw, 200px);
+            height: clamp(150px, 25vw, 200px);
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                #FF6B6B 0deg 162deg,
+                #c58e8e 162deg 270deg,
+                #8a5a5a 270deg 342deg,
+                #c8a8a8 342deg 360deg
+            );
+            box-shadow: 0 8px 24px rgba(255, 107, 107, 0.2);
+            animation: spin 20s linear infinite;
+            position: relative;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .pie-slice {
+            position: absolute;
+        }
+
+        /* Donut Chart */
+        .donut-chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: clamp(1rem, 2vw, 1.5rem) 0;
+            position: relative;
+        }
+
+        .donut-chart {
+            width: clamp(150px, 25vw, 200px);
+            height: clamp(150px, 25vw, 200px);
+            transform: rotate(-90deg);
+            filter: drop-shadow(0 8px 24px rgba(255, 107, 107, 0.2));
+        }
+
+        .donut-progress {
+            animation: donutFill 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            stroke-linecap: round;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .donut-chart:hover .donut-progress {
+            stroke-width: 14px;
+            filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.5));
+        }
+
+        @keyframes donutFill {
+            from {
+                stroke-dashoffset: 282.6;
+            }
+            to {
+                stroke-dashoffset: 22.6;
+            }
+        }
+
+        .donut-center {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .donut-percent {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 800;
+            color: #FF6B6B;
+            line-height: 1;
+        }
+
+        .donut-label {
+            font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+            color: #2c1810;
+            font-weight: 600;
+            margin-top: 0.3rem;
+        }
+
+        /* Line Chart */
+        .line-chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: clamp(1rem, 2vw, 1.5rem) 0;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05), rgba(197, 142, 142, 0.05));
+            padding: clamp(1rem, 2vw, 1.5rem);
+            border-radius: 0.8rem;
+        }
+
+        .line-chart {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+        }
+
+        .line-path {
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            animation: drawLine 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            stroke-dasharray: 400;
+            stroke-dashoffset: 400;
+            filter: drop-shadow(0 4px 12px rgba(255, 107, 107, 0.2));
+        }
+
+        .line-point {
+            animation: pointPulse 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            filter: drop-shadow(0 2px 8px rgba(255, 107, 107, 0.3));
+        }
+
+        @keyframes drawLine {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes pointPulse {
+            from {
+                r: 2px;
+                opacity: 0;
+            }
+            to {
+                r: 4px;
+                opacity: 1;
+            }
+        }
+
+        /* Progress Bars */
+        .progress-container {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .progress-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .progress-item label {
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            font-weight: 600;
+            color: #2c1810;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: clamp(0.6rem, 1.2vw, 0.8rem);
+            background: rgba(197, 142, 142, 0.2);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(197, 142, 142, 0.3);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF6B6B 0%, #c58e8e 100%);
+            border-radius: 1rem;
+            animation: fillProgress 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            box-shadow: 0 0 12px rgba(255, 107, 107, 0.4);
+        }
+
+        @keyframes fillProgress {
+            from {
+                width: 0;
+            }
+        }
+
+        .progress-value {
+            font-size: clamp(0.8rem, 1.3vw, 0.95rem);
+            font-weight: 700;
+            color: #FF6B6B;
+            text-align: right;
+        }
+
+        /* Radar Chart */
+        .radar-chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: clamp(1rem, 2vw, 1.5rem) 0;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05), rgba(197, 142, 142, 0.05));
+            padding: clamp(1rem, 2vw, 1.5rem);
+            border-radius: 0.8rem;
+        }
+
+        .radar-chart {
+            width: clamp(150px, 25vw, 200px);
+            height: clamp(150px, 25vw, 200px);
+            filter: drop-shadow(0 4px 12px rgba(255, 107, 107, 0.2));
+        }
+
+        .radar-polygon {
+            animation: radarPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes radarPulse {
+            0%, 100% {
+                opacity: 0.25;
+            }
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .radar-label {
+            font-weight: 600;
+            animation: labelFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes labelFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        /* Heatmap */
+        .heatmap-container {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.8rem, 1.5vw, 1rem);
+            margin: clamp(1rem, 2vw, 1.5rem) 0;
+        }
+
+        .heatmap-header {
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            font-weight: 700;
+            color: #2c1810;
+            text-align: center;
+        }
+
+        .heatmap-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: clamp(0.4rem, 0.8vw, 0.6rem);
+            padding: clamp(0.8rem, 1.5vw, 1rem);
+            background: rgba(255, 107, 107, 0.03);
+            border-radius: 0.6rem;
+        }
+
+        .heatmap-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: clamp(0.7rem, 1vw, 0.8rem);
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .heatmap-day:hover {
+            transform: scale(1.15);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+        }
+
+        .heatmap-day span {
+            font-weight: 600;
+        }
+
+        .chart-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-top: clamp(1rem, 2vw, 1.5rem);
+            padding-top: clamp(1rem, 2vw, 1.5rem);
+            border-top: 2px solid rgba(197, 142, 142, 0.2);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: clamp(0.85rem, 1.3vw, 0.95rem);
+            color: #2c1810;
+            font-weight: 500;
+        }
+
+        .legend-color {
+            width: clamp(0.8rem, 1.5vw, 1rem);
+            height: clamp(0.8rem, 1.5vw, 1rem);
+            border-radius: 50%;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
         @media (max-width: 768px) {
             .section-title {
                 font-size: 2rem;
@@ -430,143 +1282,260 @@
                 font-size: 1.1rem !important;
                 line-height: 1.8;
             }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: clamp(1rem, 2vw, 1.5rem);
+            }
+
+            .stat-card {
+                padding: clamp(1rem, 2vw, 1.5rem);
+            }
+
+            .stat-number {
+                font-size: clamp(1.5rem, 3vw, 2rem);
+            }
+
+            .chart-bar {
+                margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            }
+
+            .chart-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sources-list li {
+                padding: clamp(0.6rem, 1vw, 0.8rem);
+                padding-left: clamp(1.8rem, 3vw, 2rem);
+                font-size: clamp(0.85rem, 1.2vw, 0.9rem);
+            }
         }
 
         /* Footer Styles */
         .footer-container {
-            background-color: rgba(0, 0, 0, 0.9);
+            background: linear-gradient(135deg, rgba(44, 24, 16, 0.95), rgba(44, 24, 16, 0.98));
             color: white;
-            padding: 40px 0;
+            padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+            margin-top: clamp(2rem, 4vw, 3rem);
+            border-top: 2px solid rgba(197, 142, 142, 0.2);
+            position: relative;
+        }
+
+        .footer-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
         }
 
         .footer-contact {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            max-width: 1200px;
+            gap: clamp(2rem, 5vw, 3rem);
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            position: relative;
+            z-index: 2;
         }
 
         .footer-map {
-            flex: 1;
-            min-width: 300px;
+            min-width: 100%;
         }
 
         .footer-map iframe {
             width: 100%;
-            height: 300px;
-            border: 0;
-            border-radius: 8px;
+            height: clamp(200px, 30vw, 350px);
+            border: 2px solid rgba(197, 142, 142, 0.2);
+            border-radius: clamp(0.8rem, 1.5vw, 1.2rem);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .footer-map:hover iframe {
+            box-shadow: 0 16px 40px rgba(255, 107, 107, 0.15);
         }
 
         .footer-info {
-            flex: 1;
-            min-width: 300px;
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: clamp(1.5rem, 3vw, 2rem);
         }
 
         .contact-section, .social-section {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
+            padding: clamp(1.5rem, 2.5vw, 2rem);
+            border-radius: clamp(1rem, 2vw, 1.5rem);
             text-align: center;
+            border: 1px solid rgba(197, 142, 142, 0.2);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before, .social-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .contact-section:hover, .social-section:hover {
+            transform: translateY(-8px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.08) 100%);
+            border-color: rgba(255, 107, 107, 0.3);
+            box-shadow: 0 16px 40px rgba(255, 107, 107, 0.15);
+        }
+
+        .contact-section:hover::before, .social-section:hover::before {
+            opacity: 1;
         }
 
         .contact-section h3, .social-section h3 {
-            color: #ffd700;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+            color: #FF6B6B;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            font-size: clamp(1.3rem, 2vw, 1.6rem);
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-section h3::after, .social-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #FF6B6B, #c58e8e);
+            border-radius: 1px;
         }
 
         .contact-buttons, .social-buttons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: clamp(1rem, 2vw, 1.5rem);
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
         }
 
         .whatsapp-button {
-            background: linear-gradient(45deg, #25d366, #128C7E);
+            background: linear-gradient(135deg, #25d366 0%, #128C7E 100%);
             border: none;
             padding: 0;
-            border-radius: 12px;
+            border-radius: clamp(0.8rem, 1.5vw, 1rem);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: transform 0.3s ease;
-            width: 70px !important;
-            height: 35px !important;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            width: clamp(50px, 8vw, 70px) !important;
+            height: clamp(35px, 6vw, 50px) !important;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-4px) scale(1.08);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
         }
 
         .calendar-button {
-            font-size: 20px !important;
+            font-size: clamp(1rem, 2vw, 1.3rem) !important;
             line-height: 1 !important;
             padding: 0 !important;
             color: white;
-            background: linear-gradient(45deg, #6c757d, #495057);
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
             border: none;
-            border-radius: 12px;
+            border-radius: clamp(0.8rem, 1.5vw, 1rem);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-            width: 70px !important;
-            height: 35px !important;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            width: clamp(50px, 8vw, 70px) !important;
+            height: clamp(35px, 6vw, 50px) !important;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .calendar-button:hover {
+            transform: translateY(-4px) scale(1.08);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #5a6268 0%, #3d444d 100%);
         }
 
         .whatsapp-button img {
-            width: 40px !important;
-            height: 40px !important;
-            padding: 5px;
+            width: clamp(30px, 4vw, 40px) !important;
+            height: clamp(30px, 4vw, 40px) !important;
+            padding: clamp(4px, 0.8vw, 6px);
         }
 
         .social-button {
             border: none;
             padding: 0;
-            border-radius: 12px;
+            border-radius: clamp(0.8rem, 1.5vw, 1rem);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: transform 0.3s ease;
-            width: 70px !important;
-            height: 35px !important;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            width: clamp(50px, 8vw, 70px) !important;
+            height: clamp(50px, 8vw, 70px) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-button:hover {
+            transform: translateY(-4px) scale(1.08);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
         .social-button img {
-            width: 50px !important;
-            height: 50px !important;
-            padding: 5px;
+            width: clamp(40px, 6vw, 50px) !important;
+            height: clamp(40px, 6vw, 50px) !important;
+            padding: clamp(4px, 0.8vw, 6px);
         }
 
         .social-button-instagram {
-            background: linear-gradient(45deg, #f09433, #bc1888);
+            background: linear-gradient(45deg, #f09433 0%, #bc1888 100%);
         }
 
         .social-button-facebook {
-            background: linear-gradient(45deg, #3b5998, #1e3c72);
-        }
-
-        .whatsapp-button:hover, 
-        .calendar-button:hover, 
-        .social-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #3b5998 0%, #1e3c72 100%);
         }
 
         .footer-copyright {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 30px;
+            padding-top: clamp(1.5rem, 3vw, 2rem);
+            border-top: 2px solid rgba(197, 142, 142, 0.2);
+            margin-top: clamp(1.5rem, 3vw, 2rem);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: clamp(0.85rem, 1.5vw, 1rem);
         }
 
-        @media (max-width: 768px) {
+        .footer-copyright p {
+            margin: 0;
+        }
+
+        @media (max-width: 1024px) {
             .footer-contact {
                 grid-template-columns: 1fr;
             }
@@ -574,30 +1543,149 @@
             .footer-map, .footer-info {
                 width: 100%;
             }
-            
+        }
+
+        @media (max-width: 768px) {
+            .footer-contact {
+                grid-template-columns: 1fr;
+                gap: clamp(1.5rem, 3vw, 2rem);
+            }
+
             .footer-map iframe {
-                height: 250px;
+                height: clamp(150px, 50vw, 250px);
+            }
+
+            .content {
+                margin-top: clamp(3.5rem, 5vw, 4rem);
+            }
+
+            .section-title {
+                font-size: clamp(1.5rem, 3.5vw, 2rem);
+            }
+
+            .content-section {
+                margin-bottom: clamp(1.5rem, 3vw, 2rem);
+                padding: clamp(1.2rem, 2.5vw, 1.8rem);
+            }
+
+            h1 {
+                font-size: clamp(1.3rem, 3vw, 1.8rem);
+            }
+
+            p {
+                font-size: clamp(0.9rem, 1.5vw, 1rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: clamp(0.8rem, 1.5vw, 1rem) 0;
+            }
+
+            .content {
+                padding: clamp(1rem, 2vw, 1.5rem);
+                margin-top: clamp(3rem, 4.5vw, 3.5rem);
+            }
+
+            .probio {
+                padding: clamp(1rem, 2vw, 1.5rem);
+                margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            }
+
+            .content-section {
+                margin-bottom: clamp(1rem, 2vw, 1.5rem);
+                padding: clamp(1rem, 2vw, 1.2rem);
+            }
+
+            .section-title {
+                font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+                margin-bottom: clamp(0.8rem, 1.5vw, 1.2rem);
+                padding-bottom: clamp(0.6rem, 1vw, 0.8rem);
+            }
+
+            .section-title::after {
+                width: clamp(40px, 10vw, 80px);
+            }
+
+            .section-text {
+                font-size: clamp(0.85rem, 1.3vw, 0.95rem) !important;
+                line-height: 1.6;
+                margin-bottom: clamp(0.8rem, 1.5vw, 1.2rem);
+            }
+
+            .highlight-box {
+                padding: clamp(1rem, 1.8vw, 1.2rem);
+                margin: clamp(0.8rem, 1.5vw, 1rem) 0;
+            }
+
+            .highlight-box strong {
+                font-size: clamp(1rem, 1.8vw, 1.2rem);
+                margin-bottom: clamp(0.4rem, 0.8vw, 0.6rem);
+            }
+
+            .image-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: clamp(0.8rem, 1.5vw, 1rem);
+                margin-top: clamp(1.2rem, 2.5vw, 1.8rem);
+                margin-bottom: clamp(1.2rem, 2.5vw, 1.8rem);
+            }
+
+            .footer-contact {
+                gap: clamp(1rem, 2vw, 1.5rem);
+                padding: 0 clamp(0.5rem, 1vw, 1rem);
+            }
+
+            .contact-buttons, .social-buttons {
+                gap: clamp(0.8rem, 1.5vw, 1rem);
             }
         }
 
         .modal-content {
-             background: rgba(219, 213, 213, 0.442);
+            background: linear-gradient(135deg, rgba(197, 142, 142, 0.1) 0%, rgba(197, 142, 142, 0.05) 100%);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            border-radius: clamp(1rem, 2vw, 1.5rem);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(197, 142, 142, 0.15);
         }
 
         .modal-header {
-            background: linear-gradient(145deg, rgb(197, 142, 142), rgb(142, 87, 87));
-            color: white;
-            border-radius: 20px 20px 0 0;
-            padding: 1.8rem;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(197, 142, 142, 0.08) 100%);
+            color: #2c1810;
+            border-radius: clamp(1rem, 2vw, 1.5rem) clamp(1rem, 2vw, 1.5rem) 0 0;
+            padding: clamp(1.2rem, 2.5vw, 1.8rem);
+            border-bottom: 1px solid rgba(197, 142, 142, 0.15);
+        }
+
+        .modal-header .btn-close {
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .modal-header .btn-close:hover {
+            opacity: 1;
         }
 
         .modal-body .form-label {
-            color: #000000;
-            font-weight: bold;
-            font-size: 1rem;
+            color: #2c1810;
+            font-weight: 700;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+        }
+
+        .modal-body .form-control, 
+        .modal-body .form-select {
+            border: 2px solid rgba(197, 142, 142, 0.15);
+            border-radius: clamp(0.6rem, 1.2vw, 0.8rem);
+            padding: clamp(0.6rem, 1.2vw, 0.8rem) clamp(0.8rem, 1.5vw, 1rem);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal-body .form-control:focus, 
+        .modal-body .form-select:focus {
+            border-color: #FF6B6B;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+            background-color: rgba(255, 255, 255, 0.95);
         }
     </style>
 </head>
@@ -617,7 +1705,7 @@
                 <!-- Offcanvas Menü -->
                 <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menü</h5>
+                        <img src="favicon-96x96.png" alt="Logo" class="offcanvas-logo">
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
@@ -704,13 +1792,231 @@
                 </div>
             </div>
             
+            <!-- İstatistik Bölümü -->
+            <div class="stats-section">
+                <h2 class="section-title">📊 Aile Danışmanlığının Etkinliği</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">92%</div>
+                        <div class="stat-label">İlişki Memnuniyeti Artışı</div>
+                        <p class="stat-description">Danışmanlık alan aileler ilişkilerinde belirgin iyileşme rapor ediyor</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">78%</div>
+                        <div class="stat-label">İletişim Gelişimi</div>
+                        <p class="stat-description">Aileler daha etkili iletişim becerilerine sahip olmaya başlıyor</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">Çocuk Davranışı İyileşmesi</div>
+                        <p class="stat-description">Çocuklarda davranış problemlerinde önemli azalma gözlemleniyor</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">88%</div>
+                        <div class="stat-label">Stres Azalması</div>
+                        <p class="stat-description">Aile üyeleri yaşadıkları streste belirgin indirim hissediyor</p>
+                    </div>
+                </div>
+
+                <div class="chart-section">
+                    <h3 class="chart-title">Danışmanlık Öncesi vs Sonrası Karşılaştırması</h3>
+                    <div class="chart-container">
+                        <div class="chart-bar">
+                            <div class="chart-label">Aile İlişkileri</div>
+                            <div class="bar-wrapper">
+                                <div class="bar before" style="width: 45%;" title="Öncesi: 45%"></div>
+                                <div class="bar after" style="width: 92%;" title="Sonrası: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="chart-label">İletişim Kalitesi</div>
+                            <div class="bar-wrapper">
+                                <div class="bar before" style="width: 38%;" title="Öncesi: 38%"></div>
+                                <div class="bar after" style="width: 78%;" title="Sonrası: 78%"></div>
+                            </div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="chart-label">Çocuk Gelişimi</div>
+                            <div class="bar-wrapper">
+                                <div class="bar before" style="width: 42%;" title="Öncesi: 42%"></div>
+                                <div class="bar after" style="width: 85%;" title="Sonrası: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="chart-label">Genel Mutluluk</div>
+                            <div class="bar-wrapper">
+                                <div class="bar before" style="width: 35%;" title="Öncesi: 35%"></div>
+                                <div class="bar after" style="width: 88%;" title="Sonrası: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="graphics-section">
+                    <h3 class="graphics-title">📊 Görsel Analiz & Veriler</h3>
+                    
+                    <!-- Pie Chart -->
+                    <div class="chart-grid">
+                        <div class="chart-box">
+                            <h4 class="chart-name">Aile Sorunları Dağılımı</h4>
+                            <div class="pie-chart-container">
+                                <div class="pie-chart">
+                                    <div class="pie-slice" style="--start: 0deg; --size: 45deg; --color: #FF6B6B;" title="İletişim Sorunları %45"></div>
+                                    <div class="pie-slice" style="--start: 45deg; --size: 30deg; --color: #c58e8e;" title="Finansal Stres %30"></div>
+                                    <div class="pie-slice" style="--start: 75deg; --size: 20deg; --color: #8a5a5a;" title="Uyum Problemleri %20"></div>
+                                    <div class="pie-slice" style="--start: 95deg; --size: 5deg; --color: #c8a8a8;" title="Diğer %5"></div>
+                                </div>
+                            </div>
+                            <div class="chart-legend">
+                                <div class="legend-item"><span class="legend-color" style="background: #FF6B6B;"></span> İletişim %45</div>
+                                <div class="legend-item"><span class="legend-color" style="background: #c58e8e;"></span> Finansal %30</div>
+                                <div class="legend-item"><span class="legend-color" style="background: #8a5a5a;"></span> Uyum %20</div>
+                                <div class="legend-item"><span class="legend-color" style="background: #c8a8a8;"></span> Diğer %5</div>
+                            </div>
+                        </div>
+
+                        <!-- Donut Chart -->
+                        <div class="chart-box">
+                            <h4 class="chart-name">Danışmanlık Başarı Oranı</h4>
+                            <div class="donut-chart-container">
+                                <svg viewBox="0 0 100 100" class="donut-chart">
+                                    <circle cx="50" cy="50" r="45" fill="none" stroke="#FF6B6B" stroke-width="12" stroke-dasharray="235.5" stroke-dashoffset="0" class="donut-progress"></circle>
+                                    <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(197, 142, 142, 0.2)" stroke-width="12"></circle>
+                                </svg>
+                                <div class="donut-center">
+                                    <div class="donut-percent">92%</div>
+                                    <div class="donut-label">Başarılı</div>
+                                </div>
+                            </div>
+                            <div class="chart-legend">
+                                <div class="legend-item"><span class="legend-color" style="background: #FF6B6B;"></span> Başarılı İşlemler %92</div>
+                                <div class="legend-item"><span class="legend-color" style="background: rgba(197, 142, 142, 0.3);"></span> Devam Eden %8</div>
+                            </div>
+                        </div>
+
+                        <!-- Line Chart Simulation -->
+                        <div class="chart-box">
+                            <h4 class="chart-name">Memnuniyet Trendi (Son 6 Ay)</h4>
+                            <div class="line-chart-container">
+                                <svg viewBox="0 0 400 150" class="line-chart">
+                                    <polyline points="20,120 80,100 140,70 200,90 260,50 320,30 380,40" fill="none" stroke="#FF6B6B" stroke-width="3" class="line-path"></polyline>
+                                    <circle cx="20" cy="120" r="4" fill="#FF6B6B" class="line-point"></circle>
+                                    <circle cx="80" cy="100" r="4" fill="#FF6B6B" class="line-point"></circle>
+                                    <circle cx="140" cy="70" r="4" fill="#FF6B6B" class="line-point"></circle>
+                                    <circle cx="200" cy="90" r="4" fill="#FF6B6B" class="line-point"></circle>
+                                    <circle cx="260" cy="50" r="4" fill="#FF6B6B" class="line-point"></circle>
+                                    <circle cx="320" cy="30" r="4" fill="#FF6B6B" class="line-point"></circle>
+                                    <circle cx="380" cy="40" r="4" fill="#FF6B6B" class="line-point"></circle>
+                                    <line x1="20" y1="130" x2="400" y2="130" stroke="rgba(197, 142, 142, 0.3)" stroke-width="1"></line>
+                                </svg>
+                            </div>
+                            <div class="chart-legend">
+                                <div class="legend-item"><span class="legend-color" style="background: #FF6B6B;"></span> Memnuniyet Artışı</div>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bars -->
+                        <div class="chart-box">
+                            <h4 class="chart-name">Hizmet Kalitesi Metrikleri</h4>
+                            <div class="progress-container">
+                                <div class="progress-item">
+                                    <label>Profesyonellik</label>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 96%;"></div>
+                                    </div>
+                                    <span class="progress-value">96%</span>
+                                </div>
+                                <div class="progress-item">
+                                    <label>Empati & Anlaşılırlık</label>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 94%;"></div>
+                                    </div>
+                                    <span class="progress-value">94%</span>
+                                </div>
+                                <div class="progress-item">
+                                    <label>Problem Çözme</label>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 91%;"></div>
+                                    </div>
+                                    <span class="progress-value">91%</span>
+                                </div>
+                                <div class="progress-item">
+                                    <label>Uyum & Sürdürülebilirlik</label>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 89%;"></div>
+                                    </div>
+                                    <span class="progress-value">89%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Radar Chart -->
+                        <div class="chart-box">
+                            <h4 class="chart-name">Yetenek Radar Analizi</h4>
+                            <div class="radar-chart-container">
+                                <svg viewBox="0 0 200 200" class="radar-chart">
+                                    <defs>
+                                        <path id="radarGrid" d="M 100,100 L 100,20 M 100,100 L 154.5,54.5 M 100,100 L 154.5,145.5 M 100,100 L 100,180 M 100,100 L 45.5,145.5 M 100,100 L 45.5,54.5" stroke="rgba(197, 142, 142, 0.3)" stroke-width="1"/>
+                                        <circle cx="100" cy="100" r="30" fill="none" stroke="rgba(197, 142, 142, 0.2)" stroke-width="1"/>
+                                        <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(197, 142, 142, 0.2)" stroke-width="1"/>
+                                    </defs>
+                                    <use xlink:href="#radarGrid"/>
+                                    <circle cx="100" cy="100" r="30" fill="none" stroke="rgba(197, 142, 142, 0.2)" stroke-width="1"/>
+                                    <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(197, 142, 142, 0.2)" stroke-width="1"/>
+                                    <polygon points="100,35 145,62.5 132.5,125 67.5,125 55,62.5" fill="rgba(255, 107, 107, 0.25)" stroke="#FF6B6B" stroke-width="2" class="radar-polygon"/>
+                                    <text x="100" y="15" text-anchor="middle" font-size="10" fill="#c58e8e" class="radar-label">Dinleme</text>
+                                    <text x="160" y="70" text-anchor="middle" font-size="10" fill="#c58e8e" class="radar-label">Empati</text>
+                                    <text x="140" y="145" text-anchor="middle" font-size="10" fill="#c58e8e" class="radar-label">Rehberlik</text>
+                                    <text x="60" y="145" text-anchor="middle" font-size="10" fill="#c58e8e" class="radar-label">Çözüm</text>
+                                    <text x="40" y="70" text-anchor="middle" font-size="10" fill="#c58e8e" class="radar-label">İletişim</text>
+                                </svg>
+                            </div>
+                            <div class="chart-legend">
+                                <div class="legend-item"><span class="legend-color" style="background: #FF6B6B;"></span> Yetenek Seviyeleri</div>
+                            </div>
+                        </div>
+
+                        <!-- Activity Heatmap -->
+                        <div class="chart-box">
+                            <h4 class="chart-name">Hizmet Verilme Takvimi</h4>
+                            <div class="heatmap-container">
+                                <div class="heatmap-header">Hafta İçi Danışmanlık Aktivitesi</div>
+                                <div class="heatmap-grid">
+                                    <div class="heatmap-day" style="background: rgba(255, 107, 107, 0.2); border: 1px solid rgba(255, 107, 107, 0.3);" title="Pazartesi: 85%"><span>Pzt</span></div>
+                                    <div class="heatmap-day" style="background: rgba(255, 107, 107, 0.4); border: 1px solid rgba(255, 107, 107, 0.5);" title="Salı: 92%"><span>Sal</span></div>
+                                    <div class="heatmap-day" style="background: rgba(255, 107, 107, 0.6); border: 1px solid rgba(255, 107, 107, 0.7);" title="Çarşamba: 95%"><span>Çar</span></div>
+                                    <div class="heatmap-day" style="background: rgba(255, 107, 107, 0.5); border: 1px solid rgba(255, 107, 107, 0.6);" title="Perşembe: 88%"><span>Per</span></div>
+                                    <div class="heatmap-day" style="background: rgba(255, 107, 107, 0.3); border: 1px solid rgba(255, 107, 107, 0.4);" title="Cuma: 78%"><span>Cum</span></div>
+                                    <div class="heatmap-day" style="background: rgba(255, 107, 107, 0.15); border: 1px solid rgba(255, 107, 107, 0.25);" title="Cumartesi: 45%"><span>Cmt</span></div>
+                                    <div class="heatmap-day" style="background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.2);" title="Pazar: 20%"><span>Paz</span></div>
+                                </div>
+                            </div>
+                            <div class="chart-legend">
+                                <div class="legend-item"><span class="legend-color" style="background: rgba(255, 107, 107, 0.1);"></span> Düşük</div>
+                                <div class="legend-item"><span class="legend-color" style="background: rgba(255, 107, 107, 0.5);"></span> Orta</div>
+                                <div class="legend-item"><span class="legend-color" style="background: rgba(255, 107, 107, 0.8);"></span> Yüksek</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sources-section">
+                    <h3 class="sources-title">📚 Kaynaklar & Makaleler</h3>
+                    <ul class="sources-list">
+                        <li><strong>İstatistikler:</strong> Türkiye Aile Terapisi Derneği (2023) - Aile Danışmanlığı Etkinlik Raporu</li>
+                        <li><strong>Araştırma:</strong> Bowen, M. (1978). Family Therapy in Clinical Practice - Aile Terapisinin Temel Teorisi</li>
+                        <li><strong>Rehber:</strong> Satir, V. (1988). The New Peoplemaking - Aile Dinamikleri</li>
+                        <li><strong>Çalışma:</strong> McGoldrick, M., & Carter, B. (2001). The Expanded Family Life Cycle</li>
+                        <li><strong>Türkçe Kaynak:</strong> Kağıtçıbaşı, Ç. (2013). Benlik, Aile ve İnsan Gelişimi - Türkiye Bağlamında</li>
+                    </ul>
+                </div>
+            </div>
+            
             <div class="image-container">
                 <img src="resim2.png" alt="Resim 2">
                 <img src="resim3.jpg" alt="Resim 3">
                 <img src="resim4.jpg" alt="Resim 4">
-                <img src="resim7.jpeg" alt="Resim 5">
-                <img src="resim8.jpeg" alt="Resim 6">
-                <img src="OIP.jpg" alt="Resim 7">
+                <img src="resim8.jpeg" alt="Resim 5">
             </div>
         </div>
  <!-- Randevu Modalı -->
