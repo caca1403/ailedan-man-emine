@@ -1,12 +1,12 @@
-const CACHE_NAME = 'empaz-cache-v1';
+const CACHE_NAME = 'empaz-cache-v2';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/css/indexcss.css',
-  '/js/indexscript.js',
-  '/images/favicon/favicon-96x96.png',
-  '/images/favicon/web-app-manifest-192x192.png',
-  '/images/favicon/web-app-manifest-512x512.png'
+  './',
+  './index.html',
+  './css/indexcss.css',
+  './js/indexscript.js',
+  './images/favicon/favicon-96x96.png',
+  './images/favicon/web-app-manifest-192x192.png',
+  './images/favicon/web-app-manifest-512x512.png'
 ];
 
 // Service Worker Install
