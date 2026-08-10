@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Emine Çayır kısa bir biyografi/tanıtım ve aile danışmanlığı hakkında kapsamlı bilgiler.">
+    <meta name="keywords" content="danışmanlık, eğitim, rehberlik, Emine Çayır, aile danışmanlığı, aile danışmanı emine, emine çayır aile danışmanlığı , empaz aile danışmanlığı">
+    <title>Emine Çayır İş Tanıtımı ve Bir Biyografi</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/medyacss.css">
+    <script src="js/medyajs.js" defer></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="navbar navbar-dark bg-dark sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Emine Çayır</a>
+
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Offcanvas Navbar -->
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <img src="images/favicon/favicon-96x96.png" alt="Logo" class="offcanvas-logo">
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link" href="Ailedanışmanığı.html">Aile Danışmanlığı Nedir</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="İLETİŞİM.html">İletişim Bilgileri</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Ana Sayfa</a>
+                            </li>
+                             <li class="nav-item">
+                                <a class="nav-link" href="sertifikalar.html">Sertifikalar</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Ana İçerik -->
+        <div class="content">
+            <div class="media-showcase">
+                <div class="showcase-header">
+                    <h1 class="section-title">Medya'da Biz</h1>
+                    <p class="showcase-description">
+                        Aile danışmanlığı yolculuğumuzda, toplumumuza değer katmak için çıktığımız bu yolda,
+                        medya aracılığıyla daha fazla insana ulaşmaya çalışıyoruz. TV programları ve basın 
+                        haberleriyle, aile danışmanlığının önemini ve etkisini paylaşıyoruz.
+                    </p>
+                </div>
+                
+                <!-- TV Programları Bölümü -->
+                <div class="media-section tv-shows">
+                    <h3>
+                        <span class="icon">📺</span>
+                        TV52 Engelsiz Programı
+                    </h3>
+                    <p class="program-description">
+                        Her bölümde farklı konuları ele aldığımız Engelsiz Programı'nda, aile içi iletişimden 
+                        çocuk gelişimine, evlilik terapisinden bireysel danışmanlığa kadar pek çok önemli 
+                        konuyu uzman bakış açısıyla değerlendiriyoruz.
+                    </p>
+                    <!-- Ana video oynatıcı -->
+                    <div class="live-player-section">
+                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/SKKy9eEpZKw" 
+                            title="Engelsiz Programı TV52 - Bölüm 1" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <button class="custom-button mt-4" data-bs-toggle="modal" data-bs-target="#youtubeModal">
+                        Tüm Bölümleri Görüntüle
+                    </button>
+                </div>
+
+                <!-- Haberler Bölümü -->
+                <div class="media-section press">
+                    <h3>Basında Biz</h3>
+                    <!-- Ana haber önizleme -->
+                    <div class="news-card main-news">
+                        <h4>Kurtuluş Mahalle Muhtarlığında Aile Danışmanlığı Hizmeti</h4>
+                        <p>Vatandaşlara ücretsiz aile danışmanlığı hizmeti verilmeye başlandı...</p>
+                        <a href="https://www.facebook.com/fatsasosyaltv/videos/kurtulu%C5%9F-mahalle-muhtarl%C4%B1%C4%9F%C4%B1nda-aile-dan%C4%B1%C5%9Fmanl%C%C4%B1%C4%9F%C4%B1-hizmeti-veriliyorvatanda%C5%9Flara-m/321448590992192/" 
+                           class="custom-link" target="_blank">
+                            Haberi Görüntüle
+                        </a>
+                    </div>
+                    <button class="custom-button mt-4" data-bs-toggle="modal" data-bs-target="#haberModal">
+                        Tüm Haberleri Görüntüle
+                    </button>
+                </div>
+            </div>
+
+            <!-- Video Bölümleri Modal -->
+            <div class="modal fade" id="youtubeModal" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Tüm Bölümler</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="video-list">
+                                <a href="https://www.youtube.com/watch?v=SKKy9eEpZKw" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 1</a>
+                                <a href="https://www.youtube.com/watch?v=KOZ3lGIwCKw" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 2</a>
+                                <a href="https://www.youtube.com/watch?v=9KQRbPGLiYI" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 3</a>
+                                <a href="https://www.youtube.com/watch?v=ePWBzWDvtio" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 4</a>
+                                <a href="https://www.youtube.com/watch?v=OXgDFGcqigg" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 5</a>
+                                <a href="https://www.youtube.com/watch?v=BgxTY85Z1nU" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 6</a>
+                                <a href="https://www.youtube.com/watch?v=pomqPs4gLR4" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 7</a>
+                                <a href="https://www.youtube.com/watch?v=Zkx-5Z7bUms" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 8</a>
+                                <a href="https://www.youtube.com/watch?v=97UeiYFMeXw" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 9</a>
+                                <a href="https://www.youtube.com/watch?v=Z7XVjnkoabs" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 10</a>
+                                <a href="https://www.youtube.com/watch?v=Cd_Yz2bUPDQ" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 11</a>
+                                <a href="https://www.youtube.com/watch?v=Gzo6jV1s3dA" class="custom-link" target="_blank">Engelsiz Programı TV52 - Bölüm 12</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Haberler Modal -->
+            <div class="modal fade" id="haberModal" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Tüm Haberler</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="news-list">
+                                <a href="https://www.facebook.com/fatsasosyaltv/videos/kurtulu%C5%9F-mahalle-muhtarl%C4%B1%C4%9F%C4%B1nda-aile-dan%C4%B1%C5%9Fmanl%C%C4%B1%C4%9F%C4%B1-hizmeti-veriliyorvatanda%C5%9Flara-m/321448590992192/" class="custom-link" target="_blank">
+                                    Kurtuluş Mahalle Muhtarlığında Aile Danışmanlığı Hizmeti
+                                </a>
+                                <a href="https://www.bing.com/ck/a?!&&p=d31373c003480a93802c8bd75eac8ec0a88f7343dab5e3c6abcfdc1f469c4a08JmltdHM9MTczNTk0ODgwMA&ptn=3&ver=2&hsh=4&fclid=2035c13f-a729-69f2-20e3-d47ca6b068bb&psq=aile+dan%c4%b1%c5%9fman%c4%b1+emine+%c3%a7ay%c4%b1r&u=a1aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL2ZhdHNhc29zeWFsdHYvcG9zdHMvODg5MDM2NDM2NzYyOTM4Lw&ntb=1" class="custom-link" target="_blank">
+                                    Aile Danışmanlığı Merkezi Açılış Haberi
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Randevu Modalı -->
+            <div class="modal fade" id="randevuModal" tabindex="-1" aria-labelledby="randevuModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content p-4">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="randevuModalLabel">📋 Randevu Talep Formu</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+            <div id="draft-notification" class="alert alert-info alert-dismissible fade show" role="alert" style="display: none;">
+                Kaydedilmiş bir taslağınız var.
+                <button type="button" class="btn btn-sm btn-primary ms-2" id="load-draft">Yükle</button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" id="discard-draft"></button>
+            </div>
+            <div class="mb-4 p-3 rounded" style="background-color: rgba(0, 0, 0, 0.05);">
+                <p class="lead mb-2"><strong>Randevu Süreci Nasıl İşler?</strong></p>
+                <ul class="list-unstyled mb-0">
+                    <li><small><i class="fas fa-check-circle text-success me-2"></i>Formu doldurun ve bilgilerinizi önizleyin.</small></li>
+                    <li><small><i class="fas fa-check-circle text-success me-2"></i>"Bilgileri Önizle" ve ardından "Onayla ve Gönder" butonlarına tıklayın.</small></li>
+                    <li><small><i class="fas fa-check-circle text-success me-2"></i>Ekibimiz en kısa sürede onay için sizinle iletişime geçecektir.</small></li>
+                </ul>
+            </div>
+  
+          <div class="mb-3">
+            <label for="randevuName" class="form-label">👤 Adınız Soyadınız</label>
+            <div class="input-group">
+                <input id="randevuName" type="text" class="form-control" required>
+                <span class="input-group-text validation-icon" id="nameValidationIcon"></span>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="randevuPhone" class="form-label">📞 Telefon Numaranız</label>
+            <div class="input-group">
+                <input id="randevuPhone" type="text" class="form-control" required>
+                <span class="input-group-text validation-icon" id="phoneValidationIcon"></span>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="randevuDate" class="form-label">🗓️ Tarih</label>
+              <div class="input-group">
+                <input id="randevuDate" type="date" class="form-control" required>
+                <span class="input-group-text validation-icon" id="dateValidationIcon"></span>
+              </div>
+              <div id="selectedDay" class="form-text mt-1 text-muted"></div>
+            </div>
+  
+            <div class="col-md-6 mb-3">
+              <label for="randevuTime" class="form-label">🕑 Saat</label>
+              <div class="input-group">
+                <select id="randevuTime" class="form-select" required>
+                    <option value="">Saat Seçiniz</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                </select>
+                <span class="input-group-text validation-icon" id="timeValidationIcon"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="randevuArea" class="form-label">🎯 Danışmanlık Alanı</label>
+              <div class="input-group">
+                <select id="randevuArea" class="form-select" required>
+                    <option value="">Danışmanlık Alanı Seçiniz</option>
+                    <option value="Aile Danışmanlığı">Aile Danışmanlığı</option>
+                    <option value="Çocuk ve Ergen Danışmanlığı">Çocuk ve Ergen Danışmanlığı</option>
+                    <option value="Evlilik ve Çift Danışmanlığı">Evlilik ve Çift Danışmanlığı</option>
+                    <option value="Ebeveyn Eğitimi">Ebeveyn Eğitimi</option>
+                    <option value="Bireysel Danışmanlık">Bireysel Danışmanlık</option>
+                    <option value="Kriz & Uyum Danışmanlığı">Kriz & Uyum Danışmanlığı</option>
+                    <option value="Eğitim Danışmanlığı">Eğitim Danışmanlığı</option>
+                </select>
+                <span class="input-group-text validation-icon" id="areaValidationIcon"></span>
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label for="randevuType" class="form-label">👥 Konsültasyon Türü</label>
+              <div class="input-group">
+                <select id="randevuType" class="form-select" required>
+                    <option value="">Konsültasyon Türü Seçiniz</option>
+                    <option value="Online">Online</option>
+                    <option value="Yüz Yüze">Yüz Yüze</option>
+                </select>
+                <span class="input-group-text validation-icon" id="typeValidationIcon"></span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="randevuNote" class="form-label">📝 Not (İsteğe Bağlı)</label>
+            <textarea id="randevuNote" class="form-control" rows="3"></textarea>
+          </div>
+  
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="hatirlatmaIstiyorum">
+            <label class="form-check-label" for="hatirlatmaIstiyorum">
+              ⏰ 1 gün önceden hatırlatma istiyorum
+            </label>
+          </div>
+          
+          <div id="form-error" class="alert alert-danger" style="display: none;"></div>
+
+          <div class="d-grid gap-2">
+            <button id="previewButton" class="btn btn-success btn-lg" disabled>📋 Bilgileri Önizle</button>
+          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Önizleme Modalı -->
+            <div class="modal fade" id="previewModal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Randevu Önizleme</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Ad Soyad:</strong> <span id="previewName"></span></p>
+                            <p><strong>Telefon:</strong> <span id="previewPhone"></span></p>
+                            <p><strong>Tarih:</strong> <span id="previewDate"></span></p>
+                            <p><strong>Gün:</strong> <span id="previewDay"></span></p>
+                            <p><strong>Saat:</strong> <span id="previewTime"></span></p>
+                            <p><strong>Danışmanlık Alanı:</strong> <span id="previewArea"></span></p>
+                            <p><strong>Konsültasyon Türü:</strong> <span id="previewType"></span></p>
+                            <p><strong>Not:</strong> <span id="previewNote"></span></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Düzenle</button>
+                            <button type="button" class="btn btn-success" id="confirmFromPreview" data-bs-dismiss="modal">Onayla ve Gönder</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Başarı Bildirimi -->
+  <div id="successAlert" class="alert alert-success position-fixed top-0 start-50 translate-middle-x mt-5" style="z-index: 2000; display: none; width: 300px;" role="alert">
+    🎉 Randevu talebiniz alınmıştır. Teşekkür ederiz!
+  </div>
+  
+  <!-- Hafta Sonu Uyarı -->
+  <div id="weekendAlert" class="alert alert-warning position-fixed top-0 start-50 translate-middle-x mt-5" style="z-index: 2000; display: none; width: 300px;" role="alert">
+    ❌ Hafta sonu için randevu alınamaz. Lütfen hafta içi bir gün seçiniz.
+  </div>
+
+        <!-- Footer -->
+        <footer class="footer-container">
+            <div class="footer-contact">
+                <!-- Harita Bölümü -->
+                <div class="footer-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2991.499048485405!2d37.49724861744385!3d41.02956947929955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4062c505e846e999%3A0x75b4c973311c42ef!2sEmpaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1!5e0!3m2!1str!2str!4v1699338929705!5m2!1str!2str" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <!-- Bize Ulaşın -->
+                <div class="footer-info">
+                    <div class="contact-section">
+                        <h3>Bize Ulaşın</h3>
+                        <div class="contact-buttons">
+                            <a href="https://wa.me/905455521485" target="_blank" class="whatsapp-button">
+                                <img src="images/whatsappana.png" alt="WhatsApp">
+                            </a>
+                            <button class="calendar-button" data-bs-toggle="modal" data-bs-target="#randevuModal">
+                                📅
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bizi Takip Edin -->
+                    <div class="social-section">
+                        <h3>Bizi Takip Edin</h3>
+                        <div class="social-buttons">
+                            <a href="https://www.instagram.com/empaz_danismanlik_offical?utm_source=ig_web_button_share_sheet&igsh=MW4wN3k5a3R3ejlrdw==" target="_blank" class="social-button-instagram social-button">
+                                <img src="images/Instagram-Logo.wine.svg" alt="Instagram">
+                            </a>
+                            <a href="https://www.facebook.com/empazaile52" target="_blank" class="social-button social-button-facebook">
+                                <img src="images/facebook.png" alt="Facebook">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-copyright">
+                <p>&copy; 2024 Emine Çayır. Tüm hakları saklıdır.</p>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

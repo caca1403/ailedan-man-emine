@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sertifikalar</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/sertifikalarcss.css">
+    <script src="js/sertifikalarjs.js" defer></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Offcanvas Navbar -->
+        <nav class="navbar navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">                <!-- Navbar Brand -->
+                <a class="navbar-brand" href="#">Emine Çayır</a>
+
+                <!-- Hamburger Menü -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Offcanvas Menü -->
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <img src="images/favicon/favicon-96x96.png" alt="Logo" class="offcanvas-logo">
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Ana Sayfa</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Ailedanışmanığı.html">Aile Danışmanlığı</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="medya.html">Medya</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="İLETİŞİM.html">İletişim</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>        <div class="certificates-grid">
+            <!-- Çocuk Psikolojisi Sertifikası -->
+            <div class="certificate-card">
+                <img src="images/s1.jpg" alt="Çocuk Psikolojisi" class="certificate-image">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Çocuk Psikolojisi</h3>
+                    <p class="certificate-description">Çocuk Gelişimi ve Psikolojisi Uzmanlık Eğitimi</p>
+                </div>
+            </div>
+
+            <!-- Diksiyon Eğitimi Sertifikası -->
+            <div class="certificate-card">
+                <img src="images/s2.jpg" alt="Diksiyon Eğitimi" class="certificate-image">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Diksiyon Eğitimi</h3>
+                    <p class="certificate-description">Etkili İletişim ve Diksiyon Teknikleri</p>
+                </div>
+            </div>
+
+            <!-- Stres ve Zaman Yönetimi Sertifikası -->
+            <div class="certificate-card">
+                <img src="images/s3.jpg" alt="Stres ve Zaman Yönetimi" class="certificate-image">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Stres ve Zaman Yönetimi</h3>
+                    <p class="certificate-description">Profesyonel Stres ve Zaman Yönetimi Eğitimi</p>
+                </div>
+            </div>
+
+            <!-- Yaşam Koçluğu Sertifikası -->
+            <div class="certificate-card">
+                <img src="images/s4.jpg" alt="Yaşam Koçluğu" class="certificate-image">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Yaşam Koçluğu</h3>
+                    <p class="certificate-description">Profesyonel Yaşam Koçluğu Sertifikası</p>
+                </div>
+            </div>
+
+            <!-- Bilinçaltı Teknikleri Sertifikası -->
+            <div class="certificate-card">
+                <img src="images/s5.jpg" alt="Bilinçaltı Teknikleri" class="certificate-image">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Bilinçaltı Teknikleri</h3>
+                    <p class="certificate-description">Bilinçaltı Teknikleriyle Rüya Yorumlama</p>
+                </div>
+            </div>
+
+            <!-- Evlilik Danışmanlığı Sertifikası -->
+            <div class="certificate-card">
+                <img src="images/s6.jpg" alt="Evlilik Danışmanlığı" class="certificate-image">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Evlilik Danışmanlığı</h3>
+                    <p class="certificate-description">Evlilik ve İlişki Danışmanlığı Sertifikası</p>
+                </div>
+            </div>
+        </div>
+
+        
+<!-- WhatsApp Modal (Popup) -->
+<!-- Mevcut Modal Yapısı -->
+<div class="modal fade" id="whatsappModal" tabindex="-1" aria-labelledby="whatsappModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="whatsappModalLabel"><img src="images/pngtree-whatsapp-icon-png-image_8704827.png" alt=""></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Ad Textarea -->
+                <textarea id="name" class="form-control mb-3" rows="2" placeholder="Adınızı yazın" required></textarea>
+                <!-- Mesaj Textarea -->
+                <textarea id="message" class="form-control" rows="5" placeholder="Mesajınızı yazın" required></textarea>
+                <!-- Gönder Butonu -->
+                <button id="sendWhatsAppButton" class="btn btn-success w-100 mt-3">Gönder</button>
+            </div>
+        </div>
+    </div>
+</div>        <!-- Footer -->
+        <footer class="footer-container">
+            <div class="footer-contact">
+                <!-- Harita Bölümü -->
+                <div class="footer-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2991.499048485405!2d37.49724861744385!3d41.02956947929955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4062c505e846e999%3A0x75b4c973311c42ef!2sEmpaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1!5e0!3m2!1str!2str!4v1699338929705!5m2!1str!2str" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                
+
+                <!-- Bize Ulaşın ve Sosyal Medya -->
+                <div class="footer-info">
+                    <!-- WhatsApp Direkt Buton -->
+                    <div class="footer-whatsapp">
+                        <h3>Bize Ulaşın</h3>
+                        <a href="https://wa.me/905455521485" target="_blank" class="whatsapp-direct-button">
+                            <img src="images/whatsappana.png" alt="WhatsApp">
+                        </a>
+                    </div>
+
+                    <!-- Sosyal Medya -->
+                    <div class="footer-social">
+                        <h3>Bizi Takip Edin</h3>
+                        <div class="social-icons">
+                            <a href="https://www.instagram.com/empaz_danismanlik_offical?utm_source=ig_web_button_share_sheet&igsh=MW4wN3k5a3R3ejlrdw==" target="_blank" class="social-icon">
+                                <img src="images/Instagram-Logo.wine.svg" alt="Instagram">
+                            </a>
+                            <a href="https://www.facebook.com/empazaile52" target="_blank" class="social-icon facebook">
+                                <img src="images/facebook.png" alt="Facebook">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-copyright">
+                <p>&copy; 2024 Emine Çayır. Tüm hakları saklıdır.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Sertifika Modal -->
+    <div id="certificateModal" class="certificate-modal">
+        <img id="modalImage" src="" alt="Büyütülmüş Sertifika">
+    </div>
+
+    <!-- Konum Modal -->
+    <div id="locationModal" class="location-modal">
+        <div class="location-content">
+            <span class="close-location">&times;</span>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2991.499048485405!2d37.49724861744385!3d41.02956947929955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4062c505e846e999%3A0x75b4c973311c42ef!2sEmpaz-Aile-dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1!5e0!3m2!1str!2str!4v1699338929705!5m2!1str!2str" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</body>
+</html>
+
